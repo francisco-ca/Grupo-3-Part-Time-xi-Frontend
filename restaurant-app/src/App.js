@@ -1,17 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import injectContext from './js/store/appContext'
 import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import{BrowserRouter, Switch, Route} from 'react-router-dom'
+
+//Componentes
+import Inicio from './js/views/Inicio'
+import Login from './js/views/Login'
+import RecuperaContraseña from './js/views/RecuperaContraseña'
 
 
 function App() {
   return (
-    <div className="App">
-      <h1>Restaurant-Api</h1>
-    </div>
+    <>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component= {Inicio}/>
+          {/* <Route exact path="/registrarse" component= {SignUp}/> */}
+          <Route exact path="/login" component= {Login}/>
+          <Route exact path="/contraseña" component= {RecuperaContraseña}/>
+        </Switch>
+      </BrowserRouter> 
+    </>
   );
 }
 
-export default App;
+export default injectContext(App);
