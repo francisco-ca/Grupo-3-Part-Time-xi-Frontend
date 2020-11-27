@@ -10,6 +10,7 @@ import{BrowserRouter, Switch, Route} from 'react-router-dom'
 import Inicio from './js/views/Inicio'
 import Login from './js/views/Login'
 import RecuperaContraseña from './js/views/RecuperaContraseña'
+import SignUp from "./js/views/Sign-up"
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component= {Inicio}/>
-          {/* <Route exact path="/registrarse" component= {SignUp}/> */}
+          <Route exact path="/registro" component= {SignUp}/>
           <Route exact path="/login" component= {Login}/>
           <Route exact path="/contraseña" component= {RecuperaContraseña}/>
         </Switch>
