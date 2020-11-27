@@ -6,7 +6,7 @@ import NavbarTop from '../components/NavbarTop'
 
 const Login = () => {
     return (
-        <>
+        <div className="container">
             <NavbarTop />
             <div className="container p-4 text-center d-flex justify-content-center" >
                 <Card style={{ width: '30rem' }} className="p-4 m-4">
@@ -25,7 +25,7 @@ const Login = () => {
                     </Form>
                 </Card>
             </div>
-        </>
+       </div>
     );
 }
 
