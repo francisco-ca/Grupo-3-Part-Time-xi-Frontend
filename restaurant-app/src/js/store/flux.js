@@ -8,9 +8,13 @@ const getState = ({ getStore, setStore }) => {
                 telefono: "",
                 correo: "",
                 password: ""
-
-
-
+            },
+            restaurants: {
+                nombre:"",
+                direccion:"",
+                telefono:"",
+                numero_mesas:"",
+                cap_lista:""
             }
         },
         actions: {
@@ -22,6 +26,14 @@ const getState = ({ getStore, setStore }) => {
                 console.log(e.target.name)
                 console.log(store.persona)
 
+            },
+             onChangeRest: (e) => {
+                const store = getStore();
+                const { restaurants } = store
+                restaurants[e.target.name] = e.target.value
+                setStore({ restaurants })
+                console.log(store.restaurants)
+                
             },
 
             onSubmitPersona: (e) => {
@@ -36,6 +48,22 @@ const getState = ({ getStore, setStore }) => {
                     body: JSON.stringify(store.persona)
                 }
                 fetch("ingresarruta/signup", options)
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.log(error))
+            },
+             onSubmitRest: (e) => {
+
+                e.prevent.default();
+                const store = getStore();
+                let options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(store.restaurants)
+                }
+                fetch("ingresarruta/editar", options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))

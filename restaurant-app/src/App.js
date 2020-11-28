@@ -11,6 +11,7 @@ import Inicio from './js/views/Inicio'
 import Login from './js/views/Login'
 import RecuperaContraseña from './js/views/RecuperaContraseña'
 import SignUp from "./js/views/Sign-up"
+import AddRestaurant from './js/views/AddRestaurant';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/registro" component= {SignUp}/>
           <Route exact path="/login" component= {Login}/>
           <Route exact path="/contraseña" component= {RecuperaContraseña}/>
+          <Route exact path="/addrestaurant" component= {AddRestaurant}/>
         </Switch>
       </BrowserRouter> 
     </>
