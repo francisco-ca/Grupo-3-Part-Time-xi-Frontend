@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop'
 import RestaurantCard from '../components/RestaurantCard'
 
-const Restaurants = () => {
+const Restaurantes = () => {
     const {store, actions} = useContext(Context);
     return (
         <Container>
@@ -39,4 +39,4 @@ const Restaurants = () => {
     );
 }
 
-export default Restaurants
+export default Restaurantes

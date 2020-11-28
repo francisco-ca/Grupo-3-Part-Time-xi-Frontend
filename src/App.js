@@ -13,7 +13,7 @@ import RecuperaContraseña from './js/views/RecuperaContraseña'
 import ListaEspera from './js/views/ListaEspera';
 import AdmListaEspera from './js/views/Adm_Lista_Espera';
 import Registro from "./js/views/Registro"
-import Restaurants from './js/views/Restaurants';
+import Restaurantes from './js/views/Restaurantes';
 import NuevoRestaurante from './js/views/NuevoRestaurante';
 
 
@@ -25,7 +25,7 @@ function App() {
           <Route exact path="/" component= {Inicio}/>
           <Route exact path="/lista_espera" component= {ListaEspera}/>
           <Route exact path="/adm_lista_espera" component= {AdmListaEspera}/>
-          <Route exact path="/restaurantes" component= {Restaurants}/>
+          <Route exact path="/restaurantes" component= {Restaurantes}/>
           {/* <Route exact path="/registrarse" component= {SignUp}/> */}
           <Route exact path="/registro" component= {Registro}/>
           <Route exact path="/ingreso" component= {Ingreso}/>
