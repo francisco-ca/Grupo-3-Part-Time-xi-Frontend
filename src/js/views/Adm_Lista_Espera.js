@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import NavbarTop from '../components/NavbarTop';
 import {Button, Modal, Card, Container} from 'react-bootstrap';
 
-const AdmWaitList = props => {
+const AdmListaEspera = props => {
     const [showModal, setShowModal] = useState(false);
     const handleModal = () => setShowModal(!showModal)
     return (
@@ -64,4 +64,4 @@ const AdmWaitList = props => {
         )
 }
 
-export default AdmWaitList;
+export default AdmListaEspera;

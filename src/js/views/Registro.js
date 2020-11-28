@@ -5,30 +5,28 @@ import { Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import NavbarTop from '../components/NavbarTop'
 
-const SignUp = props => {
+const Registro = props => {
     const { store, actions } = useContext(Context);
 
     useEffect(() => { }, []);
     return (
         <div className="container">
             <NavbarTop />
-            <form onSubmit={(e)=>actions.onSubmitPersona(e)}>
-                <button type='submit'></button>
-            </form>
+            
             <Form onSubmit={(e)=>actions.onSubmitPersona(e)}>
                 <Form.Group controlId="username">
                     <Form.Label>Nombre de Usuario</Form.Label>
-                    <Form.Control type="text" placeholder="SiempreHambriento123" name="username" onChange={(e) => actions.onChangeUser(e)} value={store.persona.username}/>
+                    <Form.Control type="text" placeholder="SiempreHambriento123" name="usuario" onChange={(e) => actions.onChangeUser(e)} value={store.persona.usuario}/>
                 </Form.Group>
                 <Form.Row>
                     <Form.Group as={Col} controlId="formName">
                         <Form.Label>Nombre</Form.Label>
-                        <Form.Control type="text" placeholder="Juanita" name="name" onChange={(e) => actions.onChangeUser(e)} value={store.persona.name} />
+                        <Form.Control type="text" placeholder="Juanita" name="nombre" onChange={(e) => actions.onChangeUser(e)} value={store.persona.nombre} />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formLastName">
                         <Form.Label>Apellido</Form.Label>
-                        <Form.Control type="text" placeholder="Perez" name="last_name" onChange={(e) => actions.onChangeUser(e)}value={store.persona.last_name} />
+                        <Form.Control type="text" placeholder="Perez" name="apellido" onChange={(e) => actions.onChangeUser(e)}value={store.persona.apellido} />
                     </Form.Group>
                 </Form.Row>
 
@@ -38,13 +36,13 @@ const SignUp = props => {
                 </Form.Group>
 
                 <Form.Group controlId="formGridEmail">
-                    <Form.Label>Email</Form.Label>
+                    <Form.Label>Correo electrónico</Form.Label>
                     <Form.Control type="email" placeholder="Ej: comensal@correo.com" name="correo" onChange={(e) => actions.onChangeUser(e)} value={store.persona.correo} />
                 </Form.Group>
 
                 <Form.Group controlId="formGridPassword">
                     <Form.Label>Contraseña</Form.Label>
-                    <Form.Control type="password" placeholder="Contraseña" name="password" onChange={(e) => actions.onChangeUser(e)} value={store.persona.password} />
+                    <Form.Control type="password" placeholder="Contraseña" name="contraseña" onChange={(e) => actions.onChangeUser(e)} value={store.persona.contraseña} />
                 </Form.Group>
 
 
@@ -63,4 +61,4 @@ const SignUp = props => {
 };
 
 
-export default SignUp
+export default Registro

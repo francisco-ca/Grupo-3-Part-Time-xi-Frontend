@@ -20,7 +20,8 @@ const NavbarTop = () => {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto mr-4">
                     <Link className= "nav-link" to="/registro">Regístrate</Link>
-                    <Link className= "nav-link" to="/login">Inicia sesión</Link>
+                    <Link className= "nav-link" to="/ingreso">Inicia sesión</Link>
+                    <Link className= "nav-link" to="/restaurantes">Restaurants/Pubs</Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

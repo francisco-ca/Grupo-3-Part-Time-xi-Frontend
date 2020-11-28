@@ -23,8 +23,8 @@ const Inicio = () => {
                             <li>Evitamos aglomeración de personas en la entrada</li>
                             <li>No tendrás que estár pendiente a que llegue tu turno </li>
                         <p className="mt-4">
-                            <Link to="registro" className="btn btn-secondary">Regístrate. Es gratis </Link>&nbsp; &nbsp; &nbsp; &nbsp;
-                            <Link to="/login" className="btn btn-secondary">Inicia Sesión</Link>
+                            <Link to="/registro" className="btn btn-secondary">Regístrate. Es gratis </Link>&nbsp; &nbsp; &nbsp; &nbsp;
+                            <Link to="/ingreso" className="btn btn-secondary">Inicia Sesión</Link>
                         </p>
                             <Link to="/contraseña">
                                 <p className="" style={{color: "darkblue"}}>¿No recuerdas tu contraseña?</p>

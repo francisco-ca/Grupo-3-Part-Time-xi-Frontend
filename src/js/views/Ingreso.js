@@ -4,7 +4,7 @@ import { Form, Button, Card, Container } from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop'
 
-const Login = () => {
+const Ingreso = () => {
     return (
         <Container>
             <NavbarTop />
@@ -12,10 +12,10 @@ const Login = () => {
                 <Card style={{ width: '30rem' }} className="p-4 m-4">
                     <Form>
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Control type="email" placeholder="Ingresa tu email" name="email" />
+                            <Form.Control type="email" placeholder="Ingresa tu correo" name="correo" />
                         </Form.Group>
                         <Form.Group controlId="formBasicPassword">
-                            <Form.Control type="password" placeholder="Contraseña" name="password" />
+                            <Form.Control type="password" placeholder="Contraseña" name="contraseña" />
                         </Form.Group>
                         <Form.Group controlId="formBasicCheckbox">
                             <Form.Check type="checkbox" label="Recordar contraseña" />
@@ -29,4 +29,4 @@ const Login = () => {
     );
 }
 
-export default Login
+export default Ingreso

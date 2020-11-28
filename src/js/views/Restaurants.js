@@ -21,7 +21,7 @@ const Restaurants = () => {
                         </Col>
                         <Col xs lg="2" className='mt-4 '>
                             <Button variant="primary" size="lg">
-                                <Link className="text-white" to='/addrestaurant'>Agregar restaurante</Link>
+                                <Link className="text-white" to='/nuevo_restaurante'>Agregar restaurante</Link>
                             </Button>
                         </Col>
                     </Row>

@@ -2,16 +2,17 @@ const getState = ({ getStore, setStore }) => {
     return {
         store: {
             persona: {
-                username: "",
-                name: "",
-                last_name: "",
+                usuario: "",
+                nombre: "",
+                apellido: "",
                 telefono: "",
                 correo: "",
-                password: ""
+                contraseña: ""
             },
             restaurante: {
                 nombre: "",
                 direccion: "",
+                numero_mesas:"",
                 telefono: "",
                 cap_lista: ""
             },
@@ -56,10 +57,10 @@ const getState = ({ getStore, setStore }) => {
             },
              onChangeRest: (e) => {
                 const store = getStore();
-                const { restaurants } = store
-                restaurants[e.target.name] = e.target.value
-                setStore({ restaurants })
-                console.log(store.restaurants)
+                const { restaurante } = store
+                restaurante[e.target.name] = e.target.value
+                setStore({ restaurante })
+                console.log(store.restaurante)
                 
             },
             onSubmitPersona: (e) => {
@@ -72,7 +73,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.persona)
                 }
-                fetch("ingresaRuta/signup", options)
+                fetch("https://5000-af813d8d-e368-4c42-97fc-0982c980b30f.ws-us02.gitpod.io/signup", options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
@@ -86,7 +87,7 @@ const getState = ({ getStore, setStore }) => {
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify(store.restaurants)
+                    body: JSON.stringify(store.restaurante)
                 }
                 fetch("ingresarruta/editar", options)
                     .then(res => res.json())
