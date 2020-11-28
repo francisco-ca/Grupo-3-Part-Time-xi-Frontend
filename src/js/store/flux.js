@@ -9,11 +9,19 @@ const getState = ({ getStore, setStore }) => {
                 correo: "",
                 password: ""
             },
+            restaurante: {
+                nombre: "",
+                direccion: "",
+                telefono: "",
+                cap_lista: ""
+            },
             restaurantes: [
                 {
                     nombre:"Restaurant 1",
                     cantidad_maxima:10,
-                    espera:2
+                    espera:2,
+                    direccion:"",
+
                 },
                 {
                     nombre:"Restaurant 2",
@@ -34,12 +42,10 @@ const getState = ({ getStore, setStore }) => {
                 const nuevosRestaurantes = restaurantes.filter( function(prueba, i ) {
                     return i !== index;
                 });
-                
                 setStore({restaurantes:nuevosRestaurantes})
                 console.log(nuevosRestaurantes)
                 console.log(store)
             },
-
             onChangeUser: (e) => {
                 const store = getStore();
                 const { persona } = store
@@ -47,9 +53,15 @@ const getState = ({ getStore, setStore }) => {
                 setStore({ persona })
                 console.log(e.target.name)
                 console.log(store.persona)
-
             },
-
+             onChangeRest: (e) => {
+                const store = getStore();
+                const { restaurants } = store
+                restaurants[e.target.name] = e.target.value
+                setStore({ restaurants })
+                console.log(store.restaurants)
+                
+            },
             onSubmitPersona: (e) => {
                 e.preventDefault();
                 const store = getStore();
@@ -61,6 +73,22 @@ const getState = ({ getStore, setStore }) => {
                     body: JSON.stringify(store.persona)
                 }
                 fetch("ingresaRuta/signup", options)
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.log(error))
+            },
+            onSubmitRest: (e) => {
+
+                e.preventDefault();
+                const store = getStore();
+                let options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(store.restaurants)
+                }
+                fetch("ingresarruta/editar", options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))

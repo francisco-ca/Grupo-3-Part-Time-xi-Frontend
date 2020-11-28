@@ -9,7 +9,6 @@ const getState = ({ getStore, setStore }) => {
                 correo: "",
                 password: ""
             },
-<<<<<<< HEAD:src/js/store/flux.js
             restaurantes: [
                 {
                     nombre:"Restaurant 1",
@@ -27,7 +26,6 @@ const getState = ({ getStore, setStore }) => {
                     espera:1
                 }
             ]
-=======
             restaurants: {
                 nombre:"",
                 direccion:"",
@@ -35,7 +33,6 @@ const getState = ({ getStore, setStore }) => {
                 numero_mesas:"",
                 cap_lista:""
             }
->>>>>>> c2fda6388c92726d0ed007569373e4470c7f2e6a:restaurant-app/src/js/store/flux.js
         },
         actions: {
             onChangeUser: (e) => {

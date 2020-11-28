@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import { Context } from '../store/appContext';
 import { Button, Row, Col, ListGroup, Image } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 
 
 const RestaurantCard = ( props ) => {
@@ -16,10 +17,17 @@ const RestaurantCard = ( props ) => {
                         <h4>Personas en lista de espera: {element.espera}</h4> 
                     </Col>
                     <Col className="my-auto" md='2'>
+                        <Button variant="primary" size="lg">
+                            <Link to='/lista-espera' className="text-white">
+                                Unirte a la lista
+                            </Link>
+                        </Button>
+                    </Col>
+                    <Col className="my-auto" md='2'>
                         <Button variant="danger" size="lg" onClick={()=>actions.deleteRestaurant(index)}>Eliminar</Button>
                     </Col>
                     <Col xs lg="2" >
-                        <Image className="card-img" src={"/restaurante"+index+".jpg"} rounded/>
+                        <Image className="card-img" src={"default-restaurant.png"} rounded/>
                     </Col>
                 </Row>
             </ListGroup.Item>            
