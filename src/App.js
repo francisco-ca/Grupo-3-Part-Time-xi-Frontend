@@ -14,6 +14,7 @@ import WaitList from './js/views/Wait-list';
 import AdmWaitList from './js/views/Adm-Wait-list';
 import SignUp from "./js/views/Sign-up"
 import Restaurants from './js/views/Restaurants';
+import AddRestaurant from './js/views/AddRestaurant';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/registro" component= {SignUp}/>
           <Route exact path="/login" component= {Login}/>
           <Route exact path="/contraseña" component= {RecuperaContraseña}/>
+          <Route exact path="/addrestaurant" component= {AddRestaurant}/>
         </Switch>
       </BrowserRouter> 
     </>
