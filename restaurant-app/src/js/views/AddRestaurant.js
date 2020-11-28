@@ -12,7 +12,7 @@ const AddRestaurant = props => {
     return (
         <div className="container">
             <NavbarTop />
-            <Form onSubmit={(e)=>actions.onSubmitPersona(e)}>
+            <Form onSubmit={(e)=>actions.onSubmitRest(e)}>
                 <Form.Group controlId="name">
                     <Form.Label>Nombre de Restaurant/Pub</Form.Label>
                     <Form.Control type="text" placeholder="La manito de d10s" name="nombre" onChange={(e) => actions.onChangeRest(e)} value={store.restaurants.nombre}/>
