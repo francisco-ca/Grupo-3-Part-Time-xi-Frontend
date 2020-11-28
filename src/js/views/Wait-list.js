@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import NavbarTop from '../components/NavbarTop';
-import {Button} from 'react-bootstrap';
+import {Button, Card, Container} from 'react-bootstrap';
 
 const WaitList = props => {
     const [inList, setInList ] = useState(true);
 
     return (
-        <>
+        <Container>
             <NavbarTop />
             <div className='container p-4 text-center d-flex justify-content-center'>
                 <div className='row  my-4'>
@@ -15,7 +15,7 @@ const WaitList = props => {
                             Nombre del restaurante {/* numero de mesas proveniente del flux*/}
                         </h1>
                         <div className='row'>
-                            <p className='text-justify col-6'>
+                            <p className='text-justify col-6 '>
                                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
                                 doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
                                 veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam 
@@ -27,20 +27,29 @@ const WaitList = props => {
 
                             </img>
                         </div>
-                        <h4 className='my-3'>Numero de mesas disponibles: {0}</h4>
-                        <h4 className='my-3'>lista de espera: {5} personas</h4>
-                            { (inList) ?
+                        <Card className='mx-auto' style={{ width: '35rem' }}>
+                            <Card.Body>
+                                <Card.Header >
+                                    <h3>Numero de mesas disponibles: {0}</h3>
+                                </Card.Header>
+                                <Card.Title className='my-4'>
+                                    <h3>lista de espera: {5} personas</h3>
+                                </Card.Title>
+                                <Card.Text>
+                                { (inList) ?
                                 "":<h4>Tu lugar en la lista es: 3</h4>
-                            }
+                                  }
+                                </Card.Text>
 
-                        <form className='my-4' action='#' method='PUT' onSubmit={(e)=>{e.preventDefault();}}>{/* ruta en la api que maneje este form */}
-                            <Button variant="primary" size="lg" type='submit' onClick={()=>{setInList(!inList)}}/*que mande tipo put para modificar la lista */>{ inList?'Anotate en la fila!':'Salir de la fila'}</Button>
-                        </form>
-
+                                <form className='my-4' action='#' method='PUT' onSubmit={(e)=>{e.preventDefault();}}>{/* ruta en la api que maneje este form */}
+                                 <Button variant="primary" size="lg" type='submit' onClick={()=>{setInList(!inList)}}/*que mande tipo put para modificar la lista */>{ inList?'Anotate en la fila!':'Salir de la fila'}</Button>
+                                </form>
+                            </Card.Body>
+                        </Card>
                     </div>
                 </div>
             </div>
-        </>
+        </Container>
         )
     
     

@@ -1,12 +1,12 @@
 import React from 'react'
 import { Context } from '../store/appContext';
-import { Form, Button, Card } from 'react-bootstrap'
+import { Form, Button, Card, Container } from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop'
 
 const Login = () => {
     return (
-        <>
+        <Container>
             <NavbarTop />
             <div className="container p-4 text-center d-flex justify-content-center" >
                 <Card style={{ width: '30rem' }} className="p-4 m-4">
@@ -25,7 +25,7 @@ const Login = () => {
                     </Form>
                 </Card>
             </div>
-        </>
+       </Container>
     );
 }
 
