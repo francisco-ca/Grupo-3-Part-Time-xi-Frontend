@@ -88,10 +88,12 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.persona)
                 }
-                fetch("https://5000-cc105e22-f107-4aad-8d4b-e6a586143baa.ws-us02.gitpod.io/ingreso", options)
+                fetch("https://5000-d9edb2e7-6407-420f-b188-08f085ad1dcf.ws-us02.gitpod.io/ingreso", options)
                     .then(res => res.json())
-                    .then(data => console.log(data))
+                    .then(data => {console.log(data);
+                                  sessionStorage.setItem("persona_data",JSON.stringify(data))})
                     .catch(error => console.log(error))
+                    
             },
             onSubmitRest: (e) => {
 
