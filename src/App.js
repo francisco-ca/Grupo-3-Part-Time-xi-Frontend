@@ -23,6 +23,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component= {Inicio}/>
+          <Route exact path="/home" component= {Inicio}/>
           <Route exact path="/lista_espera" component= {ListaEspera}/>
           <Route exact path="/adm_lista_espera" component= {AdmListaEspera}/>
           <Route exact path="/restaurantes" component= {Restaurantes}/>

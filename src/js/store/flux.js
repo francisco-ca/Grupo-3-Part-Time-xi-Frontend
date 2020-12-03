@@ -73,7 +73,22 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.persona)
                 }
-                fetch("https://5000-af813d8d-e368-4c42-97fc-0982c980b30f.ws-us02.gitpod.io/registro", options)
+                fetch("https://5000-cc105e22-f107-4aad-8d4b-e6a586143baa.ws-us02.gitpod.io/registro", options)
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.log(error))
+            },
+            loginPersona: (e) => {
+                e.preventDefault();
+                const store = getStore();
+                let options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":"application/json"
+                    },
+                    body: JSON.stringify(store.persona)
+                }
+                fetch("https://5000-cc105e22-f107-4aad-8d4b-e6a586143baa.ws-us02.gitpod.io/ingreso", options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
