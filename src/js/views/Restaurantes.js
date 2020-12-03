@@ -7,6 +7,11 @@ import RestaurantCard from '../components/RestaurantCard'
 
 const Restaurantes = () => {
     const {store, actions} = useContext(Context);
+
+    var pers = sessionStorage.getItem('persona_data')
+    let perso= JSON.parse(pers)
+    let person= perso.usuario
+                    console.log ("prueba",person.nombre)
     return (
         <Container>
             <NavbarTop />
