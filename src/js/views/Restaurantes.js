@@ -1,16 +1,21 @@
 import React, {useContext, useEffect} from 'react'
 import { Context } from '../store/appContext';
-import { Button, Container, Row, Col, ListGroup, Image } from 'react-bootstrap'
+import { Button, Container, Row, Col, ListGroup} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop'
 import RestaurantCard from '../components/RestaurantCard'
 
-const Restaurants = () => {
+const Restaurantes = () => {
     const {store, actions} = useContext(Context);
     useEffect(()=>{
         actions.fetchRestaurantes()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
+
+    var pers = sessionStorage.getItem('persona_data')
+    let perso= JSON.parse(pers)
+    let person= perso.usuario
+                    console.log ("prueba",person.nombre)
     return (
         <Container>
             <NavbarTop />
@@ -25,7 +30,7 @@ const Restaurants = () => {
                         </Col>
                         <Col xs lg="2" className='mt-4 '>
                             <Button variant="primary" size="lg">
-                                <Link className="text-white" to='/addrestaurant'>Agregar restaurante</Link>
+                                <Link className="text-white" to='/nuevo_restaurante'>Agregar restaurante</Link>
                             </Button>
                         </Col>
                     </Row>
@@ -43,4 +48,4 @@ const Restaurants = () => {
     );
 }
 
-export default Restaurants
+export default Restaurantes

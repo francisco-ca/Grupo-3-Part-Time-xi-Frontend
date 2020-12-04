@@ -5,8 +5,7 @@ import { Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import NavbarTop from '../components/NavbarTop'
 
-
-const AddRestaurant = props => {
+const NuevoRestaurante = props => {
     const { store, actions } = useContext(Context);
     useEffect(() => { }, []);
     return (
@@ -20,7 +19,7 @@ const AddRestaurant = props => {
                 <Form.Row>
                     <Form.Group as={Col} controlId="formDirección">
                         <Form.Label>Dirección</Form.Label>
-                        <Form.Control type="text" placeholder="Campari street" name="direccion" onChange={(e) => actions.onChangeRest(e)} value={store.restaurante.direccion} />
+                        <Form.Control type="text" placeholder="calle Campari" name="direccion" onChange={(e) => actions.onChangeRest(e)} value={store.restaurante.direccion} />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formTelefono">
@@ -45,4 +44,6 @@ const AddRestaurant = props => {
         </div>
     );
 };
-export default AddRestaurant
+
+
+export default NuevoRestaurante

@@ -8,14 +8,14 @@ import{BrowserRouter, Switch, Route} from 'react-router-dom'
 
 //Componentes
 import Inicio from './js/views/Inicio'
-import Login from './js/views/Login'
+import Ingreso from './js/views/Ingreso'
 import RecuperaContraseña from './js/views/RecuperaContraseña'
-import WaitList from './js/views/Wait-list';
-import AdmWaitList from './js/views/Adm-Wait-list';
-import SignUp from "./js/views/Sign-up"
-import Restaurants from './js/views/Restaurants';
-import AddRestaurant from './js/views/AddRestaurant';
-import editRestaurant from './js/views/editarRestaurante';
+import ListaEspera from './js/views/ListaEspera';
+import AdmListaEspera from './js/views/Adm_Lista_Espera';
+import Registro from "./js/views/Registro"
+import Restaurantes from './js/views/Restaurantes';
+import NuevoRestaurante from './js/views/NuevoRestaurante';
+import EditarRestaurante from './js/views/EditarRestaurante';
 
 
 function App() {
@@ -24,15 +24,16 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component= {Inicio}/>
-          <Route exact path="/lista-espera" component= {WaitList}/>
-          <Route exact path="/adm-lista-espera" component= {AdmWaitList}/>
-          <Route exact path="/restaurantes" component= {Restaurants}/>
+          <Route exact path="/home" component= {Inicio}/>
+          <Route exact path="/lista_espera" component= {ListaEspera}/>
+          <Route exact path="/adm_lista_espera" component= {AdmListaEspera}/>
+          <Route exact path="/restaurantes" component= {Restaurantes}/>
           {/* <Route exact path="/registrarse" component= {SignUp}/> */}
-          <Route exact path="/registro" component= {SignUp}/>
-          <Route exact path="/login" component = {Login}/>
+          <Route exact path="/registro" component= {Registro}/>
+          <Route exact path="/ingreso" component= {Ingreso}/>
           <Route exact path="/contraseña" component= {RecuperaContraseña}/>
-          <Route exact path="/restaurantes/:id/editar" component= {editRestaurant}/>
-          <Route exact path="/addrestaurant" component= {AddRestaurant}/>
+          <Route exact path="/nuevo_restaurante" component= {NuevoRestaurante}/>
+          <Route exact path="/restaurantes/:id/editar" component= {EditarRestaurante}/>
         </Switch>
       </BrowserRouter> 
     </>

@@ -2,19 +2,19 @@ const getState = ({ getStore, setStore }) => {
     return {
         store: {
             persona: {
-                username: "",
-                name: "",
-                last_name: "",
+                usuario: "",
+                nombre: "",
+                apellido: "",
                 telefono: "",
                 correo: "",
-                password: ""
+                contraseña: ""
             },
             restaurante: {
                 nombre: "",
                 direccion: "",
+                numero_mesas:"",
                 telefono: "",
                 cap_lista: "",
-                numero_mesas:""
             },
             restaurantes: []
         },
@@ -102,10 +102,27 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.persona)
                 }
-                fetch("ingresaRuta/signup", options)
+                fetch("https://5000-cc105e22-f107-4aad-8d4b-e6a586143baa.ws-us02.gitpod.io/registro", options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
+            },
+            loginPersona: (e) => {
+                e.preventDefault();
+                const store = getStore();
+                let options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":"application/json"
+                    },
+                    body: JSON.stringify(store.persona)
+                }
+                fetch("https://5000-d9edb2e7-6407-420f-b188-08f085ad1dcf.ws-us02.gitpod.io/ingreso", options)
+                    .then(res => res.json())
+                    .then(data => {console.log(data);
+                                  sessionStorage.setItem("persona_data",JSON.stringify(data))})
+                    .catch(error => console.log(error))
+                    
             },
             onSubmitRest: (e) => {
                 e.preventDefault();

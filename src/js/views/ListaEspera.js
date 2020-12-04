@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import NavbarTop from '../components/NavbarTop';
 import {Button, Card, Container} from 'react-bootstrap';
 
-const WaitList = props => {
+const ListaEspera = props => {
     const [inList, setInList ] = useState(true);
 
     return (
@@ -56,4 +56,4 @@ const WaitList = props => {
     
 }
 
-export default WaitList;
+export default ListaEspera;

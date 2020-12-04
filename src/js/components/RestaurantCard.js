@@ -21,7 +21,7 @@ const RestaurantCard = ( props ) => {
                     </Col>
                     <Col className="my-auto" md='2'>
                         <Button variant="primary" size="lg">
-                            <Link to='/lista-espera' className="text-white">
+                            <Link to='/lista_espera' className="text-white">
                                 Unirte a la lista
                             </Link>
                         </Button>

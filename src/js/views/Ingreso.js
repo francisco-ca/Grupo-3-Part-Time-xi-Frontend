@@ -1,21 +1,23 @@
-import React from 'react'
+import React, { useContext, useEffect } from "react";
 import { Context } from '../store/appContext';
 import { Form, Button, Card, Container } from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop'
 
-const Login = () => {
+
+const Ingreso = () => {
+    const { store, actions } = useContext(Context);
     return (
         <Container>
             <NavbarTop />
             <div className="container p-4 text-center d-flex justify-content-center" >
                 <Card style={{ width: '30rem' }} className="p-4 m-4">
-                    <Form>
+                    <Form onSubmit={(e)=>actions.loginPersona(e)}>
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Control type="email" placeholder="Ingresa tu email" name="email" />
+                            <Form.Control type="email" placeholder="Ingresa tu correo" name="correo" onChange={(e) => actions.onChangeUser(e)} value={store.persona.correo} />
                         </Form.Group>
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Control type="password" placeholder="Contraseña" name="password" />
+                        <Form.Group controlId="formBasicPassword"> 
+                            <Form.Control type="password" placeholder="Contraseña" name="contraseña" onChange={(e) => actions.onChangeUser(e)} value={store.persona.contraseña} />
                         </Form.Group>
                         <Form.Group controlId="formBasicCheckbox">
                             <Form.Check type="checkbox" label="Recordar contraseña" />
@@ -29,4 +31,4 @@ const Login = () => {
     );
 }
 
-export default Login
+export default Ingreso

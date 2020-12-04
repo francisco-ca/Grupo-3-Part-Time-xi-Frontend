@@ -1,7 +1,5 @@
 import React from 'react'
-import { Context } from '../store/appContext';
 import { Form, Button, Card } from 'react-bootstrap'
-import {Link} from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop'
 
 const RecuperaContraseña = () => {
@@ -15,10 +13,10 @@ const RecuperaContraseña = () => {
                         un email para reestablecer tu contraseña </p>
                     <Form>
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Control type="email" placeholder="Ingresa tu email" name="email" />
+                            <Form.Control type="email" placeholder="Ingresa tu correo" name="correo" />
                         </Form.Group>
                     </Form>
-                    <Button className="mb-4" block size="lg" variant="secondary" type="submit">Enviar email</Button>
+                    <Button className="mb-4" block size="lg" variant="secondary" type="submit">Enviar correo electrónico</Button>
                 </Card>
             </div>
         </>

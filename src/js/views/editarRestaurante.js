@@ -7,7 +7,7 @@ import NavbarTop from '../components/NavbarTop'
 import {useParams} from 'react-router'
 
 
-const EditRestaurant = props => {
+const EditarRestaurante = props => {
     const { store, actions } = useContext(Context);
     let {id} = useParams();
     let valorId =  Number(id)+1
@@ -54,4 +54,4 @@ const EditRestaurant = props => {
         </div>
     );
 };
-export default EditRestaurant
+export default EditarRestaurante
