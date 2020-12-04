@@ -5,9 +5,9 @@ import { Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import NavbarTop from '../components/NavbarTop'
 
+
 const AddRestaurant = props => {
     const { store, actions } = useContext(Context);
-
     useEffect(() => { }, []);
     return (
         <div className="container">
@@ -45,6 +45,4 @@ const AddRestaurant = props => {
         </div>
     );
 };
-
-
 export default AddRestaurant
