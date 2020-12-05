@@ -12,10 +12,10 @@ const Restaurantes = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
-    var pers = sessionStorage.getItem('persona_data')
-    let perso= JSON.parse(pers)
-    let person= perso.usuario
-                    console.log ("prueba",person.nombre)
+    // var pers = sessionStorage.getItem('persona_data')
+    // let perso= JSON.parse(pers)
+    // let person= perso.usuario
+    //                 console.log ("prueba",person.nombre)
     return (
         <Container>
             <NavbarTop />

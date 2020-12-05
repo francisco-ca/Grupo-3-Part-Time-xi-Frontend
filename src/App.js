@@ -15,7 +15,7 @@ import AdmListaEspera from './js/views/Adm_Lista_Espera';
 import Registro from "./js/views/Registro"
 import Restaurantes from './js/views/Restaurantes';
 import NuevoRestaurante from './js/views/NuevoRestaurante';
-import EditarRestaurante from './js/views/EditarRestaurante';
+import EditarRestaurante from './js/views/editarRestaurante';
 
 
 function App() {
