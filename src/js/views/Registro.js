@@ -44,10 +44,6 @@ const Registro = props => {
                     <Form.Label>Contraseña</Form.Label>
                     <Form.Control type="password" placeholder="Contraseña" name="contraseña" onChange={(e) => actions.onChangeUser(e)} value={store.persona.contraseña} />
                 </Form.Group>
-
-
-
-
                 <Form.Group id="formGridCheckbox">
                     <Form.Check type="checkbox" label="Recibir notificación cuando sea mi turno" />
                 </Form.Group>

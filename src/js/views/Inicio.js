@@ -1,6 +1,5 @@
 import React from 'react'
-import { Context } from '../store/appContext';
-import { Button, Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop'
 import { Image } from 'react-bootstrap';
