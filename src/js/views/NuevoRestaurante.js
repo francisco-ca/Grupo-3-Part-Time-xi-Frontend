@@ -7,7 +7,6 @@ import NavbarTop from '../components/NavbarTop'
 
 const NuevoRestaurante = props => {
     const { store, actions } = useContext(Context);
-
     useEffect(() => { }, []);
     return (
         <div className="container">

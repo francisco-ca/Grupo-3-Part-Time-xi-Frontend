@@ -1,7 +1,5 @@
 import React from 'react'
-import { Context } from '../store/appContext';
 import { Form, Button, Card } from 'react-bootstrap'
-import {Link} from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop'
 
 const RecuperaContraseña = () => {

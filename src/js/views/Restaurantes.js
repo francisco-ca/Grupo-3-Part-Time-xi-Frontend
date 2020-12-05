@@ -1,12 +1,16 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { Context } from '../store/appContext';
-import { Button, Container, Row, Col, ListGroup, Image } from 'react-bootstrap'
+import { Button, Container, Row, Col, ListGroup} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop'
 import RestaurantCard from '../components/RestaurantCard'
 
 const Restaurantes = () => {
     const {store, actions} = useContext(Context);
+    useEffect(()=>{
+        actions.fetchRestaurantes()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
 
     var pers = sessionStorage.getItem('persona_data')
     let perso= JSON.parse(pers)

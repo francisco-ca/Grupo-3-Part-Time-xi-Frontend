@@ -14,38 +14,68 @@ const getState = ({ getStore, setStore }) => {
                 direccion: "",
                 numero_mesas:"",
                 telefono: "",
-                cap_lista: ""
+                cap_lista: "",
             },
-            restaurantes: [
-                {
-                    nombre:"Restaurant 1",
-                    cantidad_maxima:10,
-                    espera:2,
-                    direccion:"",
-
-                },
-                {
-                    nombre:"Restaurant 2",
-                    cantidad_maxima:20,
-                    espera:0
-                },
-                {
-                    nombre:"Restaurant 3",
-                    cantidad_maxima:6,
-                    espera:1
-                }
-            ]
+            restaurantes: []
         },
         actions: {
-            deleteRestaurant: (index)=>{
+            deleteRestaurant: 
+            (index, id)=>{
                 const store = getStore();
                 const {restaurantes} = store;
                 const nuevosRestaurantes = restaurantes.filter( function(prueba, i ) {
                     return i !== index;
                 });
                 setStore({restaurantes:nuevosRestaurantes})
-                console.log(nuevosRestaurantes)
-                console.log(store)
+            
+                const config = {
+                    "method": "DELETE",
+                    "headers": {
+                        "Content-type": "application/json"
+                },
+                }
+                fetch(`http://127.0.0.1:5000/restaurantes/${id}`,config)                
+            },
+            fetchRestaurantes: async ()=>{
+                const config = {
+                    "method": "GET",
+                    "headers": {
+                        "Content-type": "application/json"
+                },
+                }
+                fetch('http://127.0.0.1:5000/restaurantes',config)
+                .then(res => res.json())
+                .then(data => setStore({restaurantes: data }))
+                .catch(error => console.log(error))
+            }
+            ,
+            fetchRestaurante: async (id)=>{
+                console.log("pasando por el fetch","id ingresado",id)
+                const config = {
+                    "method": "GET",
+                    "headers": {
+                        "Content-type": "application/json"
+                }, 
+                }
+                fetch(`http://127.0.0.1:5000/restaurantes/${id}`,config)
+                .then(res => res.json())
+                .then(data => setStore({restaurante: data.restaurante}))
+                .catch(error => console.log(error))
+            },
+            putRestaurante: (e, id) => {
+                e.preventDefault();
+                const store = getStore();
+                let options = {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(store.restaurante)
+                }
+                fetch(`http://127.0.0.1:5000/restaurantes/${id}`, options)
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.log(error))
             },
             onChangeUser: (e) => {
                 const store = getStore();
@@ -61,7 +91,6 @@ const getState = ({ getStore, setStore }) => {
                 restaurante[e.target.name] = e.target.value
                 setStore({ restaurante })
                 console.log(store.restaurante)
-                
             },
             onSubmitPersona: (e) => {
                 e.preventDefault();
@@ -96,7 +125,6 @@ const getState = ({ getStore, setStore }) => {
                     
             },
             onSubmitRest: (e) => {
-
                 e.preventDefault();
                 const store = getStore();
                 let options = {
@@ -106,16 +134,12 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.restaurante)
                 }
-                fetch("ingresarruta/editar", options)
+                fetch("http://127.0.0.1:5000/nuevo_restaurante", options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
             }
-            //(Arrow) Functions that update the Store
-            // Remember to use the scope: scope.state.store & scope.setState()
-
         }
     };
-};
-
+}
 export default getState;
