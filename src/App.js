@@ -10,12 +10,13 @@ import{BrowserRouter, Switch, Route} from 'react-router-dom'
 import Inicio from './js/views/Inicio'
 import Ingreso from './js/views/Ingreso'
 import RecuperaContraseña from './js/views/RecuperaContraseña'
-import ListaEspera from './js/views/ListaEspera';
+import ListaEspera from './js/components/ListaEspera';
 import AdmListaEspera from './js/views/Adm_Lista_Espera';
 import Registro from "./js/views/Registro"
 import Restaurantes from './js/views/Restaurantes';
 import NuevoRestaurante from './js/views/NuevoRestaurante';
 import EditarRestaurante from './js/views/editarRestaurante';
+
 
 
 function App() {
@@ -25,10 +26,9 @@ function App() {
         <Switch>
           <Route exact path="/" component= {Inicio}/>
           <Route exact path="/home" component= {Inicio}/>
-          <Route exact path="/lista_espera" component= {ListaEspera}/>
+          <Route exact path="/lista_espera/:id" component= {ListaEspera}/>
           <Route exact path="/adm_lista_espera" component= {AdmListaEspera}/>
           <Route exact path="/restaurantes" component= {Restaurantes}/>
-          {/* <Route exact path="/registrarse" component= {SignUp}/> */}
           <Route exact path="/registro" component= {Registro}/>
           <Route exact path="/ingreso" component= {Ingreso}/>
           <Route exact path="/contraseña" component= {RecuperaContraseña}/>

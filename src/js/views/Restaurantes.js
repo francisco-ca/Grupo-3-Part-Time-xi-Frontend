@@ -7,6 +7,10 @@ import RestaurantCard from '../components/RestaurantCard'
 
 const Restaurantes = () => {
     const {store, actions} = useContext(Context);
+    const rest= store.restaurantes
+    const indice = rest.map((item,i) =>rest[i])
+
+    // console.log("prueba",indice)
     useEffect(()=>{
         actions.fetchRestaurantes()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -36,7 +40,7 @@ const Restaurantes = () => {
                     </Row>
                         <ListGroup className='my-4 md-auto' variant='flush'>
                                         {store.restaurantes.map((element, index)=>{
-                                        return (<RestaurantCard element={element} index={index} key={index}>
+                                        return (<RestaurantCard element={element} index={index} id={indice[index].id_restaurante} key={index}>
                                             </RestaurantCard>
                                             )
                                         })}
