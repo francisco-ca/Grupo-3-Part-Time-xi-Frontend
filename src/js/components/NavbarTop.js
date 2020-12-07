@@ -3,6 +3,9 @@ import {Link} from 'react-router-dom'
 import {Navbar, Nav} from 'react-bootstrap'
 
 const NavbarTop = () => {
+    // let pers = sessionStorage.getItem('persona_data')
+    // let perso= JSON.parse(pers)
+    // let person= perso.usuario
     return (
         <Navbar bg="light" variant="light" expand="lg">
             <Navbar.Brand>
