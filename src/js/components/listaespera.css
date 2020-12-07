@@ -3,12 +3,26 @@
       background-repeat: no-repeat;
       background-size: cover;
       color:white;
-      
-      
 }
-.img {
- border: 10px inset rgba(86,66,73,0.74);
-border-radius: 27px 27px 27px 27px;
+.font{
+    font-family:Copperplate Gothic Light;
+}
+.mesas{
+    background: url("https://i.pinimg.com/736x/d9/0f/8c/d90f8cd2cced0ae3ac2637a35f15159b.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0px 0px;
+    outline: 5px ridge #5B5154;
+    outline-offset: 0px;
+   }
+
+
+.borde{
+background: url("https://i.pinimg.com/736x/d9/0f/8c/d90f8cd2cced0ae3ac2637a35f15159b.jpg");
+border: 8px inset #5B5154;
+border-radius: 1px;
+outline: 3px ridge #5B5154;
+outline-offset: 0px;
 }
 
      
@@ -22,6 +36,40 @@ border-radius: 27px 27px 27px 27px;
 }
 .abajo{
     position: absolute;
+    margin-left:127px;
     bottom:0;
+    
 }
+.boton {
+	box-shadow:inset 0px 0px 4px -1px #dee0a6;
+	background-color:#141111;
+	border-radius:6px;
+	border:4px solid #bdae06;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	font-weight:bold;
+	padding:9px 16px;
+	text-decoration:none;
+	
+}
+.boton:hover {
+	background-color:#141111;
+    border-color:goldenrod;
+}
+.boton:active {
+	position:relative;
+	top:1px;
+    border-color: goldenrod;
+}
+.boton:focus{
+    color:white;
+    background-color: none;
+    border-color:goldenrod;
+}
+
+
+
+
 /* https://image.freepik.com/vector-gratis/vector-fondo-blanco-madera_119523-22.jpg */
