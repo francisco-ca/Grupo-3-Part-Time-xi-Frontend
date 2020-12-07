@@ -1,0 +1,27 @@
+.fondo{
+      background: url("https://ae01.alicdn.com/kf/HTB1b6TYSXXXXXX0XVXXq6xXFXXXh/10x10-pies-Dim-gris-tablones-de-madera-textura-de-madera-oscura-pared-personalizada-estudio-de-fotograf.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      color:white;
+      
+      
+}
+.img {
+ border: 10px inset rgba(86,66,73,0.74);
+border-radius: 27px 27px 27px 27px;
+}
+
+     
+
+.lista{
+    background: url("https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-black-hand-drawn-menu-background-picture-backgroundmenubackgroundgreenmenulayeringmenu-recipeadvertising-design-image_87621.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    color:white;
+
+}
+.abajo{
+    position: absolute;
+    bottom:0;
+}
+/* https://image.freepik.com/vector-gratis/vector-fondo-blanco-madera_119523-22.jpg */
