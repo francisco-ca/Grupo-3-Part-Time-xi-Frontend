@@ -47,15 +47,15 @@ console.log("props",props)
                                 <Card.Body>
                                     
                                     <Card.Title >
-                                        <h3 className="text-center font pt-2 pl-3">Lista de espera: {5}/{store.restaurante.capacidad_lista_espera} </h3>
+                                        <h3 className="text-center fontlistatit pt-2 pl-3">Lista de espera: {5}/{store.restaurante.capacidad_lista_espera} </h3>
                                     </Card.Title>
-                                    <Card.Text className="font" >
+                                    <Card.Text className="fontlista" >
                                         {(inList) ?
-                                            "" : <h4>Tu lugar en la lista es: 3</h4>
+                                            "" : <p>nombre persona</p>
                                         }
                                     </Card.Text>
 
-                                    <form className='my-5 abajo text-center font' action='#' method='PUT' onSubmit={(e) => { e.preventDefault(); }}>{/* ruta en la api que maneje este form */}
+                                    <form className='my-5 abajo text-center fontlista' action='#' method='PUT' onSubmit={(e) => { e.preventDefault(); }}>{/* ruta en la api que maneje este form */}
                                         <Button variant="dark" className="boton" size="lg" type='submit' onClick={() => { setInList(!inList) }}/*que mande tipo put para modificar la lista */>{inList ? 'Anotate en la fila!' : 'Salir de la fila'}</Button>
                                     </form>
                                 </Card.Body>
