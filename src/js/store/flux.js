@@ -12,55 +12,63 @@ const getState = ({ getStore, setStore }) => {
             restaurante: {
                 nombre: "",
                 direccion: "",
-                numero_mesas:"",
+                numero_mesas: "",
                 telefono: "",
                 cap_lista: "",
             },
             restaurantes: []
         },
         actions: {
-            deleteRestaurant: 
-            (index, id)=>{
+
+            deleteRestaurant: (index, id) => {
                 const store = getStore();
-                const {restaurantes} = store;
-                const nuevosRestaurantes = restaurantes.filter( function(prueba, i ) {
+                const { restaurantes } = store;
+                const nuevosRestaurantes = restaurantes.filter(function (prueba, i) {
                     return i !== index;
                 });
-                setStore({restaurantes:nuevosRestaurantes})
-            
+                setStore({ restaurantes: nuevosRestaurantes })
+
                 const config = {
                     "method": "DELETE",
                     "headers": {
                         "Content-type": "application/json"
-                },
+                    },
                 }
-                fetch(`http://127.0.0.1:5000/restaurantes/${id}`,config)                
+                fetch(`https://5000-b1f83105-e24d-4340-a3cf-45e41758461b.ws-us03.gitpod.io/restaurantes/${id}`, config)
             },
-            fetchRestaurantes: async ()=>{
+            fetchRestaurantes: async () => {
                 const config = {
                     "method": "GET",
                     "headers": {
                         "Content-type": "application/json"
-                },
+                    },
                 }
-                fetch('http://127.0.0.1:5000/restaurantes',config)
-                .then(res => res.json())
-                .then(data => setStore({restaurantes: data }))
-                .catch(error => console.log(error))
+                fetch('https://5000-b1f83105-e24d-4340-a3cf-45e41758461b.ws-us03.gitpod.io/restaurantes', config)
+                    .then(res => res.json())
+                    .then(data => {setStore({ restaurantes: data })
+                                   console.log("data",data)})
+                    .catch(error => console.log(error))
             }
             ,
-            fetchRestaurante: async (id)=>{
-                console.log("pasando por el fetch","id ingresado",id)
+            fetchRestaurante: async (id) => {
+                const store = getStore();
+                const { restaurantes } = store;
+                // const rest= restaurantes
+                // const i = rest.map((item,index) =>rest[index].id_restaurante)
+                // console.log("ifl", props)
+
                 const config = {
                     "method": "GET",
                     "headers": {
                         "Content-type": "application/json"
-                }, 
+                    },
                 }
-                fetch(`http://127.0.0.1:5000/restaurantes/${id}`,config)
-                .then(res => res.json())
-                .then(data => setStore({restaurante: data.restaurante}))
-                .catch(error => console.log(error))
+                fetch(`https://5000-b1f83105-e24d-4340-a3cf-45e41758461b.ws-us03.gitpod.io/restaurantes/${id}`, config)
+                    .then(res => res.json())
+                    .then(data => {setStore({ restaurante: data.restaurante })
+                                   console.log("data2",data[id])})
+                    .catch(error => console.log(error))
+                
             },
             putRestaurante: (e, id) => {
                 e.preventDefault();
@@ -72,7 +80,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.restaurante)
                 }
-                fetch(`http://127.0.0.1:5000/restaurantes/${id}`, options)
+                fetch(`https://5000-b1f83105-e24d-4340-a3cf-45e41758461b.ws-us03.gitpod.io/restaurantes/${id}`, options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
@@ -85,7 +93,7 @@ const getState = ({ getStore, setStore }) => {
                 console.log(e.target.name)
                 console.log(store.persona)
             },
-             onChangeRest: (e) => {
+            onChangeRest: (e) => {
                 const store = getStore();
                 const { restaurante } = store
                 restaurante[e.target.name] = e.target.value
@@ -98,7 +106,7 @@ const getState = ({ getStore, setStore }) => {
                 let options = {
                     method: "POST",
                     headers: {
-                        "Content-Type":"application/json"
+                        "Content-Type": "application/json"
                     },
                     body: JSON.stringify(store.persona)
                 }
@@ -113,16 +121,18 @@ const getState = ({ getStore, setStore }) => {
                 let options = {
                     method: "POST",
                     headers: {
-                        "Content-Type":"application/json"
+                        "Content-Type": "application/json"
                     },
                     body: JSON.stringify(store.persona)
                 }
                 fetch("https://5000-d9edb2e7-6407-420f-b188-08f085ad1dcf.ws-us02.gitpod.io/ingreso", options)
                     .then(res => res.json())
-                    .then(data => {console.log(data);
-                                  sessionStorage.setItem("persona_data",JSON.stringify(data))})
+                    .then(data => {
+                        console.log(data);
+                        sessionStorage.setItem("persona_data", JSON.stringify(data))
+                    })
                     .catch(error => console.log(error))
-                    
+
             },
             onSubmitRest: (e) => {
                 e.preventDefault();
@@ -134,7 +144,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.restaurante)
                 }
-                fetch("http://127.0.0.1:5000/nuevo_restaurante", options)
+                fetch("https://5000-b1f83105-e24d-4340-a3cf-45e41758461b.ws-us03.gitpod.io/nuevo_restaurante", options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))

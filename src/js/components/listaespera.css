@@ -1,0 +1,149 @@
+.fondo{
+      background: url("https://ae01.alicdn.com/kf/HTB1b6TYSXXXXXX0XVXXq6xXFXXXh/10x10-pies-Dim-gris-tablones-de-madera-textura-de-madera-oscura-pared-personalizada-estudio-de-fotograf.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      color:white;
+}
+.font{
+    font-family:Copperplate Gothic Light;
+    
+}
+
+@media screen and (min-width: 1001px) {
+  .fontlista {
+    font-family:Copperplate Gothic Light;
+    font-size: 25px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 1000px) {
+  .fontlista {
+    font-family:Copperplate Gothic Light;
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .fontlista {
+    font-family:Copperplate Gothic Light;
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  .fontlistatit {
+    font-family:Copperplate Gothic Light;
+    font-size: 32px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 1000px) {
+  .fontlistatit {
+    font-family:Copperplate Gothic Light;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .fontlistatit {
+    font-family:Copperplate Gothic Light;
+    font-size: 14px;
+  }
+}
+.mesas{
+    background: url("https://i.pinimg.com/736x/d9/0f/8c/d90f8cd2cced0ae3ac2637a35f15159b.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0px 0px;
+    outline: 5px ridge #5B5154;
+    outline-offset: 0px;
+   }
+
+
+.borde{
+background: url("https://i.pinimg.com/736x/d9/0f/8c/d90f8cd2cced0ae3ac2637a35f15159b.jpg");
+border: 8px inset #5B5154;
+border-radius: 1px;
+outline: 3px ridge #5B5154;
+outline-offset: 0px;
+}
+
+     
+
+.lista{
+    background: url("https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-black-hand-drawn-menu-background-picture-backgroundmenubackgroundgreenmenulayeringmenu-recipeadvertising-design-image_87621.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    color:white;
+
+}
+.abajo{
+    position: relative;
+    margin-left:0px;
+    
+    
+}
+@media screen and (min-width: 1001px)
+{.boton {
+	box-shadow:inset 0px 0px 4px -1px #dee0a6;
+	background-color:#141111;
+	border-radius:6px;
+	border:4px solid #bdae06;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	font-weight:bold;
+	padding:9px 16px;
+	text-decoration:none;
+	
+}}
+@media screen and (max-width: 1000px)
+{.boton {
+	box-shadow:inset 0px 0px 4px -1px #dee0a6;
+	background-color:#141111;
+	border-radius:6px;
+	border:4px solid #bdae06;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:15px;
+	font-weight:bold;
+	padding:5px 9px;
+	text-decoration:none;
+	
+}}
+@media screen and (max-width: 300px)
+{.boton {
+	box-shadow:inset 0px 0px 4px -1px #dee0a6;
+	background-color:#141111;
+	border-radius:6px;
+	border:4px solid #bdae06;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:9px;
+	font-weight:bold;
+	padding:4px 7px;
+	text-decoration:none;
+	
+}}
+.boton:hover {
+	background-color:#141111;
+    border-color:goldenrod;
+}
+.boton:active {
+	position:relative;
+	top:1px;
+    border-color: goldenrod;
+}
+.boton:focus{
+    color:white;
+    background-color: none;
+    border-color:goldenrod;
+}
+
+
+
+
+/* https://image.freepik.com/vector-gratis/vector-fondo-blanco-madera_119523-22.jpg */
