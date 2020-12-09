@@ -7,7 +7,7 @@ const getState = ({ getStore, setStore }) => {
                 apellido: "",
                 telefono: "",
                 correo: "",
-                contraseña: ""
+                contraseña: "",
             },
             restaurante: {
                 nombre: "",

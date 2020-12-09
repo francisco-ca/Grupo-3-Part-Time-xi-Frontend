@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect} from "react";
 import { Context } from '../store/appContext';
 import { Form, Button, Card, Container } from 'react-bootstrap'
 import {Link} from 'react-router-dom'
@@ -7,6 +7,8 @@ import NavbarTop from '../components/NavbarTop'
 
 const Ingreso = () => {
     const { store, actions } = useContext(Context);
+
+
     return (
         <Container>
             <NavbarTop />
