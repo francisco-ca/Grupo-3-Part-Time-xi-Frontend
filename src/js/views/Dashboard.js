@@ -1,12 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Context } from '../store/appContext';
+import React from "react";
 import NavbarTop from '../components/NavbarTop'
-import { Image, Row, Col, Button, ListGroup, Container } from 'react-bootstrap';
+import { Image, Row, Col, ListGroup, Container } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
 const Dashboard = () => {
-    const { store, actions } = useContext(Context);
-    useEffect(() => { }, []);
     return (
         <>
         <Container>
