@@ -15,7 +15,9 @@ import AdmListaEspera from './js/views/Adm_Lista_Espera';
 import Registro from "./js/views/Registro"
 import Restaurantes from './js/views/Restaurantes';
 import NuevoRestaurante from './js/views/NuevoRestaurante';
-import EditarRestaurante from './js/views/editarRestaurante';
+import EditarRestaurante from './js/views/EditarRestaurante';
+import Dashboard from './js/views/Dashboard';
+import CierraSesion from './js/views/CierraSesion';
 
 
 
@@ -34,6 +36,9 @@ function App() {
           <Route exact path="/contraseña" component= {RecuperaContraseña}/>
           <Route exact path="/nuevo_restaurante" component= {NuevoRestaurante}/>
           <Route exact path="/restaurantes/:id/editar" component= {EditarRestaurante}/>
+          <Route exact path="/dashboard" component= {Dashboard}/>
+          <Route exact path="/cierra-sesion" component= {CierraSesion}/>
+          
         </Switch>
       </BrowserRouter> 
     </>

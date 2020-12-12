@@ -22,9 +22,9 @@ const NavbarTop = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto mr-4">
-                    <Link className= "nav-link" to="/registro">Regístrate</Link>
-                    <Link className= "nav-link" to="/ingreso">Inicia sesión</Link>
+                    <Link className= "nav-link" to="/lista_espera/:id">Anótate en la lista</Link>
                     <Link className= "nav-link" to="/restaurantes">Restaurants/Pubs</Link>
+                    <Link className= "nav-link" to="/cierra-sesion">Cierra sesión</Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

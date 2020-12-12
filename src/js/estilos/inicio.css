@@ -1,0 +1,14 @@
+body{
+    background: url('https://static6.depositphotos.com/1126698/615/i/600/depositphotos_6152896-stock-photo-dark-interior-room.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.footer-class{
+    text-align: center;
+    justify-content: center;
+
+}
+.botones{
+    margin-left: 100%;
+}
