@@ -19,7 +19,45 @@ const getState = ({ getStore, setStore }) => {
             restaurantes: []
         },
         actions: {
-
+            onSubmitContraseña: (e, token) => {
+                e.preventDefault();
+                console.log('se ha enviado contraseña')
+                console.log(token)
+                const store = getStore();
+                let options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(store.persona)
+                }
+                fetch("http://127.0.0.1:5000/restablecer_contraseña", options)
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        sessionStorage.setItem("persona_data", JSON.stringify(data))
+                    })
+                    .catch(error => console.log(error))
+            },
+            onSubmitCorreo: (e) => {
+                e.preventDefault();
+                console.log("se ha enviado el correo")
+                const store = getStore();
+                const {persona} = store
+                console.log("la persona ha enviar", persona)
+                let options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(persona)
+                }
+                fetch("http://127.0.0.1:5000/olvide_contraseña", options)
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.log(error))
+            },
             deleteRestaurant: (index, id) => {
                 const store = getStore();
                 const { restaurantes } = store;
@@ -34,16 +72,18 @@ const getState = ({ getStore, setStore }) => {
                         "Content-type": "application/json"
                     },
                 }
-                fetch(`https://5000-b1f83105-e24d-4340-a3cf-45e41758461b.ws-us03.gitpod.io/restaurantes/${id}`, config)
+                fetch(`http://127.0.0.1:5000/restaurantes/${id}`, config)
             },
             fetchRestaurantes: async () => {
+                const persona_data=JSON.parse(sessionStorage.getItem('persona_data'))
                 const config = {
                     "method": "GET",
                     "headers": {
-                        "Content-type": "application/json"
+                        "Content-type": "application/json",
+                        'Authorization': `Bearer ${persona_data.token_acceso}`
                     },
                 }
-                fetch('https://5000-b1f83105-e24d-4340-a3cf-45e41758461b.ws-us03.gitpod.io/restaurantes', config)
+                fetch('http://127.0.0.1:5000/restaurantes', config)
                     .then(res => res.json())
                     .then(data => {setStore({ restaurantes: data })
                                    console.log("data",data)})
@@ -63,7 +103,7 @@ const getState = ({ getStore, setStore }) => {
                         "Content-type": "application/json"
                     },
                 }
-                fetch(`https://5000-b1f83105-e24d-4340-a3cf-45e41758461b.ws-us03.gitpod.io/restaurantes/${id}`, config)
+                fetch(`http://127.0.0.1:5000/restaurantes/${id}`, config)
                     .then(res => res.json())
                     .then(data => {setStore({ restaurante: data.restaurante })
                                    console.log("data2",data[id])})
@@ -80,7 +120,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.restaurante)
                 }
-                fetch(`https://5000-b1f83105-e24d-4340-a3cf-45e41758461b.ws-us03.gitpod.io/restaurantes/${id}`, options)
+                fetch(`http://127.0.0.1:5000/restaurantes/${id}`, options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
@@ -110,7 +150,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.persona)
                 }
-                fetch("https://5000-cc105e22-f107-4aad-8d4b-e6a586143baa.ws-us02.gitpod.io/registro", options)
+                fetch("http://127.0.0.1:5000/registro", options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
@@ -121,18 +161,17 @@ const getState = ({ getStore, setStore }) => {
                 let options = {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
                     },
                     body: JSON.stringify(store.persona)
                 }
-                fetch("https://5000-d9edb2e7-6407-420f-b188-08f085ad1dcf.ws-us02.gitpod.io/ingreso", options)
+                fetch("http://127.0.0.1:5000/ingreso", options)
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
                         sessionStorage.setItem("persona_data", JSON.stringify(data))
                     })
                     .catch(error => console.log(error))
-
             },
             onSubmitRest: (e) => {
                 e.preventDefault();
@@ -144,7 +183,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.restaurante)
                 }
-                fetch("https://5000-b1f83105-e24d-4340-a3cf-45e41758461b.ws-us03.gitpod.io/nuevo_restaurante", options)
+                fetch("http://127.0.0.1:5000/nuevo_restaurante", options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))

@@ -5,6 +5,9 @@ import NavbarTop from '../components/NavbarTop'
 import { Image } from 'react-bootstrap';
 
 const Inicio = () => {
+    //const persona_data=JSON.parse(sessionStorage.getItem('persona_data'))
+    //console.log(persona_data.success)
+
     return (
         <Container>
             <NavbarTop />
@@ -31,7 +34,6 @@ const Inicio = () => {
                     </Col>
                 </Row>
             </div>
-
         </Container>
     );
 }
