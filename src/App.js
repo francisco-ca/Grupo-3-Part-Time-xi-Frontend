@@ -9,7 +9,7 @@ import{BrowserRouter, Switch, Route} from 'react-router-dom'
 //Componentes
 import Inicio from './js/views/Inicio'
 import Ingreso from './js/views/Ingreso'
-import RecuperaContraseña from './js/views/RecuperaContraseña'
+import OlvideContraseña from './js/views/OlvideContraseña'
 import ListaEspera from './js/components/ListaEspera';
 import AdmListaEspera from './js/views/Adm_Lista_Espera';
 import Registro from "./js/views/Registro"
@@ -18,8 +18,7 @@ import NuevoRestaurante from './js/views/NuevoRestaurante';
 import EditarRestaurante from './js/views/EditarRestaurante';
 import Dashboard from './js/views/Dashboard';
 import CierraSesion from './js/views/CierraSesion';
-
-
+import RestablecerContraseña from './js/views/RestablecerContraseña';
 
 function App() {
   return (
@@ -33,9 +32,10 @@ function App() {
           <Route exact path="/restaurantes" component= {Restaurantes}/>
           <Route exact path="/registro" component= {Registro}/>
           <Route exact path="/ingreso" component= {Ingreso}/>
-          <Route exact path="/contraseña" component= {RecuperaContraseña}/>
           <Route exact path="/nuevo_restaurante" component= {NuevoRestaurante}/>
           <Route exact path="/restaurantes/:id/editar" component= {EditarRestaurante}/>
+          <Route exact path="/olvide_contraseña" component= {OlvideContraseña}/>
+          <Route exact path="/restablecer_contraseña/:token" component= {RestablecerContraseña}/>
           <Route exact path="/dashboard" component= {Dashboard}/>
           <Route exact path="/cierra-sesion" component= {CierraSesion}/>
           

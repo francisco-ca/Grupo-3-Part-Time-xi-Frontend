@@ -12,10 +12,7 @@ const EditarRestaurante = props => {
     let {id} = useParams();
     let valorId =  Number(id)+1
     useEffect(() => { 
-        console.log("se ejecuto el useEffect","valor de id--",valorId)
         actions.fetchRestaurante(valorId)
-        console.log(store)
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return (

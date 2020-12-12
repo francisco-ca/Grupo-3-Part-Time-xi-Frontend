@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import { Form } from 'react-bootstrap';
 import { Context } from "../store/appContext";
 import { Col } from 'react-bootstrap';
-import { Button, Alert } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import NavbarTop from '../components/NavbarTop'
 
 const Registro = props => {
@@ -12,7 +12,7 @@ const Registro = props => {
     useEffect(() => { }, []);
     return (
         <div className="container">
-            {/* <NavbarTop /> */}
+            <NavbarTop /> 
             {JSON.stringify(store.persona)}
             {!store.persona.signup ?
             <Form onSubmit={(e)=>actions.onSubmitPersona(e)}>
@@ -54,13 +54,9 @@ const Registro = props => {
                     Registrarse </Button>
             </Form>
             : 
-
             <Redirect to="/"></Redirect>
-
             }
         </div>
     );
 };
-
-
 export default Registro

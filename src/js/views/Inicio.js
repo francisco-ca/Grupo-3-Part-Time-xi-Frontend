@@ -1,10 +1,13 @@
 import React from 'react'
-import { Container, Row, Col, Button, Image, Navbar, } from 'react-bootstrap'
+import { Container, Row, Col, Image } from 'react-bootstrap'
 import '../estilos/inicio.css'
 import { Link } from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop'
 
 const Inicio = () => {
+    //const persona_data=JSON.parse(sessionStorage.getItem('persona_data'))
+    //console.log(persona_data.success)
+
     return (
         // <Container>
         //     {/* <NavbarTop /> */}
@@ -37,9 +40,8 @@ const Inicio = () => {
         //     </div>
 
         // </Container>
-
         <Container>
-
+            <NavbarTop />
             <h2 className="text-center mt-4" style={{ color: 'black' }}>Bienvenido a la Lista de espera</h2>
             <Row className="text-center">
                 <h4>
@@ -49,7 +51,6 @@ const Inicio = () => {
                 <p className="ml-4">Así, evitaremos aglomeración de personas en la entrada y no
                 tendrás que estár pendiente a que llegue tu turno!</p>
             </Row>
-
             <Row className="text-center m-2 imagen_central">
                 <Col md={{ size: 'auto' }} >
                     <Image 
@@ -57,23 +58,28 @@ const Inicio = () => {
                     src="/mesas-color.jpg" rounded fluid />
                 </Col>
             </Row>
+<<<<<<< HEAD
             
             <Row className="mb-2 ml-4">
+=======
+            <Row className="m-2">
+>>>>>>> 0214e45a14d865073c321c9422b0615f5f430074
                 <Link to="/ingreso" className="btn btn-primary">Inicia Sesión</Link>
             </Row>
             <Row className="mb-2 ml-4">
                 <Link to="/registro" className="btn btn-primary">Regístrate. Es gratis </Link>
             </Row >
             <div>
+<<<<<<< HEAD
             <Link to="/contraseña">
                 <p className="ml-4" style={{ color: "gray" }}>¿No recuerdas tu contraseña?</p>
+=======
+            <Link to="/olvide_contraseña">
+                <p className="" style={{ color: "gray" }}>¿No recuerdas tu contraseña?</p>
+>>>>>>> 0214e45a14d865073c321c9422b0615f5f430074
             </Link>
             </div>
-
-
         </Container>
-
-
     );
 }
 
