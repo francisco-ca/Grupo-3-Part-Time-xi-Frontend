@@ -15,8 +15,10 @@ import AdmListaEspera from './js/views/Adm_Lista_Espera';
 import Registro from "./js/views/Registro"
 import Restaurantes from './js/views/Restaurantes';
 import NuevoRestaurante from './js/views/NuevoRestaurante';
-import EditarRestaurante from './js/views/editarRestaurante';
-import RestablecerContraseña from './js/views/RestablecerContraseña'
+import EditarRestaurante from './js/views/EditarRestaurante';
+import Dashboard from './js/views/Dashboard';
+import CierraSesion from './js/views/CierraSesion';
+import RestablecerContraseña from './js/views/RestablecerContraseña';
 
 function App() {
   return (
@@ -34,6 +36,9 @@ function App() {
           <Route exact path="/restaurantes/:id/editar" component= {EditarRestaurante}/>
           <Route exact path="/olvide_contraseña" component= {OlvideContraseña}/>
           <Route exact path="/restablecer_contraseña/:token" component= {RestablecerContraseña}/>
+          <Route exact path="/dashboard" component= {Dashboard}/>
+          <Route exact path="/cierra-sesion" component= {CierraSesion}/>
+          
         </Switch>
       </BrowserRouter> 
     </>
