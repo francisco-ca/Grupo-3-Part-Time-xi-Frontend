@@ -80,12 +80,13 @@ const getState = ({ getStore, setStore }) => {
                 fetch(`http://127.0.0.1:5000/restaurantes/${id}`, config)
             },
             fetchRestaurantes: async () => {
-                const persona_data=JSON.parse(sessionStorage.getItem('persona_data'))
+                const login=JSON.parse(sessionStorage.getItem('login'))
+                let token = login ? login.token_acceso : ""
                 const config = {
                     "method": "GET",
                     "headers": {
                         "Content-type": "application/json",
-                        'Authorization': `Bearer ${persona_data.token_acceso}`
+                        'Authorization': `Bearer ${token}`
                     },
                 }
                 fetch('http://127.0.0.1:5000/restaurantes', config)
@@ -161,12 +162,12 @@ const getState = ({ getStore, setStore }) => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
-                        sessionStorage.setItem("signup", JSON.stringify({
+                        sessionStorage.setItem("login", JSON.stringify({
                             data,
-                            signup: true,
+                            login: true,
                             }))
 
-                        setStore({ persona: {signup: true}, ...data })    
+                        setStore({ persona: {login: true}, ...data })    
                     })
                     .catch(error => console.log(error))
             },
@@ -181,8 +182,8 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.persona)
                 }
-                fetch("https://5000-d9edb2e7-6407-420f-b188-08f085ad1dcf.ws-us02.gitpod.io/ingreso", options)
-                //fetch("http://127.0.0.1:5000/ingreso", options)
+                //fetch("https://5000-d9edb2e7-6407-420f-b188-08f085ad1dcf.ws-us02.gitpod.io/ingreso", options)
+                fetch("http://127.0.0.1:5000/ingreso", options)
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
