@@ -5,7 +5,7 @@ import NavbarTop from '../components/NavbarTop'
 const RecuperaContraseña = () => {
     return (
         <>
-            <NavbarTop />
+            {/* <NavbarTop /> */}
             <div className="container p-4 text-center d-flex justify-content-center" >
                 <Card style={{ width: '30rem' }} className="p-4 m-4">
                     <h3>¿Olvidaste tu contraseña?</h3>

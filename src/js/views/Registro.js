@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from "react";
+import { Link, Redirect } from 'react-router-dom'
 import { Form } from 'react-bootstrap';
 import { Context } from "../store/appContext";
 import { Col } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
+import { Button, Alert } from 'react-bootstrap';
 import NavbarTop from '../components/NavbarTop'
 
 const Registro = props => {
@@ -11,8 +12,9 @@ const Registro = props => {
     useEffect(() => { }, []);
     return (
         <div className="container">
-            <NavbarTop />
-            
+            {/* <NavbarTop /> */}
+            {JSON.stringify(store.persona)}
+            {!store.persona.signup ?
             <Form onSubmit={(e)=>actions.onSubmitPersona(e)}>
                 <Form.Group controlId="username">
                     <Form.Label>Nombre de Usuario</Form.Label>
@@ -44,14 +46,18 @@ const Registro = props => {
                     <Form.Label>Contraseña</Form.Label>
                     <Form.Control type="password" placeholder="Contraseña" name="contraseña" onChange={(e) => actions.onChangeUser(e)} value={store.persona.contraseña} />
                 </Form.Group>
-                <Form.Group id="formGridCheckbox">
+                {/* <Form.Group id="formGridCheckbox">
                     <Form.Check type="checkbox" label="Recibir notificación cuando sea mi turno" />
-                </Form.Group>
+                </Form.Group> */}
 
                 <Button variant="primary" type="submit">
-                    Registrarse
-  </Button>
+                    Registrarse </Button>
             </Form>
+            : 
+
+            <Redirect to="/"></Redirect>
+
+            }
         </div>
     );
 };
