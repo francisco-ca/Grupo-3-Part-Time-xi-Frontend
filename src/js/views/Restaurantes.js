@@ -4,11 +4,15 @@ import { Button, Container, Row, Col, ListGroup} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop'
 import RestaurantCard from '../components/RestaurantCard'
+import { Redirect } from 'react-router-dom'
+
 
 const Restaurantes = () => {
+    let valor = JSON.parse(sessionStorage.getItem("login"))
+    
     const {store, actions} = useContext(Context);
     const rest= store.restaurantes
-    const indice = rest.map((item,i) =>rest[i])
+    const indice = valor?rest.map((item,i) =>rest[i]):''
 
     // console.log("prueba",indice)
     useEffect(()=>{
@@ -20,7 +24,9 @@ const Restaurantes = () => {
     // let perso= JSON.parse(pers)
     // let person= perso.usuario
     //                 console.log ("prueba",person.nombre)
+    console.log("valor-----", valor)
     return (
+        valor ? (
         <Container>
             <NavbarTop />
             <div>
@@ -49,6 +55,10 @@ const Restaurantes = () => {
                 </Row>
             </div>
         </Container>
+        ):
+        (
+        <Redirect to="/ingreso"/>
+        )
     );
 }
 
