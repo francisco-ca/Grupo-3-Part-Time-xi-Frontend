@@ -46,25 +46,27 @@ const Inicio = () => {
                     Accediendo a nuestra aplicación podrás agregarte a una lista de espera. Cuando sea
                     tu turno, te avisaremos a tu celular.
                 </h4>
-                <p className="text-center">Así, evitaremos aglomeración de personas en la entrada y no
+                <p className="ml-4">Así, evitaremos aglomeración de personas en la entrada y no
                 tendrás que estár pendiente a que llegue tu turno!</p>
             </Row>
 
             <Row className="text-center m-2 imagen_central">
                 <Col md={{ size: 'auto' }} >
-                    <Image src="/mesas-color.jpg" rounded fluid />
+                    <Image 
+                    style={{width: "1100px", height: "250px"}}
+                    src="/mesas-color.jpg" rounded fluid />
                 </Col>
             </Row>
             
-            <Row className="m-2">
+            <Row className="mb-2 ml-4">
                 <Link to="/ingreso" className="btn btn-primary">Inicia Sesión</Link>
             </Row>
-            <Row className="m-2">
+            <Row className="mb-2 ml-4">
                 <Link to="/registro" className="btn btn-primary">Regístrate. Es gratis </Link>
             </Row >
             <div>
             <Link to="/contraseña">
-                <p className="" style={{ color: "gray" }}>¿No recuerdas tu contraseña?</p>
+                <p className="ml-4" style={{ color: "gray" }}>¿No recuerdas tu contraseña?</p>
             </Link>
             </div>
 
