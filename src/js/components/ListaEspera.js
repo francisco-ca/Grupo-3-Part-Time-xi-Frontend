@@ -8,13 +8,23 @@ import "./listaespera.css"
 const ListaEspera = (props) => {
     const { store, actions } = useContext(Context);
     const [inList, setInList] = useState(true);
-console.log("props",props)
-
-    useEffect(() => {
+     useEffect(() => {
 
         actions.fetchRestaurante(props.match.params.id)
+        actions.fetchListasEspera(props.match.params.id)
+
 
     }, [])
+    const listapers = store.listapersonas
+    const mapPers = listapers.map((item, i) => <li>{listapers[i].nombre}</li>)
+    // const personasL = mapPers.id_lista
+
+    console.log("props", props)
+    console.log("listapersonas", listapers)
+    console.log("mapers", mapPers)
+    // console.log("listasss", personasL)
+
+   
 
 
     return (
@@ -35,23 +45,23 @@ console.log("props",props)
                                 magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
                                 qui dolorem ipsum quia dolor sit amet, consectetur
                     </p>
-                    
- <hr></hr>
-                            <Image className="borde" src="/restaurante1.jpg"  fluid />
+
+                            <hr></hr>
+                            <Image className="borde" src="/restaurante1.jpg" fluid />
                             <hr></hr>
 
-                     <h3 className=" p-3 mesas font ">Mesas disponibles: {0}/{store.restaurante.cantidad_maxima}</h3>
+                            <h3 className=" p-3 mesas font ">Mesas disponibles: {0}/{store.restaurante.cantidad_maxima}</h3>
                         </Col>
                         <Col md={6}>
-                            <Card className='mx-auto p-3 mb-2 lista text-white text-left' style={{ width: 'auto', height:"45rem" }}>
+                            <Card className='mx-auto p-3 mb-2 lista text-white text-left' style={{ width: 'auto', height: "45rem" }}>
                                 <Card.Body>
-                                    
+
                                     <Card.Title >
-                                        <h3 className="text-center fontlistatit pt-2 pl-3">Lista de espera: {5}/{store.restaurante.capacidad_lista_espera} </h3>
+                                        <h3 className="text-center fontlistatit pt-2 pl-3">Lista de espera: {listapers.length}/{store.restaurante.capacidad_lista_espera} </h3>
                                     </Card.Title>
                                     <Card.Text className="fontlista" >
                                         {(inList) ?
-                                            "" : <p>nombre persona</p>
+                                            "" : <ol>{mapPers}</ol>
                                         }
                                     </Card.Text>
 

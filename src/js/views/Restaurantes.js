@@ -12,11 +12,12 @@ const Restaurantes = () => {
     
     const {store, actions} = useContext(Context);
     const rest= store.restaurantes
-    const indice = valor?rest.map((item,i) =>rest[i]):''
+    const indice = valor? rest.map((item,i) =>rest[i]):''
 
     // console.log("prueba",indice)
     useEffect(()=>{
         actions.fetchRestaurantes()
+        actions.fetchListaEspera()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
