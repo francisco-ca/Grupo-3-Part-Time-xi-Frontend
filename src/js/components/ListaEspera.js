@@ -1,30 +1,41 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../store/appContext';
 import NavbarTop from './NavbarTop';
-import { Button, Card, Container, Jumbotron, Col, Row, Image } from 'react-bootstrap';
+import { Button, Card, Container, Jumbotron, Col, Row, Image, Form } from 'react-bootstrap';
 import "./listaespera.css"
 
 
 const ListaEspera = (props) => {
     const { store, actions } = useContext(Context);
     const [inList, setInList] = useState(true);
-     useEffect(() => {
+    let pers = sessionStorage.getItem('login')
+    let perso = JSON.parse(pers)
+    const persona = perso.data.usuario.id_persona
+
+    console.log("prueba", persona)
+    useEffect(() => {
 
         actions.fetchRestaurante(props.match.params.id)
         actions.fetchListasEspera(props.match.params.id)
+        actions.getListaEspera(props.match.params.id)
 
 
     }, [])
     const listapers = store.listapersonas
     const mapPers = listapers.map((item, i) => <li>{listapers[i].nombre}</li>)
-    // const personasL = mapPers.id_lista
+    const listaesp = store.getlistaespera
+    const mapList = listaesp.map((item, i) => listaesp[i].id_lista)
+    const hora = "11:32"
+
 
     console.log("props", props)
     console.log("listapersonas", listapers)
     console.log("mapers", mapPers)
+    console.log("listaesp", listaesp)
+    console.log("maplist", mapList[0])
     // console.log("listasss", personasL)
 
-   
+
 
 
     return (
@@ -55,10 +66,15 @@ const ListaEspera = (props) => {
                         <Col md={6}>
                             <Card className='mx-auto p-3 mb-2 lista text-white text-left' style={{ width: 'auto', height: "45rem" }}>
                                 <Card.Body>
-
+                                    <Form onSubmit={(e) => {actions.onSubmitpersonaenLista(mapList[0],persona,hora)
+                                                            actions.fetchListasEspera(props.match.params.id)}}>
+                                    
+                                        <Button type="submit" variant="dark" className="boton">Añadir a la Lista</Button>
+                                    </Form>
                                     <Card.Title >
                                         <h3 className="text-center fontlistatit pt-2 pl-3">Lista de espera: {listapers.length}/{store.restaurante.capacidad_lista_espera} </h3>
                                     </Card.Title>
+
                                     <Card.Text className="fontlista" >
                                         {(inList) ?
                                             "" : <ol>{mapPers}</ol>

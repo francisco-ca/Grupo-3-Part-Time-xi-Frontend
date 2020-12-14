@@ -18,6 +18,7 @@ const Restaurantes = () => {
     useEffect(()=>{
         actions.fetchRestaurantes()
         actions.fetchListaEspera()
+        actions.getListasEspera()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 

@@ -22,12 +22,18 @@ const getState = ({ getStore, setStore }) => {
                 id_roles: "",
                 rol: ""
             },
-            listapersonas:{
-                nombre:"",
-                id_personas:"",
-                hora:""
+            getlistaespera:{
+
+            },
+            listapersonas: {
+
+            },
+            personasEnLista: {
+                id_lista: "",
+                id_personas: "",
+                hora: ""
             }
-            
+
         },
         actions: {
             onSubmitContraseña: (e, token) => {
@@ -43,7 +49,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.persona)
                 }
-                fetch("https://5000-ae725bff-bce6-40ae-b9a4-a078a86bbe7b.ws-us03.gitpod.io/restablecer_contraseña", options)
+                fetch("https://5000-d4e0f193-23c8-42da-b953-410afcd69af9.ws-us03.gitpod.io/restablecer_contraseña", options)
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
@@ -55,7 +61,7 @@ const getState = ({ getStore, setStore }) => {
                 e.preventDefault();
                 console.log("se ha enviado el correo")
                 const store = getStore();
-                const {persona} = store
+                const { persona } = store
                 console.log("la persona ha enviar", persona)
                 let options = {
                     method: "POST",
@@ -64,7 +70,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(persona)
                 }
-                fetch("https://5000-ae725bff-bce6-40ae-b9a4-a078a86bbe7b.ws-us03.gitpod.io/olvide_contraseña", options)
+                fetch("https://5000-d4e0f193-23c8-42da-b953-410afcd69af9.ws-us03.gitpod.io/olvide_contraseña", options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
@@ -83,10 +89,10 @@ const getState = ({ getStore, setStore }) => {
                         "Content-type": "application/json"
                     },
                 }
-                fetch(`https://5000-ae725bff-bce6-40ae-b9a4-a078a86bbe7b.ws-us03.gitpod.io/restaurantes/${id}`, config)
+                fetch(`https://5000-d4e0f193-23c8-42da-b953-410afcd69af9.ws-us03.gitpod.io/restaurantes/${id}`, config)
             },
             fetchRestaurantes: async () => {
-                const login=JSON.parse(sessionStorage.getItem('login'))
+                const login = JSON.parse(sessionStorage.getItem('login'))
                 let token = login ? login.token_acceso : ""
                 const config = {
                     "method": "GET",
@@ -95,10 +101,12 @@ const getState = ({ getStore, setStore }) => {
                         'Authorization': `Bearer ${token}`
                     },
                 }
-                fetch('https://5000-ae725bff-bce6-40ae-b9a4-a078a86bbe7b.ws-us03.gitpod.io/restaurantes', config)
+                fetch('https://5000-d4e0f193-23c8-42da-b953-410afcd69af9.ws-us03.gitpod.io/restaurantes', config)
                     .then(res => res.json())
-                    .then(data => {setStore({ restaurantes: data })
-                                   console.log("data",data)})
+                    .then(data => {
+                        setStore({ restaurantes: data })
+                        console.log("data", data)
+                    })
                     .catch(error => console.log(error))
             }
             ,
@@ -115,12 +123,14 @@ const getState = ({ getStore, setStore }) => {
                         "Content-type": "application/json"
                     },
                 }
-                fetch(`https://5000-ae725bff-bce6-40ae-b9a4-a078a86bbe7b.ws-us03.gitpod.io/restaurantes/${id}`, config)
+                fetch(`https://5000-d4e0f193-23c8-42da-b953-410afcd69af9.ws-us03.gitpod.io/restaurantes/${id}`, config)
                     .then(res => res.json())
-                    .then(data => {setStore({ restaurante: data.restaurante })
-                                   console.log("data2",data[id])})
+                    .then(data => {
+                        setStore({ restaurante: data.restaurante })
+                        console.log("data2", data[id])
+                    })
                     .catch(error => console.log(error))
-                
+
             },
             putRestaurante: (e, id) => {
                 e.preventDefault();
@@ -132,7 +142,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.restaurante)
                 }
-                fetch(`https://5000-ae725bff-bce6-40ae-b9a4-a078a86bbe7b.ws-us03.gitpod.io/restaurantes/${id}`, options)
+                fetch(`https://5000-d4e0f193-23c8-42da-b953-410afcd69af9.ws-us03.gitpod.io/restaurantes/${id}`, options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
@@ -155,7 +165,7 @@ const getState = ({ getStore, setStore }) => {
             onSubmitPersona: (e) => {
                 e.preventDefault();
                 const store = getStore();
-                const {persona}= store;
+                const { persona } = store;
                 let options = {
                     method: "POST",
                     headers: {
@@ -163,24 +173,24 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.persona)
                 }
-                //fetch("https://5000-cc105e22-f107-4aad-8d4b-e6a586143baa.ws-us02.gitpod.io/registro", options)
-                fetch("https://5000-ae725bff-bce6-40ae-b9a4-a078a86bbe7b.ws-us03.gitpod.io/registro", options)
+
+                fetch("https://5000-d4e0f193-23c8-42da-b953-410afcd69af9.ws-us03.gitpod.io/registro", options)
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
                         sessionStorage.setItem("login", JSON.stringify({
                             data,
                             login: true,
-                            }))
+                        }))
 
-                        setStore({ persona: {login: true}, ...data })    
+                        setStore({ persona: { login: true }, ...data })
                     })
                     .catch(error => console.log(error))
             },
             loginPersona: (e) => {
                 e.preventDefault();
                 const store = getStore();
-                const {persona}= store;
+                const { persona } = store;
                 let options = {
                     method: "POST",
                     headers: {
@@ -188,8 +198,8 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.persona)
                 }
-                //fetch("https://5000-d9edb2e7-6407-420f-b188-08f085ad1dcf.ws-us02.gitpod.io/ingreso", options)
-                fetch("https://5000-ae725bff-bce6-40ae-b9a4-a078a86bbe7b.ws-us03.gitpod.io/ingreso", options)
+
+                fetch("https://5000-d4e0f193-23c8-42da-b953-410afcd69af9.ws-us03.gitpod.io/ingreso", options)
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
@@ -198,8 +208,8 @@ const getState = ({ getStore, setStore }) => {
                             login: true,
                             token_acceso: data.token_acceso,
                             data
-                        })) 
-                        setStore({ persona: {login: true}, ...data })
+                        }))
+                        setStore({ persona: { login: true }, ...data })
                     })
                     .catch(error => console.log(error))
             },
@@ -213,7 +223,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.restaurante)
                 }
-                fetch("https://5000-ae725bff-bce6-40ae-b9a4-a078a86bbe7b.ws-us03.gitpod.io/nuevo_restaurante", options)
+                fetch("https://5000-d4e0f193-23c8-42da-b953-410afcd69af9.ws-us03.gitpod.io/nuevo_restaurante", options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
@@ -225,10 +235,11 @@ const getState = ({ getStore, setStore }) => {
                         "Content-type": "application/json"
                     },
                 }
-                fetch(`https://5000-ae725bff-bce6-40ae-b9a4-a078a86bbe7b.ws-us03.gitpod.io/personas/pagina/${id}`, config)
+                fetch(`https://5000-d4e0f193-23c8-42da-b953-410afcd69af9.ws-us03.gitpod.io/personas/pagina/${id}`, config)
                     .then(res => res.json())
-                    .then(data => {setStore({ roles: data, ...data })
-                        console.log("data",data)
+                    .then(data => {
+                        setStore({ roles: data, ...data })
+                        console.log("data", data)
                     })
                     .catch(error => console.log(error))
             },
@@ -239,10 +250,11 @@ const getState = ({ getStore, setStore }) => {
                         "Content-type": "application/json"
                     },
                 }
-                fetch(`https://5000-ae725bff-bce6-40ae-b9a4-a078a86bbe7b.ws-us03.gitpod.io/listapersonas/${id}`, config)
+                fetch(`https://5000-d4e0f193-23c8-42da-b953-410afcd69af9.ws-us03.gitpod.io/listapersonas/${id}`, config)
                     .then(res => res.json())
-                    .then(data => {setStore({ listapersonas:data})
-                        console.log("datalista",data)
+                    .then(data => {
+                        setStore({ listapersonas: data })
+                        console.log("datalista", data)
                     })
                     .catch(error => console.log(error))
             },
@@ -253,15 +265,65 @@ const getState = ({ getStore, setStore }) => {
                         "Content-type": "application/json"
                     },
                 }
-                fetch("https://5000-ae725bff-bce6-40ae-b9a4-a078a86bbe7b.ws-us03.gitpod.io/listapersonas", config)
+                fetch("https://5000-d4e0f193-23c8-42da-b953-410afcd69af9.ws-us03.gitpod.io/listapersonas", config)
                     .then(res => res.json())
-                    .then(data => {setStore({ listapersonas:data})
-                        console.log("datalista",data)
+                    .then(data => {
+                        setStore({ listapersonas: data })
+                        console.log("datalista", data)
                     })
                     .catch(error => console.log(error))
 
+            },
+            getListasEspera: async () => {
+                const config = {
+                    "method": "GET",
+                    "headers": {
+                        "Content-type": "application/json"
+                    },
+                }
+                fetch("https://5000-d4e0f193-23c8-42da-b953-410afcd69af9.ws-us03.gitpod.io/listasespera", config)
+                    .then(res => res.json())
+                    .then(data => {
+                        setStore({ listapersonas: data })
+                        console.log("listasdeesperaINFO", data)
+                    })
+                    .catch(error => console.log(error))
+
+            },
+            getListaEspera: async (id) => {
+                const config = {
+                    "method": "GET",
+                    "headers": {
+                        "Content-type": "application/json"
+                    },
+                }
+                fetch(`https://5000-d4e0f193-23c8-42da-b953-410afcd69af9.ws-us03.gitpod.io/listasespera/${id}`, config)
+                    .then(res => res.json())
+                    .then(data => {
+                        setStore({ getlistaespera: data })
+                        console.log("listadeespera", data)
+                    })
+                    .catch(error => console.log(error))
+
+            },
+            onSubmitpersonaenLista: (x,y,z) => {
+                
+                const store = getStore();
+                const { personasEnLista } = store
+                const hola = {"id_lista": x, "id_personas": y, "hora": z}
+                let options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(hola)
+                }
+                fetch("https://5000-d4e0f193-23c8-42da-b953-410afcd69af9.ws-us03.gitpod.io/listas_persona", options)
+                    .then(res => res.json())
+                    .then(data => console.log("personasEnLista", data))
+                    .catch(error => console.log(error))
+            },
         }
-    }
     }
 }
 export default getState;

@@ -22,6 +22,10 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
+        state.actions.fetchRestaurantes()
+        state.actions.fetchListaEspera()
+        state.actions.getListasEspera()
+        state.actions.getListaEspera(3)
 			/**
 			 * EDIT THIS!
 			 * This function is the equivalent to "window.onLoad", it only run once on the entire application lifetime
