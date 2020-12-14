@@ -11,8 +11,8 @@ const Dashboard = () => {
             <Row>
                 <Col className="col-6">
                     <ListGroup>
-                        <Link to="restaurantes"><ListGroup.Item>Elige tu restaurant/pub</ListGroup.Item></Link>
-                        <Link to="lista_espera/:id"><ListGroup.Item>Anótate en la lista</ListGroup.Item></Link>
+                        <ListGroup.Item><Link to="/restaurantes">Elige tu restaurant/pub</Link></ListGroup.Item>
+                        <ListGroup.Item><Link to="/lista_espera/:id">Anótate en la lista</Link></ListGroup.Item>
                     </ListGroup>
 
                 </Col>

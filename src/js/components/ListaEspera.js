@@ -3,13 +3,14 @@ import { Context } from '../store/appContext';
 import NavbarTop from './NavbarTop';
 import { Button, Card, Container, Jumbotron, Col, Row, Image, Form } from 'react-bootstrap';
 import "./listaespera.css"
+import {FiChevronsUp} from "react-icons/fi";
 
 
 const ListaEspera = (props) => {
     const { store, actions } = useContext(Context);
     const [inList, setInList] = useState(true);
-    let pers = sessionStorage.getItem('login')
-    let perso = JSON.parse(pers)
+    
+    const perso = JSON.parse(sessionStorage.getItem('login'))
     const persona = perso.data.usuario.id_persona
 
     console.log("prueba", persona)
@@ -22,17 +23,17 @@ const ListaEspera = (props) => {
 
     }, [])
     const listapers = store.listapersonas
-    const mapPers = listapers.map((item, i) => <li>{listapers[i].nombre}</li>)
+    // const mapPers = listapers.map((item, i) => <li key={i}>{listapers[i].nombre}</li>)
     const listaesp = store.getlistaespera
-    const mapList = listaesp.map((item, i) => listaesp[i].id_lista)
+    // const mapList = listaesp.map((item, i) => listaesp[i].id_lista)
     const hora = "11:32"
 
 
     console.log("props", props)
     console.log("listapersonas", listapers)
-    console.log("mapers", mapPers)
+    // console.log("mapers", mapPers)
     console.log("listaesp", listaesp)
-    console.log("maplist", mapList[0])
+    // console.log("maplist", listaesp.map((item, i) => listaesp[i].id_lista)[0])
     // console.log("listasss", personasL)
 
 
@@ -42,7 +43,8 @@ const ListaEspera = (props) => {
         <Container>
             <NavbarTop />
             <Jumbotron fluid className="pt-3 pb-3 text-center fondo " style={{ height: 'auto' }}>
-                <Container >
+                <Container onLoad={()=>{actions.fetchListasEspera(props.match.params.id)
+                                        actions.getListaEspera(props.match.params.id)}}>
                     <h1 className="font">{store.restaurante.nombre}</h1>
                     <hr></hr>
                     <Row >
@@ -66,24 +68,24 @@ const ListaEspera = (props) => {
                         <Col md={6}>
                             <Card className='mx-auto p-3 mb-2 lista text-white text-left' style={{ width: 'auto', height: "45rem" }}>
                                 <Card.Body>
-                                    <Form onSubmit={(e) => {actions.onSubmitpersonaenLista(mapList[0],persona,hora)
-                                                            actions.fetchListasEspera(props.match.params.id)}}>
                                     
-                                        <Button type="submit" variant="dark" className="boton">Añadir a la Lista</Button>
-                                    </Form>
                                     <Card.Title >
                                         <h3 className="text-center fontlistatit pt-2 pl-3">Lista de espera: {listapers.length}/{store.restaurante.capacidad_lista_espera} </h3>
                                     </Card.Title>
 
                                     <Card.Text className="fontlista" >
                                         {(inList) ?
-                                            "" : <ol>{mapPers}</ol>
+                                            "" : <ol>{listapers.map((item, i) => <li key={i}>{listapers[i].nombre}</li>)}</ol>
                                         }
                                     </Card.Text>
-
+                                        <Form className="text-center" onSubmit={(e) => {actions.onSubmitpersonaenLista(listaesp.map((item, i) => listaesp[i].id_lista)[0],persona,hora)}}>
+                                    
+                                        <Button type="submit" variant="dark" className="boton">Añadir a la Lista</Button>
+                                    </Form>
                                     <form className='my-5 abajo text-center fontlista' action='#' method='PUT' onSubmit={(e) => { e.preventDefault(); }}>{/* ruta en la api que maneje este form */}
-                                        <Button variant="dark" className="boton" size="lg" type='submit' onClick={() => { setInList(!inList) }}/*que mande tipo put para modificar la lista */>{inList ? 'Anotate en la fila!' : 'Salir de la fila'}</Button>
+                                        <Button variant="dark" className="boton" size="lg" type='submit' onClick={() => { setInList(!inList) }}/*que mande tipo put para modificar la lista */>{inList ? 'Ver fila' : "X"}</Button>
                                     </form>
+
                                 </Card.Body>
                             </Card>
                         </Col>

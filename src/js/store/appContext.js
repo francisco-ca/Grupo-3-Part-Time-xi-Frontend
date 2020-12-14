@@ -25,7 +25,9 @@ const injectContext = PassedComponent => {
         state.actions.fetchRestaurantes()
         state.actions.fetchListaEspera()
         state.actions.getListasEspera()
-        state.actions.getListaEspera(3)
+        // state.actions.getListaEspera(3)
+        // state.actions.fetchListasEspera(3)
+                                                            
 			/**
 			 * EDIT THIS!
 			 * This function is the equivalent to "window.onLoad", it only run once on the entire application lifetime
@@ -34,7 +36,7 @@ const injectContext = PassedComponent => {
 			 * state.loadSomeData(); <---- calling this function from the flux.js actions
 			 *
 			 **/
-		}, []);
+		}, [state.store]);
 
 		// the initial value for the context its not null anymore, but the current state of this component,
 		// the context will have a getStore and setStore functions available then, because they were declared
