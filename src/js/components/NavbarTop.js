@@ -1,11 +1,14 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, { useContext, useEffect, useState } from "react";
+import { Context } from '../store/appContext';
+import {Link, Redirect} from 'react-router-dom'
 import {Navbar, Nav} from 'react-bootstrap'
 
 const NavbarTop = () => {
+    const { store, actions } = useContext(Context);
     // let pers = sessionStorage.getItem('persona_data')
     // let perso= JSON.parse(pers)
     // let person= perso.usuario
+
     return (
         <Navbar bg="light" variant="light" expand="lg">
             <Navbar.Brand>
@@ -24,7 +27,7 @@ const NavbarTop = () => {
                 <Nav className="ml-auto mr-4">
                     <Link className= "nav-link" to="/lista_espera/:id">Anótate en la lista</Link>
                     <Link className= "nav-link" to="/restaurantes">Restaurants/Pubs</Link>
-                    <Link className= "nav-link" to="/cierra-sesion">Cierra sesión</Link>
+                    <Link className= "nav-link" to="/cierra-sesion">Cerrar Sesión</Link> 
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

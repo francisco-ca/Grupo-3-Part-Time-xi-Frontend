@@ -1,6 +1,6 @@
 import React from "react";
 import NavbarTop from '../components/NavbarTop'
-import { Image, Row, Col, ListGroup, Container } from 'react-bootstrap';
+import { Image, Row, Col, ListGroup, Container, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
 const Dashboard = () => {
@@ -24,6 +24,7 @@ const Dashboard = () => {
                 </Col>
 
             </Row>
+            
             </Container>
         </>
     )

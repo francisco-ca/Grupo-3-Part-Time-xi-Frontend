@@ -19,8 +19,18 @@ const getState = ({ getStore, setStore }) => {
             restaurantes: []
             ,
             roles: {
-                id_roles: "",
-                rol: ""
+                id_roles: "3",
+                rol: "",
+            },
+            paginas: {
+                id_paginas: "",
+                nombre_pagina: "",
+                ruta_pagina: ""
+            },
+            relaciones:{
+                id_relacion:"",
+                id_paginas:"",
+                rol_id:""
             }
         },
         actions: {
@@ -181,8 +191,8 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.persona)
                 }
-                fetch("https://5000-d9edb2e7-6407-420f-b188-08f085ad1dcf.ws-us02.gitpod.io/ingreso", options)
-                //fetch("http://127.0.0.1:5000/ingreso", options)
+                // fetch("https://5000-d9edb2e7-6407-420f-b188-08f085ad1dcf.ws-us02.gitpod.io/ingreso", options)
+                fetch("http://127.0.0.1:5000/ingreso", options)
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
@@ -211,20 +221,7 @@ const getState = ({ getStore, setStore }) => {
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
             },
-            fetchMenu: async (id) => {
-                const config = {
-                    "method": "GET",
-                    "headers": {
-                        "Content-type": "application/json"
-                    },
-                }
-                fetch(`http://127.0.0.1:5000/personas/pagina/${id}`, config)
-                    .then(res => res.json())
-                    .then(data => {setStore({ roles: data, ...data })
-                        console.log("data",data)
-                    })
-                    .catch(error => console.log(error))
-            }
+           
         }
     };
 }

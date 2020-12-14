@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Context } from '../store/appContext';
 import { Redirect } from 'react-router'
 
 const CierraSesion = (props) => {
-    console.log(sessionStorage)
+    const { store, actions } = useContext(Context);
+
+    useEffect(() => { }, []);
     
-    return (       
-        <Redirect to="/" />
+    return (   
+        <> 
+            {/* <Redirect to="/" /> */}
+        </>    
+        
     )
 }
 
