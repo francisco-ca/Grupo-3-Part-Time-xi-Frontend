@@ -6,12 +6,10 @@ const CierraSesion = (props) => {
     const { store, actions } = useContext(Context);
 
     useEffect(() => { }, []);
-    
+    sessionStorage.clear();
+
     return (   
-        <> 
-            {/* <Redirect to="/" /> */}
-        </>    
-        
+        <Redirect to="/ingreso"></Redirect>
     )
 }
 

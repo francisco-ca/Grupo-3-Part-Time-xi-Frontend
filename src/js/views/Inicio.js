@@ -41,7 +41,7 @@ const Inicio = () => {
 
         // </Container>
         <Container>
-            <NavbarTop />
+            {/*  */}
             <h2 className="text-center mt-4" style={{ color: 'black' }}>Bienvenido a la Lista de espera</h2>
             <Row className="text-center">
                 <h4>

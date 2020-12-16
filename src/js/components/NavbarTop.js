@@ -3,32 +3,43 @@ import { Context } from '../store/appContext';
 import {Link, Redirect} from 'react-router-dom'
 import {Navbar, Nav} from 'react-bootstrap'
 
-const NavbarTop = () => {
+const NavbarTop = (props) => {
     const { store, actions } = useContext(Context);
-    // let pers = sessionStorage.getItem('persona_data')
-    // let perso= JSON.parse(pers)
-    // let person= perso.usuario
+
+    const id_session = JSON.parse(sessionStorage.getItem('login'))
+    const id_rol = id_session.data.usuario.roles_id
+    const login_persona= id_session.login
+   
+
+    useEffect(() => { 
+        actions.fetchMenu(id_rol, login_persona)
+    }, []);
 
     return (
+        
         <Navbar bg="light" variant="light" expand="lg">
             <Navbar.Brand>
-                <Link to="/">
+                {/* <Link to="/"> */}
                     <img 
                         className="ml-4 mr-2"
                         style={{width:"60px"}}
                         src="/dinner-time.png"
                         alt='brand'
                     />   
-                </Link>
+                {/* </Link> */}
                 <span>Bienvenido</span> 
+                {/* {JSON.stringify(store.menu)} */}
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto mr-4">
-                    <Link className= "nav-link" to="/lista_espera/:id">Anótate en la lista</Link>
-                    <Link className= "nav-link" to="/restaurantes">Restaurants/Pubs</Link>
-                    <Link className= "nav-link" to="/cierra-sesion">Cerrar Sesión</Link> 
-                </Nav>
+                <Nav className="ml-auto mr-4"> 
+                    {
+                        store.menu.map((item, index) => (
+                            <Link key={index} className= "nav-link" to={item.ruta_pagina}>{item.nombre_pagina}</Link>
+                        ))
+                    }   
+                </Nav>  
+                
             </Navbar.Collapse>
         </Navbar>
     );
