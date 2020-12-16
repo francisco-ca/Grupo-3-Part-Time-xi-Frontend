@@ -47,10 +47,10 @@ const getState = ({ getStore, setStore }) => {
                     body: JSON.stringify({"usuario":usuario,
                                      "restaurante":restaurante})
                 }
-                //fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/restablecer_contraseña", options)
+                //fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/ws", options)
                 fetch("http://127.0.0.1:5000/ws", options)
                     .then(res => res.json())
-                    .then(data => { console.log(data); })
+                    .then(data => { console.log(data);  })
                     .catch(error => console.log(error))
             },
             onSubmitContraseña: (e, token) => {
@@ -66,11 +66,12 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.persona)
                 }
-                fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/restablecer_contraseña", options)
+                //fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/restablecer_contraseña", options)
+                fetch("http://127.0.0.1:5000/restablecer_contraseña", options)
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
-                        sessionStorage.setItem("persona_data", JSON.stringify(data))
+                        sessionStorage.setItem("login", JSON.stringify(data))
                     })
                     .catch(error => console.log(error))
             },
@@ -87,7 +88,8 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(persona)
                 }
-                fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/olvide_contraseña", options)
+                //fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/olvide_contraseña", options)
+                fetch("http://127.0.0.1:5000//olvide_contraseña", options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
@@ -106,7 +108,8 @@ const getState = ({ getStore, setStore }) => {
                         "Content-type": "application/json"
                     },
                 }
-                fetch(`https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/restaurantes/${id}`, config)
+                //fetch(`https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/restaurantes/${id}`, config)
+                fetch(`http://127.0.0.1:5000//restaurantes/${id}`, config)
             },
             fetchRestaurantes: async () => {
                 const login = JSON.parse(sessionStorage.getItem('login'))
@@ -161,7 +164,8 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.restaurante)
                 }
-                fetch(`https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/restaurantes/${id}`, options)
+                //fetch(`https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/restaurantes/${id}`, options)
+                fetch(`http://127.0.0.1:5000/restaurantes/${id}`, options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
@@ -193,7 +197,8 @@ const getState = ({ getStore, setStore }) => {
                     body: JSON.stringify(store.persona)
                 }
 
-                fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/registro", options)
+                //fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/registro", options)
+                fetch("http://127.0.0.1:5000/registro", options)
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
@@ -242,7 +247,8 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.restaurante)
                 }
-                fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/nuevo_restaurante", options)
+                //fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/nuevo_restaurante", options)
+                fetch("http://127.0.0.1:5000/nuevo_restaurante", options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
