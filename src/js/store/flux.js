@@ -51,7 +51,7 @@ const getState = ({ getStore, setStore }) => {
                                      "restaurante":restaurante})
                 }
                 //fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/ws", options)
-                fetch("https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/ws", options)
+                fetch("https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/ws", options)
                     .then(res => res.json())
                     .then(data => { console.log(data);  })
                     .catch(error => console.log(error))
@@ -70,7 +70,7 @@ const getState = ({ getStore, setStore }) => {
                     body: JSON.stringify(store.persona)
                 }
                 //fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/restablecer_contraseña", options)
-                fetch("https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/restablecer_contraseña", options)
+                fetch("https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/establecer_contraseña", options)
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
@@ -92,7 +92,7 @@ const getState = ({ getStore, setStore }) => {
                     body: JSON.stringify(persona)
                 }
                 //fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/olvide_contraseña", options)
-                fetch("https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/olvide_contraseña", options)
+                fetch("https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/olvide_contraseña", options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
@@ -112,7 +112,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                 }
                 //fetch(`https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/restaurantes/${id}`, config)
-                fetch(`https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/restaurantes/${id}`, config)
+                fetch(`https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/restaurantes/${id}`, config)
             },
             fetchRestaurantes: async () => {
                 const login = JSON.parse(sessionStorage.getItem('login'))
@@ -125,7 +125,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                 }
                 //fetch('https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/restaurantes', config)
-                fetch('https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/restaurantes', config)
+                fetch('https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/restaurantes', config)
                     .then(res => res.json())
                     .then(data => {
                         setStore({ restaurantes: data })
@@ -148,7 +148,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                 }
                 //fetch(`https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/restaurantes/${id}`, config)
-                fetch(`https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/restaurantes/${id}`, config)
+                fetch(`https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/restaurantes/${id}`, config)
                     .then(res => res.json())
                     .then(data => {
                         setStore({ restaurante: data.restaurante })
@@ -168,7 +168,7 @@ const getState = ({ getStore, setStore }) => {
                     body: JSON.stringify(store.restaurante)
                 }
                 //fetch(`https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/restaurantes/${id}`, options)
-                fetch(`https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/restaurantes/${id}`, options)
+                fetch(`https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/restaurantes/${id}`, options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
@@ -201,7 +201,7 @@ const getState = ({ getStore, setStore }) => {
                 }
 
                 //fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/registro", options)
-                fetch("https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/registro", options)
+                fetch("https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/registro", options)
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
@@ -225,7 +225,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                     body: JSON.stringify(store.persona)
                 }
-                fetch("https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/ingreso", options)
+                fetch("https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/ingreso", options)
                 //fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/ingreso", options)
                     .then(res => res.json())
                     .then(data => {
@@ -251,7 +251,7 @@ const getState = ({ getStore, setStore }) => {
                     body: JSON.stringify(store.restaurante)
                 }
                 //fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/nuevo_restaurante", options)
-                fetch("https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/nuevo_restaurante", options)
+                fetch("https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/nuevo_restaurante", options)
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
@@ -264,7 +264,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                 }
                 //fetch(`https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/personas/pagina/${id}`, config)
-                fetch(`https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/personas/pagina/${id}`, config)
+                fetch(`https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/personas/pagina/${id}`, config)
                     .then(res => res.json())
                     .then(data => {
                         setStore({ roles: data, ...data })
@@ -280,7 +280,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                 }
                 //fetch(`https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/listapersonas/${id}`, config)
-                fetch(`https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/listapersonas/${id}`, config)
+                fetch(`https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/listapersonas/${id}`, config)
                     .then(res => res.json())
                     .then(data => {
                         setStore({ listapersonas: data })
@@ -296,7 +296,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                 }
                 //fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/listapersonas", config)
-                fetch("https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/listapersonas", config)
+                fetch("https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/listapersonas", config)
                     .then(res => res.json())
                     .then(data => {
                         setStore({ listapersonas: data })
@@ -313,7 +313,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                 }
                 //fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/listasespera", config)
-                fetch("https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/listasespera", config)
+                fetch("https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/listasespera", config)
                     .then(res => res.json())
                     .then(data => {
                         setStore({ listapersonas: data })
@@ -330,7 +330,7 @@ const getState = ({ getStore, setStore }) => {
                     },
                 }
                 
-                fetch(`https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/listasespera/${id}`, config)
+                fetch(`https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/listasespera/${id}`, config)
                     .then(res => res.json())
                     .then(data => {
                         setStore({ getlistaespera: data })
@@ -352,7 +352,7 @@ const getState = ({ getStore, setStore }) => {
                     body: JSON.stringify(hola)
                 }
                 //fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/listas_persona", options)
-                fetch("https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/listas_persona", options)
+                fetch("https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/listas_persona", options)
                     .then(res => res.json())
                     .then(data => console.log("personasEnLista", data))
                     .catch(error => console.log(error))
@@ -366,7 +366,7 @@ const getState = ({ getStore, setStore }) => {
                         "Content-type": "application/json"
                     },
                 }
-                fetch(`https://5000-dabc1066-e3ae-4ed6-859c-f37b012b867b.ws-us03.gitpod.io/deletelistapersonas/${id}/${id2}`, config)
+                fetch(`https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/deletelistapersonas/${id}/${id2}`, config)
             },
             
 
