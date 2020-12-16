@@ -25,6 +25,7 @@ const ListaEspera = (props) => {
     const listapers = store.listapersonas
     // const mapPers = listapers.map((item, i) => <li key={i}>{listapers[i].nombre}</li>)
     const listaesp = store.getlistaespera
+    
     // const mapList = listaesp.map((item, i) => listaesp[i].id_lista)
     const hora = "11:32"
 
@@ -81,6 +82,10 @@ const ListaEspera = (props) => {
                                         <Form className="text-center" onSubmit={(e) => {actions.onSubmitpersonaenLista(listaesp.map((item, i) => listaesp[i].id_lista)[0],persona,hora)}}>
                                     
                                         <Button type="submit" variant="dark" className="boton">Añadir a la Lista</Button>
+                                    </Form>
+                                       <Form className="text-center" onSubmit={(e) => {actions.deletePersonaEnLista(listaesp.map((item, i) => listaesp[i].id_lista)[0],persona)}}>
+                                    
+                                        <Button type="submit" variant="dark" className="boton">Salir de la Lista</Button>
                                     </Form>
                                     <form className='my-5 abajo text-center fontlista' action='#' method='PUT' onSubmit={(e) => { e.preventDefault(); }}>{/* ruta en la api que maneje este form */}
                                         <Button variant="dark" className="boton" size="lg" type='submit' onClick={() => { setInList(!inList) }}/*que mande tipo put para modificar la lista */>{inList ? 'Ver fila' : "X"}</Button>
