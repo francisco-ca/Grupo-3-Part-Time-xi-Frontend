@@ -66,7 +66,7 @@ const ListaEspera = (props) => {
                             <h3 className=" p-3 mesas font ">Mesas disponibles: {0}/{store.restaurante.cantidad_maxima}</h3>
                         </Col>
                         <Col md={6}>
-                            <Card className='mx-auto p-3 mb-2 lista text-white text-left' style={{ width: 'auto', height: "45rem" }}>
+                            <Card className='mx-auto p-3 mb-2 lista text-white text-left' style={{ width: 'auto', height: "65rem" }}>
                                 <Card.Body>
                                     
                                     <Card.Title >

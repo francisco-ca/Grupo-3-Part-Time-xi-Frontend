@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
-import { Form, Button, Card } from 'react-bootstrap'
-import NavbarTop from '../components/NavbarTop'
+import { Form, Button } from 'react-bootstrap'
 import { Context } from "../store/appContext";
 
 const EnvioMsj = () => {
