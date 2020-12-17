@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from '../store/appContext';
 import { Form, Button, Card, Container } from 'react-bootstrap'
 import { Link, Redirect } from 'react-router-dom'
-import NavbarTop from '../components/NavbarTop'
 
 
 const Ingreso = (props) => {
@@ -15,7 +14,6 @@ const Ingreso = (props) => {
     //     data= JSON.parse(data);
     //     console.log(data.usuario)
     // };
-
     
     return (
         <Container>

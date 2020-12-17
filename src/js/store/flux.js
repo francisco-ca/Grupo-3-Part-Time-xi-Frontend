@@ -324,6 +324,77 @@ const getState = ({ getStore, setStore }) => {
                     .then(data => console.log("personasEnLista", data))
                     .catch(error => console.log(error))
             },
+            registroAdmin: (e) => {
+                e.preventDefault();
+                const store = getStore();
+                const { persona } = store;
+                let options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(store.persona)
+                }
+                fetch("http://127.0.0.1:5000/registro_admin", options)
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        sessionStorage.setItem("login", JSON.stringify({
+                            data,
+                            login: true,
+                        }))
+
+                        setStore({ persona: { login: true }, ...data })
+                    })
+                    .catch(error => console.log(error))
+            },
+            registroRecepcionista: (e) => {
+                e.preventDefault();
+                const store = getStore();
+                const { persona } = store;
+                let options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(store.persona)
+                }
+                fetch("http://127.0.0.1:5000/registro_recepcionista", options)
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        sessionStorage.setItem("login", JSON.stringify({
+                            data,
+                            login: true,
+                        }))
+
+                        setStore({ persona: { login: true }, ...data })
+                    })
+                    .catch(error => console.log(error))
+            },
+            logoutPersona: (e) => {
+                e.preventDefault();
+                const store = getStore();
+                const { persona } = store;
+                let options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(store.persona)
+                }
+
+                fetch("http://127.0.0.1:5000/login", options)
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data); 
+                        sessionStorage.setItem("login", JSON.stringify({
+                            login: false
+                        }))
+                        setStore({ persona: { login: false }})
+                    })
+                    .catch(error => console.log(error))
+            },
             
           
         }

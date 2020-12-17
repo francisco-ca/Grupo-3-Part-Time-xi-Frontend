@@ -19,6 +19,10 @@ import EditarRestaurante from './js/views/EditarRestaurante';
 import Dashboard from './js/views/Dashboard';
 import CierraSesion from './js/views/CierraSesion';
 import RestablecerContraseña from './js/views/RestablecerContraseña';
+//Vistas Administrador:
+import InicioAdmin from './js/views_admin/InicioAdmin';
+import RegistroAdmin from './js/views_admin/RegistroAdmin';
+import RegistroRecepcionista from './js/views_admin/RegistroRecepcionista';
 
 
 
@@ -27,6 +31,9 @@ function App() {
     <>
       <BrowserRouter>
         <Switch>
+          <Route exact path="/registro_recepcionista" component= {RegistroRecepcionista}/>
+          <Route exact path="/registro_admin" component= {RegistroAdmin}/>
+          <Route exact path="/admin" component= {InicioAdmin}/>
           <Route exact path="/lista_espera/:id" component= {ListaEspera}/>
           <Route exact path="/adm_lista_espera" component= {AdmListaEspera}/>
           <Route exact path="/restaurantes" component= {Restaurantes}/>

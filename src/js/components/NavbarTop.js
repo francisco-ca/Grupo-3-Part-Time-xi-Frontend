@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from '../store/appContext';
-import {Link, Redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {Navbar, Nav} from 'react-bootstrap'
 
 const NavbarTop = (props) => {
@@ -8,11 +8,9 @@ const NavbarTop = (props) => {
 
     const id_session = JSON.parse(sessionStorage.getItem('login'))
     const id_rol = id_session.data.usuario.roles_id
-    const login_persona= id_session.login
-   
 
     useEffect(() => { 
-        actions.fetchMenu(id_rol, login_persona)
+        actions.fetchMenu(id_rol);
     }, []);
 
     return (
