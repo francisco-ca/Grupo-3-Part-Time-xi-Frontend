@@ -1,8 +1,9 @@
-body{
-    background: url('https://static6.depositphotos.com/1126698/615/i/600/depositphotos_6152896-stock-photo-dark-interior-room.jpg');
-    background-repeat: no-repeat;
+.Cont{
+    background: url('https://www.ilovewallpaper.com/images/cutlery-contour-knife-fork-spoon-wallpaper-white-silver-w793317-p2516-12766_zoom.jpg');
     background-size: cover;
     position: relative;
+    background-repeat: repeat-x
+    
 }
 .footer-class{
     text-align: center;
@@ -11,4 +12,44 @@ body{
 }
 .botones{
     margin-left: 100%;
+}
+.abs-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+      
+
+.bordes{
+background: url("https://i.pinimg.com/736x/d9/0f/8c/d90f8cd2cced0ae3ac2637a35f15159b.jpg");
+border: 8px inset #4C242A;
+border-radius: 1px;
+outline: 3px ridge #4C242A;
+outline-offset: 0px;
+}
+.borde2{
+background: url("https://s-media-cache-ak0.pinimg.com/originals/97/9c/2c/979c2c0d951c97dc73d94fa5320ff613.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+color:white;
+border: 4px ridge #4C242A;
+border-radius: 1px;
+outline-offset: 0px;
+
+}
+.botone {
+	box-shadow:inset 0px 0px 4px -1px #4C242A;
+	background-color:#141111;
+	border-radius:6px;
+	border:4px solid #4C242A;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	font-weight:bold;
+	padding:9px 16px;
+    text-decoration:none;
+    margin: 0 auto;
 }
