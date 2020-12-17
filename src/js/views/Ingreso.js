@@ -17,11 +17,13 @@ const Ingreso = (props) => {
     
     return (
         <Container>
-            {/* <NavbarTop /> */}
+            {/* <NavbarTop/> */}
             <div className="container p-4 text-center d-flex justify-content-center" >
                 <Card style={{ width: '30rem' }} className="p-4 m-4">
                 {/* {JSON.stringify(store.persona)} */}
                     {!store.persona.login ?
+                    <>
+                        <h3 className="py-2">Iniciar sesión</h3>
                         <Form onSubmit={(e) => actions.loginPersona(e)}>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Control type="email" placeholder="Ingresa tu correo" name="correo" onChange={(e) => actions.onChangeUser(e)} value={store.persona.correo} />
@@ -35,8 +37,9 @@ const Ingreso = (props) => {
 
                             <Button className="mb-4" block size="lg" variant="secondary" type="submit">Iniciar sesión</Button>
 
-                            <Link to="/contraseña" className="mt-4">Recupera tu contraseña</Link>
+                            <Link to="/olvide_contraseña" className="mt-4">Recupera tu contraseña</Link>
                         </Form>
+                    </>
                         :
                         <Redirect to="dashboard"></Redirect>
                     }

@@ -12,7 +12,7 @@
 @media screen and (min-width: 1001px) {
   .fontlista {
     font-family:Copperplate Gothic Light;
-    font-size: 25px;
+    font-size: 15px;
   }
 }
 
@@ -33,7 +33,7 @@
 @media screen and (min-width: 1001px) {
   .fontlistatit {
     font-family:Copperplate Gothic Light;
-    font-size: 32px;
+    font-size: 25px;
   }
 }
 

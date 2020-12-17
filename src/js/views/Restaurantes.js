@@ -4,42 +4,37 @@ import { Button, Container, Row, Col, ListGroup } from 'react-bootstrap'
 import { Link, useHistory } from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop'
 import RestaurantCard from '../components/RestaurantCard'
-import { Redirect } from 'react-router-dom'
-
+import EnvioMsj from '../components/EnvioMsj';
 
 const Restaurantes = () => {
     const [valor, setValor] = useState(null)
-    // let valor = JSON.parse(sessionStorage.getItem("login"))
     const history = useHistory();
     const { store, actions } = useContext(Context);
     // const rest= store.restaurantes
     // const indice = rest.map((item,i) =>rest[i])
 
-    // console.log("prueba",indice)
     useEffect(() => {
         if (!sessionStorage.getItem("login")) {
             history.push("/ingreso");
-            // console.log("llll", sessionStorage.getItem("login"))
         }
         setValor(JSON.parse(sessionStorage.getItem("login")))
         actions.fetchRestaurantes()
         actions.fetchListaEspera()
         actions.getListasEspera()
 
+        console.log("valor-----", valor)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-         console.log("valor-----", valor)
-    }, [])
-    let perso = JSON.parse(sessionStorage.getItem('login'))
-    const persona = perso.data.usuario.nombre
-                   
+        }, [])
+    let perso = valor != null ?JSON.parse(sessionStorage.getItem('login')):""
+    const persona = valor != null ?perso.data.usuario.nombre:""
+    
    
     return (<>
-
-
         <Container>
             <NavbarTop />
             <div>
                 <h2 className='mx-auto my-3 text-center'> Bienvenido {persona}</h2>
+                <EnvioMsj></EnvioMsj>
                 <Row>
                     <Col>
                         <Row className='d-flex justify-content-between'>
@@ -62,9 +57,7 @@ const Restaurantes = () => {
                                         id={element.id_restaurante}
                                         key={index}>
                                     </RestaurantCard>
-                                    
                                 )
-                                console.log(element.id_restaurante)
                             })}
                         </ListGroup>
                     </Col>
