@@ -4,12 +4,11 @@ import { Redirect } from 'react-router'
 
 const CierraSesion = (props) => {
     const { store, actions } = useContext(Context);
-    // const id_session = JSON.parse(sessionStorage.getItem('login'));
-    // const logout = id_session.login;
+    const id_session = JSON.parse(sessionStorage.getItem('login'));
+    const logout = id_session.login;
 
     useEffect(() => {
-        // actions.logoutPersona(logout)
-        actions.loginPersona()
+        actions.loginPersona(logout)
     }, []);
 
 

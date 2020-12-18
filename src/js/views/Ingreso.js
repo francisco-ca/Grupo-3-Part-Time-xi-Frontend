@@ -41,7 +41,7 @@ const Ingreso = (props) => {
                         </Form>
                     </>
                         :
-                        <Redirect to="dashboard"></Redirect>
+                        <Redirect to="/restaurantes"></Redirect>
                     }
                 </Card>
             </div>

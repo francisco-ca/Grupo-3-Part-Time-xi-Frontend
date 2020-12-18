@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from '../store/appContext';
-import {Link} from 'react-router-dom'
-import {Navbar, Nav} from 'react-bootstrap'
+import {Link, Redirect} from 'react-router-dom'
+import {Navbar, Nav, Button} from 'react-bootstrap'
+import CierraSesion from "../views/CierraSesion";
 
 const NavbarTop = (props) => {
     const { store, actions } = useContext(Context);
@@ -35,7 +36,9 @@ const NavbarTop = (props) => {
                         store.menu.map((item, index) => (
                             <Link key={index} className= "nav-link" to={item.ruta_pagina}>{item.nombre_pagina}</Link>
                         ))
+
                     }   
+                    <Button className= "nav-link" onClick={(e)=> actions.cierraSesion(e)} ><Redirect to="/">Cerrar sesion</Redirect></Button>
                 </Nav>  
                 
             </Navbar.Collapse>

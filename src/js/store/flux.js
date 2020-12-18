@@ -236,8 +236,6 @@ const getState = ({ getStore, setStore }) => {
                 }
 
                 fetch("http://127.0.0.1:5000/ingreso", options)
-                //fetch("https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/ingreso", options)
-                //fetch("https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/ingreso", options)
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
@@ -434,6 +432,13 @@ const getState = ({ getStore, setStore }) => {
                     })
                     .catch(error => console.log(error))
             },
+                cierraSesion: (e) =>{
+                    const store= getStore();
+                    const {persona}= store;
+                    setStore({ persona: { login: false }})
+                    sessionStorage.clear()
+                    console.log("hola")
+                }
 
             
         }
