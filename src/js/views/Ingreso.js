@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from '../store/appContext';
-import { Form, Button, Card, Container } from 'react-bootstrap'
+import { Form, Button, Card, Container, Row } from 'react-bootstrap'
 import { Link, Redirect } from 'react-router-dom'
-
+import NavbarTop from '../components/NavbarTop'
+import '../estilos/inicio.css'
 
 const Ingreso = (props) => {
     const { store, actions } = useContext(Context);
@@ -16,10 +17,11 @@ const Ingreso = (props) => {
     // };
     
     return (
-        <Container>
-            {/* <NavbarTop/> */}
+         <Container>
+             <div className="Cont">
+            <div className= "abs-center text-center">
             <div className="container p-4 text-center d-flex justify-content-center" >
-                <Card style={{ width: '30rem' }} className="p-4 m-4">
+                <Card style={{ width: '30rem' }} className="p-4 m-4 borde3 fontt">
                 {/* {JSON.stringify(store.persona)} */}
                     {!store.persona.login ?
                     <>
@@ -32,11 +34,11 @@ const Ingreso = (props) => {
                                 <Form.Control type="password" placeholder="Contraseña" name="contraseña" onChange={(e) => actions.onChangeUser(e)} value={store.persona.contraseña} />
                             </Form.Group>
                             <Form.Group controlId="formBasicCheckbox">
-                                <Form.Check type="checkbox" label="Recordar contraseña" />
+                                {/* <Form.Check type="checkbox" label="Recordar contraseña" /> */}
                             </Form.Group>
-
-                            <Button className="mb-4" block size="lg" variant="secondary" type="submit">Iniciar sesión</Button>
-
+<Row>
+                            <Button className="mb-4 btn botone"  variant="dark" type="submit">Iniciar sesión</Button>
+</Row>
                             <Link to="/olvide_contraseña" className="mt-4">Recupera tu contraseña</Link>
                         </Form>
                     </>
@@ -45,7 +47,10 @@ const Ingreso = (props) => {
                     }
                 </Card>
             </div>
+            </div>
+            </div>
         </Container>
+      
     );
 }
 

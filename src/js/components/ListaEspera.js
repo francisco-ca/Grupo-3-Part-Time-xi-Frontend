@@ -47,34 +47,19 @@ const ListaEspera = (props) => {
 
         return (
             <Container>
+                <div className="Cont">
                 <NavbarTop />
-                <Jumbotron fluid className="pt-3 pb-3 text-center fondo " style={{ height: 'auto' }}>
-                    <Container onLoad={() => {
+                <div className= "abs-center">
+                <Jumbotron fluid className="mt-5 pt-3 pb-3 text-center fondo " style={{ height: 'auto' }}>
+                    <Container className="text-center" onLoad={() => {
                         actions.fetchListasEspera(props.match.params.id)
                         actions.getListaEspera(props.match.params.id)
                     }}>
                         <h1 className="font">{store.restaurante.nombre}</h1>
-                        <hr></hr>
+                        
                         <Row >
-                            <Col className="pt-2 pb-2" md={{ size: 'auto' }}>
-
-                                <p className='text-justify borde font p-3 '>
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                                    veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-                                    voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-                                    magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
-                                    qui dolorem ipsum quia dolor sit amet, consectetur
-                    </p>
-
-                                <hr></hr>
-                                <Image className="borde" src="/restaurante1.jpg" fluid />
-                                <hr></hr>
-
-                                <h3 className=" p-3 mesas font ">Mesas disponibles: {0}/{store.restaurante.cantidad_maxima}</h3>
-                            </Col>
-                            <Col md={6}>
-                                <Card className='mx-auto p-3 mb-2 lista text-white text-left' style={{ width: 'auto', height: "65rem" }}>
+                             <Col  s={4 }md={6}>
+                                <Card className='mx-auto p-3 mt-1 mb-2 lista bordelista text-white  text-left'>
                                     <Card.Body>
 
                                         <Card.Title >
@@ -103,11 +88,29 @@ const ListaEspera = (props) => {
                                     </Card.Body>
                                 </Card>
                             </Col>
+                            <Col className="pt-1 pb-2" md={{ size: 'auto' }}>
+
+                                <p className='text-justify borde font p-3 '>
+                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+                                    veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+                                    voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+                                    magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+                                    qui dolorem ipsum quia dolor sit amet, consectetur
+                    </p>
+
+                                <hr></hr>
+                                <Image className="borde" src="/restaurante1.jpg" fluid />
+                                <hr></hr>
+
+                                <h3 className=" p-3 mesas font ">Mesas disponibles: {0}/{store.restaurante.numero_mesas}</h3>
+                            </Col>
+                           
                         </Row>
                     </Container>
                 </Jumbotron>
-
-
+                </div>
+                </div>
 
 
             </Container>

@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from '../store/appContext';
 import {Link, Redirect} from 'react-router-dom'
 import {Navbar, Nav, Button} from 'react-bootstrap'
-import CierraSesion from "../views/CierraSesion";
+
+import '../estilos/inicio.css'
 
 const NavbarTop = (props) => {
     const { store, actions } = useContext(Context);
@@ -16,13 +17,13 @@ const NavbarTop = (props) => {
 
     return (
         
-        <Navbar bg="light" variant="light" expand="lg">
+        <Navbar className="navbarlindo" variant="dark" expand="lg">
             <Navbar.Brand>
                 {/* <Link to="/"> */}
                     <img 
                         className="ml-4 mr-2"
-                        style={{width:"60px"}}
-                        src="/dinner-time.png"
+                        style={{width:"100px"}}
+                        src="/4wait.png"
                         alt='brand'
                     />   
                 {/* </Link> */}
@@ -38,7 +39,7 @@ const NavbarTop = (props) => {
                         ))
 
                     }   
-                    <Button className= "nav-link" onClick={(e)=> actions.cierraSesion(e)} ><Redirect to="/">Cerrar sesion</Redirect></Button>
+                    {/* <Button className= "nav-link" onClick={(e)=> actions.cierraSesion(e)} ><Redirect to="/">Cerrar sesion</Redirect></Button> */}
                 </Nav>  
                 
             </Navbar.Collapse>

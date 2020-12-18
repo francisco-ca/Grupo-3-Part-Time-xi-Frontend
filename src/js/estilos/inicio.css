@@ -1,8 +1,9 @@
-body{
-    background: url('https://static6.depositphotos.com/1126698/615/i/600/depositphotos_6152896-stock-photo-dark-interior-room.jpg');
-    background-repeat: no-repeat;
+.Cont{
+    background: url('https://www.ilovewallpaper.com/images/cutlery-contour-knife-fork-spoon-wallpaper-white-silver-w793317-p2516-12766_zoom.jpg');
     background-size: cover;
     position: relative;
+    background-repeat: repeat-x
+    
 }
 .footer-class{
     text-align: center;
@@ -11,4 +12,148 @@ body{
 }
 .botones{
     margin-left: 100%;
+}
+.abs-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+      
+
+.bordes{
+background: url("https://i.pinimg.com/736x/d9/0f/8c/d90f8cd2cced0ae3ac2637a35f15159b.jpg");
+border: 8px inset #4C242A;
+border-radius: 1px;
+outline: 3px ridge #4C242A;
+outline-offset: 0px;
+}
+.borde2{
+background: url("https://meploteotodo.com.ar/wp-content/uploads/2020/03/TXT123_1.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+color:white;
+border: 4px ridge #4c242a;
+border-radius: 1px;
+outline-offset: 0px;
+
+}
+.borde3{
+background: url("https://i.pinimg.com/originals/7b/c3/a3/7bc3a3b5e1fd74354b6a5b5317b940a5.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+color:white;
+border: 4px ridge #4C242A;
+border-radius: 1px;
+outline-offset: 0px;
+
+}
+.borde4{
+background: url("https://meploteotodo.com.ar/wp-content/uploads/2020/03/TXT123_1.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+color:white;
+border: 3px inset #8B4513 !important;
+border-radius: 3px !important;
+outline: 2px ridge #8B4513 !important;
+outline-offset: 0px;
+
+}
+.botone {
+	box-shadow:inset 0px 0px 4px -1px #4C242A;
+	background-color:#141111;
+	border-radius:6px;
+	border:4px solid #4C242A;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	font-weight:bold;
+	padding:9px 16px;
+    text-decoration:none;
+    margin: 0 auto;
+}
+.botone2 {
+	box-shadow:inset 0px 0px 4px -1px #8B4513;
+	background-color:#141111;
+	border-radius:6px;
+	border:4px solid #8B4513;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	font-weight:bold;
+	padding:9px 16px;
+    text-decoration:none;
+    margin: 0 auto;
+}
+.botone3 {
+	box-shadow:inset 0px 0px 4px -1px #8B4513;
+	background-color:#141111;
+	border-radius:6px;
+	border:4px solid #8B4513;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	font-weight:bold;
+	padding:5px 8px;
+    text-decoration:none;
+    margin: 0 auto;
+    box-sizing:initial;
+    
+}
+.botoneUnirseLista {
+	box-shadow:inset 0px 0px 4px -1px #8B4513;
+	background-color:#141111;
+	border-radius:6px;
+	border:4px solid #8B4513;
+	display:inline-flex;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	font-weight:bold;
+	padding:5px 8px;
+    text-decoration:none;
+    margin: 0 auto;
+    box-sizing:initial;
+   
+}
+.botoneEliminar {
+	box-shadow:inset 0px 0px 4px -1px rgb(139, 19, 19);
+	background-color:#141111;
+	border-radius:6px;
+	border:4px solid rgb(139, 19, 19);
+	display:flexbox;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	font-weight:bold;
+	padding:5px 8px;
+    text-decoration:none;
+    margin: 3px 5px;
+    box-sizing:initial
+}
+
+.fontt{
+    font-family:Apple Chancery, cursive;
+    
+}
+.fontt2{
+    font-family:Bradley Hand, cursive;
+    
+}
+.imagen{
+    max-height: 200px;
+}
+.navbarlindo{
+    background: rgb(120,109,99);
+    background: radial-gradient(circle, rgba(120,109,99,1) 25%, rgba(27,5,5,1) 95%);
+    border-radius: 5px;
+    color:white;
+}
+.editar{
+    font-size: 30px;
+    color:white;
 }

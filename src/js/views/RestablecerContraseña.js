@@ -3,6 +3,7 @@ import { Form, Button, Card } from 'react-bootstrap'
 import NavbarTop from '../components/NavbarTop'
 import { Context } from "../store/appContext"
 import {useHistory, useParams} from 'react-router'
+import '../estilos/inicio.css'
 
 const RestablecerContraseña = () => {
     const { actions } = useContext(Context);
@@ -11,7 +12,9 @@ const RestablecerContraseña = () => {
     return (
         <>
             {/* <NavbarTop/> */}
-            <div className="container p-4 text-center d-flex justify-content-center" >
+            <div className="container " >
+                  <div className="Cont">
+            <div className= "abs-center text-center">
                 <Card style={{ width: '30rem' }} className="p-4 m-4">
                     <h3 className='pb-3'>Indica tu nueva contraseña</h3>
                     <Form onSubmit={(e)=>{actions.onSubmitContraseña(e , token)
@@ -23,6 +26,9 @@ const RestablecerContraseña = () => {
                     </Form>
                 </Card>
             </div>
+            </div>
+            </div>
+
         </>
     );
 }

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import NavbarTop from '../components/NavbarTop';
 import {Button, Modal, Card, Container} from 'react-bootstrap';
+import '../estilos/inicio.css'
 
 const AdmListaEspera = props => {
     const [showModal, setShowModal] = useState(false);

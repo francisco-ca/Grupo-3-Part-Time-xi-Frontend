@@ -4,16 +4,19 @@ import { Context } from "../store/appContext";
 import { Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import NavbarTop from '../components/NavbarTop'
+import '../estilos/inicio.css'
 
 const NuevoRestaurante = props => {
     const { store, actions } = useContext(Context);
     useEffect(() => { }, []);
     return (
         <div className="container">
+            <div className="Cont">
             <NavbarTop />
-            <Form onSubmit={(e)=>actions.onSubmitRest(e)}>
+            <div className= "abs-center">
+            <Form className="borde3 fontt p-4 m-4"onSubmit={(e)=>actions.onSubmitRest(e)}>
                 <Form.Group controlId="name">
-                    <Form.Label>Nombre de Restaurant/Pub</Form.Label>
+                    <Form.Label>Nombre de Restaurante/Pub</Form.Label>
                     <Form.Control type="text" placeholder="La manito de d10s" name="nombre" onChange={(e) => actions.onChangeRest(e)} value={store.restaurante.nombre}/>
                 </Form.Group>
                 <Form.Row>
@@ -37,10 +40,16 @@ const NuevoRestaurante = props => {
                     <Form.Label>Capacidad lista de espera</Form.Label>
                     <Form.Control type="text" placeholder="20" name="cap_lista" onChange={(e) => actions.onChangeRest(e)} value={store.restaurante.cap_lista} />
                 </Form.Group>
+                 <Form.Group controlId="formDescipcion">
+                        <Form.Label>Descripción Restaurante</Form.Label>
+                        <Form.Control type="text" placeholder="Descripción máximo 1000 caracteres" name="descripcion_rest" onChange={(e) => actions.onChangeRest(e)} value={store.restaurante.descripcion_rest} />
+                    </Form.Group>
                 <Button variant="primary" type="submit">
                     Registrar Restaurant
   </Button>
             </Form>
+            </div>
+        </div>
         </div>
     );
 };
