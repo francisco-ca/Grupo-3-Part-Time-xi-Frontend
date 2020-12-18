@@ -4,9 +4,11 @@ import NavbarTop from './NavbarTop';
 import { Button, Card, Container, Jumbotron, Col, Row, Image, Form } from 'react-bootstrap';
 import "./listaespera.css"
 import { FiChevronsUp } from "react-icons/fi";
+import EnvioMsj from './EnvioMsj';
 
 
 const ListaEspera = (props) => {
+    const [login, setLogin] = useState(null)
     const { store, actions } = useContext(Context);
     const [inList, setInList] = useState(true);
 
@@ -15,13 +17,14 @@ const ListaEspera = (props) => {
 
     console.log("prueba", persona)
     useEffect(() => {
-
+        setLogin(JSON.parse(sessionStorage.getItem("login")))
         actions.fetchRestaurante(props.match.params.id)
         actions.fetchListasEspera(props.match.params.id)
         actions.getListaEspera(props.match.params.id)
 
 
     }, [])
+    const roles_id = login != null ?perso.data.usuario.roles_id:""
     const listapers = store.listapersonas
     // const mapPers = listapers.map((item, i) => <li key={i}>{listapers[i].nombre}</li>)
     const listaesp = store.getlistaespera
@@ -65,7 +68,7 @@ const ListaEspera = (props) => {
                                     voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
                                     magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
                                     qui dolorem ipsum quia dolor sit amet, consectetur
-                    </p>
+                                </p>
 
                                 <hr></hr>
                                 <Image className="borde" src="/restaurante1.jpg" fluid />
@@ -83,7 +86,7 @@ const ListaEspera = (props) => {
 
                                         <Card.Text className="fontlista" >
                                             {(inList) ?
-                                                "" : <ol>{listapers.map((item, i) => <li key={i}>{listapers[i].nombre}</li>)}{console.log("asd", listapers)}</ol>
+                                                "" : <ol>{listapers.map((item, i) => <li key={i}>{listapers[i].nombre}{ roles_id === 2?<EnvioMsj/>:''}</li>)}{console.log("asd", listapers)}</ol>
                                             }
                                         </Card.Text>
 

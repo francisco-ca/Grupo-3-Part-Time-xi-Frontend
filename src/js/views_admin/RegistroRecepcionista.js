@@ -8,9 +8,6 @@ const RegistroRecepcionista = () => {
 
     return (
         <div className="container">
-            {JSON.stringify(store.persona)}
-            {!store.persona.signup_recepcionista ?
-            <>
                 <Form onSubmit={(e) => actions.registroRecepcionista(e)}>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formName">
@@ -38,13 +35,6 @@ const RegistroRecepcionista = () => {
                     </Form.Group>
                     <Button variant="primary" type="submit" > Registrar Recepcionista </Button>
                 </Form>
-                <Button className="mt-2" variant="warning" type="submit" > Editar Recepcionista </Button><br></br>
-                <Button className="mt-2" variant="danger" type="submit" > Eliminar Recepcionista</Button>
-
-                </>
-                :
-                console.log("Recepcionita agregado")
-            }
         </div>
     )
 }

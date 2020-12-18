@@ -24,7 +24,9 @@ const injectContext = PassedComponent => {
 		useEffect(() => {
         state.actions.fetchRestaurantes()
         state.actions.fetchListaEspera()
-        state.actions.getListasEspera()
+		state.actions.getListasEspera()
+		state.actions.getRecepcionistas()
+
         // state.actions.getListaEspera(3)
         // state.actions.fetchListasEspera(3)
                                                             

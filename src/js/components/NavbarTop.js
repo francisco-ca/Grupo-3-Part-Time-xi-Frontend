@@ -13,7 +13,6 @@ const NavbarTop = (props) => {
     useEffect(() => { 
         actions.fetchMenu(id_rol);
     }, []);
-
     return (
         
         <Navbar bg="light" variant="light" expand="lg">
@@ -36,9 +35,8 @@ const NavbarTop = (props) => {
                         store.menu.map((item, index) => (
                             <Link key={index} className= "nav-link" to={item.ruta_pagina}>{item.nombre_pagina}</Link>
                         ))
-
                     }   
-                    <Button className= "nav-link" onClick={(e)=> actions.cierraSesion(e)} ><Redirect to="/">Cerrar sesion</Redirect></Button>
+                    <Button className= "nav-link" onClick={(e)=> actions.cierraSesion(e)} >Cerrar sesion</Button>
                 </Nav>  
                 
             </Navbar.Collapse>

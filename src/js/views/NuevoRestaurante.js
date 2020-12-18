@@ -35,7 +35,7 @@ const NuevoRestaurante = props => {
 
                 <Form.Group controlId="formCapListaespera">
                     <Form.Label>Capacidad lista de espera</Form.Label>
-                    <Form.Control type="text" placeholder="20" name="cap_lista" onChange={(e) => actions.onChangeRest(e)} value={store.restaurante.cap_lista} />
+                    <Form.Control type="text" placeholder="20" name="capacidad_lista_espera" onChange={(e) => actions.onChangeRest(e)} value={store.restaurante.cap_lista} />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Registrar Restaurant

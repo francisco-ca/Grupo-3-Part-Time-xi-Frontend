@@ -27,6 +27,7 @@ const Restaurantes = () => {
         }, [])
     let perso = valor != null ?JSON.parse(sessionStorage.getItem('login')):""
     const persona = valor != null ?perso.data.usuario.nombre:""
+    const roles_id = valor != null ?perso.data.usuario.roles_id:""
     
    
     return (<>
@@ -42,11 +43,14 @@ const Restaurantes = () => {
                             <Col xs lg="10" className='mt-4'>
                                 <h2 className='my-2'>Restaurantes disponibles:</h2>
                             </Col>
+                            {(roles_id === 1)?
                             <Col xs lg="2" className='mt-4 '>
                                 <Button variant="primary" size="lg">
                                     <Link className="text-white" to='/nuevo_restaurante'>Agregar restaurante</Link>
                                 </Button>
                             </Col>
+                            :""
+                            }
                         </Row>
                         <ListGroup className='my-4 md-auto' variant='flush'>
                             {store.restaurantes.length > 0 && store.restaurantes.map((element, index) => {

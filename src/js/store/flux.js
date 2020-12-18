@@ -12,9 +12,9 @@ const getState = ({ getStore, setStore }) => {
             restaurante: {
                 nombre: "",
                 direccion: "",
-                numero_mesas: "",
                 telefono: "",
-                cap_lista: "",
+                numero_mesas:'',
+                capacidad_lista_espera: "",
             },
             restaurantes: []
             ,
@@ -34,11 +34,8 @@ const getState = ({ getStore, setStore }) => {
                 hora: ""
             },
             menu: [],
-            
-            getPersonaLista:{
-
-            }
-
+            getPersonaLista:{},
+            recepcionistas: []
         },
         actions: {
             onSubmitMsj: (e, usuario, restaurante) => {
@@ -438,8 +435,50 @@ const getState = ({ getStore, setStore }) => {
                     setStore({ persona: { login: false }})
                     sessionStorage.clear()
                     console.log("hola")
-                }
+                },
 
+
+
+
+
+
+
+
+                deleteRecepcionista: (index, id) => {
+                    const store = getStore();
+                    const { recepcionistas } = store;
+                    const nuevosRecepcionistas = recepcionistas.filter(function (prueba, i) {
+                        return i !== index;
+                    });
+                    setStore({ recepcionistas: nuevosRecepcionistas })
+    
+                    const config = {
+                        "method": "DELETE",
+                        "headers": {
+                            "Content-type": "application/json"
+                        },
+                    }
+                    fetch(`http://127.0.0.1:5000/recepcionistas/${id}`, config)
+                    //fetch(`https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/restaurantes/${id}`, config)
+                    // fetch(`https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/restaurantes/${id}`, config)
+                },
+                getRecepcionistas: async () => {
+                    const config = {
+                        "method": "GET",
+                        "headers": {
+                            "Content-type": "application/json",
+                        },
+                    }
+                    fetch('http://127.0.0.1:5000/recepcionistas', config)
+                    //fetch('https://5000-d56d0b51-bfa9-4ec4-a08d-f27826a83ba8.ws-us03.gitpod.io/restaurantes', config)
+                    // fetch('https://5000-a011bf89-bff9-4c0a-96da-16ac5abca649.ws-us03.gitpod.io/restaurantes', config)
+                        .then(res => res.json())
+                        .then(data => {
+                            setStore({ recepcionistas: data })
+                            console.log("data", data)
+                        })
+                        .catch(error => console.log(error))
+                }
             
         }
     }

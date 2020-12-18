@@ -1,19 +1,30 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../store/appContext';
 import { Button, Row, Col, ListGroup, Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
 
 const RestaurantCard = (props) => {
+    const [login, setLogin] = useState(null)
     const { store, actions } = useContext(Context);
     const element = props.element
     const index=props.index
-    const id = props.id
     
  console.log("element", element)
  console.log("index",index)
     console.log("id", props.id)
-  
+    useEffect(() => {
+        // if (!sessionStorage.getItem("login")) {
+            // history.push("/ingreso");
+        // }
+        setLogin(JSON.parse(sessionStorage.getItem("login")))
+
+        console.log("valor de login-----", login)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [])
+    let perso = login != null ?JSON.parse(sessionStorage.getItem('login')):""
+    const roles_id = login != null ?perso.data.usuario.roles_id:""
+    
     
     return (
         <ListGroup.Item className='md-auto my-1'>
@@ -32,9 +43,22 @@ const RestaurantCard = (props) => {
                             </Link>
                     </Button>
                 </Col>
+            { roles_id !== 3?
+                <Col className="my-auto" md='2'>
+                    <Button variant="primary" size="lg" >
+                        <Link to={`/restaurantes/${props.id}/editar`} className="text-white">
+                            Editar restaurante
+                            </Link>
+                    </Button>
+                </Col>
+                :''
+            }
+            { roles_id === 1?
                 <Col className="my-auto" md='2'>
                     <Button variant="danger" size="lg" onClick={() => actions.deleteRestaurant(index, props.id)}>Eliminar</Button>
                 </Col>
+                :''
+            }
                 <Col xs lg="2" >
                     <Image className="card-img" src={"default-restaurant.png"} rounded />
                 </Col>
