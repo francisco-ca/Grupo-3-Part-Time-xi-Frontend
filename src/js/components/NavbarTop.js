@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from '../store/appContext';
-import {Link, Redirect} from 'react-router-dom'
-import {Navbar, Nav, Button} from 'react-bootstrap'
-import CierraSesion from "../views/CierraSesion";
+import {Link} from 'react-router-dom'
+import {Navbar, Nav} from 'react-bootstrap'
+
+import '../estilos/inicio.css'
 
 const NavbarTop = (props) => {
     const { store, actions } = useContext(Context);
@@ -12,16 +13,17 @@ const NavbarTop = (props) => {
 
     useEffect(() => { 
         actions.fetchMenu(id_rol);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return (
         
-        <Navbar bg="light" variant="light" expand="lg">
+        <Navbar className="navbarlindo" variant="dark" expand="lg">
             <Navbar.Brand>
                 {/* <Link to="/"> */}
                     <img 
                         className="ml-4 mr-2"
-                        style={{width:"60px"}}
-                        src="/dinner-time.png"
+                        style={{width:"100px"}}
+                        src="/4wait.png"
                         alt='brand'
                     />   
                 {/* </Link> */}
@@ -36,7 +38,7 @@ const NavbarTop = (props) => {
                             <Link key={index} className= "nav-link" to={item.ruta_pagina}>{item.nombre_pagina}</Link>
                         ))
                     }   
-                    <Button className= "nav-link" onClick={(e)=> actions.cierraSesion(e)} >Cerrar sesion</Button>
+                    {/* <Button className= "nav-link" onClick={(e)=> actions.cierraSesion(e)} ><Redirect to="/">Cerrar sesion</Redirect></Button> */}
                 </Nav>  
                 
             </Navbar.Collapse>

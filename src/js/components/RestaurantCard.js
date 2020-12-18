@@ -2,65 +2,61 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../store/appContext';
 import { Button, Row, Col, ListGroup, Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
+import '../estilos/inicio.css'
+import { BsWrench } from "react-icons/bs";
+
 
 
 const RestaurantCard = (props) => {
     const [login, setLogin] = useState(null)
-    const { store, actions } = useContext(Context);
+    const { actions } = useContext(Context);
     const element = props.element
-    const index=props.index
-    
- console.log("element", element)
- console.log("index",index)
+    const index = props.index
+
+    console.log("element", element)
+    console.log("index", index)
     console.log("id", props.id)
     useEffect(() => {
         // if (!sessionStorage.getItem("login")) {
-            // history.push("/ingreso");
+        // history.push("/ingreso");
         // }
         setLogin(JSON.parse(sessionStorage.getItem("login")))
 
         console.log("valor de login-----", login)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [])
-    let perso = login != null ?JSON.parse(sessionStorage.getItem('login')):""
-    const roles_id = login != null ?perso.data.usuario.roles_id:""
-    
-    
+    }, [])
+    let perso = login != null ? JSON.parse(sessionStorage.getItem('login')) : ""
+    const roles_id = login != null ? perso.data.usuario.roles_id : ""
+
+
     return (
-        <ListGroup.Item className='md-auto my-1'>
+        <ListGroup.Item className='md-auto my-1 borde4 text-center'>
             <Row>
-                <Col>
-                    <h3>{element.nombre}</h3>
-                    <h4>Número de mesas: {element.cantidad_maxima}</h4>
-                    <h4>Personas en lista de espera: 1/{element.capacidad_lista_espera}</h4>
-                    <h4>Dirección: {element.direccion}</h4>
+                <Col className="fontt2 text-center" >
+                    <h2 className="font-italic">"{element.nombre}"</h2>
+                    <h5 >N° Mesas: {element.numero_mesas}</h5>
+                    <h5>Lista de espera: 1/{element.capacidad_lista_espera}</h5>
+                    <h5>{element.direccion}</h5>
                 </Col>
-                <Col className="my-auto" md='2'>
-                    <Button variant="primary" size="lg" >
-                        
-                        <Link to={`/lista_espera/${props.id}`} className="text-white">
-                            Unirte a la lista
+                <Col className="my-auto" md='3'>
+                    <Link to={`/lista_espera/${props.id}`} variant="dark" className="text-white botoneUnirseLista">
+                        Unirte a la lista
                             </Link>
-                    </Button>
                 </Col>
-            { roles_id !== 3?
-                <Col className="my-auto" md='2'>
-                    <Button variant="primary" size="lg" >
-                        <Link to={`/restaurantes/${props.id}/editar`} className="text-white">
-                            Editar restaurante
-                            </Link>
-                    </Button>
-                </Col>
-                :''
-            }
-            { roles_id === 1?
-                <Col className="my-auto" md='2'>
-                    <Button variant="danger" size="lg" onClick={() => actions.deleteRestaurant(index, props.id)}>Eliminar</Button>
-                </Col>
-                :''
-            }
-                <Col xs lg="2" >
-                    <Image className="card-img" src={"default-restaurant.png"} rounded />
+                {roles_id !== 3 ?
+                    <Col className="my-auto" md='1'>
+                        <Link to={`/restaurantes/${props.id}/editar`} size="lg" ><BsWrench className="editar"></BsWrench></Link>
+                    </Col>
+                    : ''
+                }
+                {roles_id === 1 ?
+                    <Col className="my-auto" md='2'>
+                        <Button className="botoneEliminar" variant="danger" size="lg" onClick={() => actions.deleteRestaurant(index, props.id)}>Eliminar</Button>
+                    </Col>
+                    : ''
+                }
+                <Col xs lg="3" >
+                    <Image className="card-img imagen" src={"restaurante0.jpg"} rounded />
                 </Col>
             </Row>
         </ListGroup.Item>

@@ -1,8 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect} from 'react'
 import { Context } from '../store/appContext';
-import { Button, Container, Row, Col, ListGroup, Table } from 'react-bootstrap'
-import { Link, useHistory } from 'react-router-dom'
+import { Button, Container, Row, Col, Table } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop'
+import Volver from "../components/Volver";
+import '../estilos/inicio.css'
 
 const Recepcionistas = () => {
     //const history = useHistory();
@@ -10,14 +12,14 @@ const Recepcionistas = () => {
 
     useEffect(() => {
         actions.getRecepcionistas()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (<>
         <Container>
+            <div className='cont'>
             <NavbarTop />
-            <div>
+            <div >
                 <h2 className='mx-auto my-3 text-center'> Lista de Recepcionistas</h2>
                 <Row>
                     <Col>
@@ -59,6 +61,8 @@ const Recepcionistas = () => {
                     </Col>
                 </Row>
             </div>
+        <Volver/>
+        </div>
         </Container>
     </>);
 }

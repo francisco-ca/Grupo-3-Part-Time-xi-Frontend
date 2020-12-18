@@ -15,9 +15,8 @@ import AdmListaEspera from './js/views/Adm_Lista_Espera';
 import Registro from "./js/views/Registro"
 import Restaurantes from './js/views/Restaurantes';
 import NuevoRestaurante from './js/views/NuevoRestaurante';
-import EditarRestaurante from './js/views/EditarRestaurante';
+import EditarRestaurante from './js/views/editarRestaurante';
 import Dashboard from './js/views/Dashboard';
-import CierraSesion from './js/views/CierraSesion';
 import RestablecerContraseña from './js/views/RestablecerContraseña';
 import Recepcionistas from './js/views_admin/Recepcionistas';
 //Vistas Administrador:
@@ -37,13 +36,12 @@ function App() {
           <Route exact path="/registro_admin" component= {RegistroAdmin}/>
           <Route exact path="/admin" component= {InicioAdmin}/>
           <Route exact path="/lista_espera/:id" component= {ListaEspera}/>
-          <Route exact path="/adm_lista_espera" component= {AdmListaEspera}/>
+          <Route exact path="/admin_lista_espera" component= {AdmListaEspera}/>
           <Route exact path="/restaurantes" component= {Restaurantes}/>
           <Route exact path="/nuevo_restaurante" component= {NuevoRestaurante}/>
           <Route exact path="/restaurantes/:id/editar" component= {EditarRestaurante}/>
           <Route exact path="/olvide_contraseña" component= {OlvideContraseña}/>
           <Route exact path="/restablecer_contraseña/:token" component= {RestablecerContraseña}/>
-          <Route exact path="/cierra_sesion" component= {CierraSesion}/>
           <Route exact path="/registro" component= {Registro}/>
           <Route exact path="/ingreso" component= {Ingreso}/>
           <Route exact path="/dashboard" component= {Dashboard}/>
