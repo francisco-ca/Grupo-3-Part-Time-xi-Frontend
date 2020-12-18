@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { Form, Button, Card } from 'react-bootstrap'
-import NavbarTop from '../components/NavbarTop'
 import { Context } from "../store/appContext";
 import '../estilos/inicio.css'
 
@@ -9,7 +8,6 @@ const OlvideContraseña = () => {
     console.log(actions)
     return (
         <>
-
             <div className="container" >
                 <div className="Cont">
                     <div className="abs-center text-center">

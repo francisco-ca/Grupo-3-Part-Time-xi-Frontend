@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from '../store/appContext';
-import {Link, Redirect} from 'react-router-dom'
-import {Navbar, Nav, Button} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
+import {Navbar, Nav} from 'react-bootstrap'
 
 import '../estilos/inicio.css'
 
@@ -13,8 +13,8 @@ const NavbarTop = (props) => {
 
     useEffect(() => { 
         actions.fetchMenu(id_rol);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
     return (
         
         <Navbar className="navbarlindo" variant="dark" expand="lg">
@@ -37,7 +37,6 @@ const NavbarTop = (props) => {
                         store.menu.map((item, index) => (
                             <Link key={index} className= "nav-link" to={item.ruta_pagina}>{item.nombre_pagina}</Link>
                         ))
-
                     }   
                     {/* <Button className= "nav-link" onClick={(e)=> actions.cierraSesion(e)} ><Redirect to="/">Cerrar sesion</Redirect></Button> */}
                 </Nav>  

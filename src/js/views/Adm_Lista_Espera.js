@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import NavbarTop from '../components/NavbarTop';
 import {Button, Modal, Card, Container} from 'react-bootstrap';
 import '../estilos/inicio.css'
+import Volver from '../components/Volver'
 
 const AdmListaEspera = props => {
     const [showModal, setShowModal] = useState(false);
@@ -61,6 +62,7 @@ const AdmListaEspera = props => {
                     </div>
                 </div>
             </div>
+            <Volver/>
         </Container>
         )
 }

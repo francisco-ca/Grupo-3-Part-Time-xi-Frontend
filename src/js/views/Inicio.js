@@ -2,7 +2,6 @@ import React from 'react'
 import { Container, Row, Col, Image } from 'react-bootstrap'
 import '../estilos/inicio.css'
 import { Link } from 'react-router-dom'
-import NavbarTop from '../components/NavbarTop'
 
 const Inicio = () => {
     //const persona_data=JSON.parse(sessionStorage.getItem('persona_data'))
@@ -12,7 +11,6 @@ const Inicio = () => {
      <>
         <Container  >
             <div className="Cont">
-            {/* <NavbarTop /> */}
             <div className= "abs-center">
             <div className= "fond borde2" >
                 <h1 className="text-center m-4">Bienvenido a la app!</h1>

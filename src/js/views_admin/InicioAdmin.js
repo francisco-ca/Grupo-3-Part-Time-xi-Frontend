@@ -1,12 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Context } from '../store/appContext';
+import React, { useEffect} from "react";
 import { Link } from 'react-router-dom'
-import { Button, Row, Col } from 'react-bootstrap'
+import {Row} from 'react-bootstrap'
 import '../estilos/inicio.css'
 
 
 const InicioAdmin = () => {
-    const { store, actions } = useContext(Context);
     useEffect(() => { }, []);
 
     return (
