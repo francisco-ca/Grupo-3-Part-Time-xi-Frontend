@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from '../store/appContext';
-import {Link, Redirect} from 'react-router-dom'
-import {Navbar, Nav, Button} from 'react-bootstrap'
-import CierraSesion from "../views/CierraSesion";
+import {Link, Redirect} from 'react-router-dom';
+import {Navbar, Nav, Button} from 'react-bootstrap';
 
 const NavbarTop = (props) => {
     const { store, actions } = useContext(Context);
 
     const id_session = JSON.parse(sessionStorage.getItem('login'))
     const id_rol = id_session.data.usuario.roles_id
+
+    console.log(props);
 
     useEffect(() => { 
         actions.fetchMenu(id_rol);
@@ -38,7 +39,7 @@ const NavbarTop = (props) => {
                         ))
 
                     }   
-                    <Button className= "nav-link" onClick={(e)=> actions.cierraSesion(e)} ><Redirect to="/">Cerrar sesion</Redirect></Button>
+                    <Button variant="outline-secondary" style={{border: "None"}} onClick={(e)=> actions.cierraSesion(e, props.history)} >Cerrar sesion</Button>
                 </Nav>  
                 
             </Navbar.Collapse>

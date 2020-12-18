@@ -31,7 +31,7 @@ const Restaurantes = () => {
    
     return (<>
         <Container>
-            <NavbarTop />
+            <NavbarTop history= {history} />
             <div>
                 <h2 className='mx-auto my-3 text-center'> Bienvenido {persona}</h2>
                 <EnvioMsj></EnvioMsj>

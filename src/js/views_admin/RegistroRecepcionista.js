@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import { Form, Col, Button } from 'react-bootstrap';
+import {Link} from 'react-router-dom'
 
 const RegistroRecepcionista = () => {
     const { store, actions } = useContext(Context);
-    useEffect(() => { }, []);
+    useEffect(() => { 
+
+    }, []);
 
     return (
         <div className="container">
@@ -36,14 +39,16 @@ const RegistroRecepcionista = () => {
                         <Form.Label>Contraseña</Form.Label>
                         <Form.Control type="password" placeholder="Contraseña" name="contraseña" onChange={(e) => actions.onChangeUser(e)} value={store.persona.contraseña} />
                     </Form.Group>
-                    <Button variant="primary" type="submit" > Registrar Recepcionista </Button>
+                    <Button variant="primary" type="submit" /*onClick={(e)=> actions.registroRecepcionista(e)}*/ > Registrar Recepcionista </Button>
                 </Form>
-                <Button className="mt-2" variant="warning" type="submit" > Editar Recepcionista </Button><br></br>
+                <Button className="mt-2" variant="warning" type="submit"><Link to="/registro_recepcionista/:id"> Editar Recepcionista</Link></Button><br></br>
                 <Button className="mt-2" variant="danger" type="submit" > Eliminar Recepcionista</Button>
 
                 </>
                 :
-                console.log("Recepcionita agregado")
+                store.persona.map( (item, index) =>(
+                    <Link key={index} className= "nav-link" to={item.nombre}>{item.apellido}</Link>
+                ))
             }
         </div>
     )
