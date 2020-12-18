@@ -14,9 +14,9 @@ const Restaurantes = () => {
     // const indice = rest.map((item,i) =>rest[i])
 
     useEffect(() => {
-        if (!sessionStorage.getItem("login")) {
-            history.push("/ingreso");
-        }
+        // if (!sessionStorage.getItem("login")) {
+            // history.push("/ingreso");
+        // }
         setValor(JSON.parse(sessionStorage.getItem("login")))
         actions.fetchRestaurantes()
         actions.fetchListaEspera()

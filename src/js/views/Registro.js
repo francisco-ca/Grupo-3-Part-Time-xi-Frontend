@@ -4,7 +4,6 @@ import { Form } from 'react-bootstrap';
 import { Context } from "../store/appContext";
 import { Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
-import NavbarTop from '../components/NavbarTop'
 
 const Registro = props => {
     const { store, actions } = useContext(Context);
@@ -12,7 +11,6 @@ const Registro = props => {
     useEffect(() => { }, []);
     return (
         <div className="container">
-            <NavbarTop /> 
             {JSON.stringify(store.persona)}
             {!store.persona.signup ?
             <Form onSubmit={(e)=>actions.onSubmitPersona(e)}>

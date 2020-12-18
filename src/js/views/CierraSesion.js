@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Context } from '../store/appContext';
 import { Redirect } from 'react-router'
 
 const CierraSesion = (props) => {
-    console.log(sessionStorage)
-    
-    return (       
-        <Redirect to="/" />
+    const { store, actions } = useContext(Context);
+    const id_session = JSON.parse(sessionStorage.getItem('login'));
+    const logout = id_session.login;
+
+    useEffect(() => {
+        actions.loginPersona(logout)
+    }, []);
+
+
+    return (
+        <>
+            {!store.persona.login ?
+                <Redirect to="/"></Redirect>
+                :
+                console.log("oh")
+            }
+            {/* <Redirect to="/"></Redirect>
+        {
+            sessionStorage.clear()
+        } */}
+        </>
+
     )
 }
 

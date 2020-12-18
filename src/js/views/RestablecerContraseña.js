@@ -10,7 +10,7 @@ const RestablecerContraseña = () => {
     const history = useHistory()
     return (
         <>
-            <NavbarTop/>
+            {/* <NavbarTop/> */}
             <div className="container p-4 text-center d-flex justify-content-center" >
                 <Card style={{ width: '30rem' }} className="p-4 m-4">
                     <h3 className='pb-3'>Indica tu nueva contraseña</h3>

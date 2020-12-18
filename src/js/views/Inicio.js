@@ -41,7 +41,7 @@ const Inicio = () => {
 
         // </Container>
         <Container>
-            <NavbarTop />
+            {/*  */}
             <h2 className="text-center mt-4" style={{ color: 'black' }}>Bienvenido a la Lista de espera</h2>
             <Row className="text-center">
                 <h4>
@@ -63,9 +63,9 @@ const Inicio = () => {
                 <Link to="/registro" className="btn btn-primary">Regístrate. Es gratis </Link>
             </Row >
             <div>
-            <Link to="/olvide_contraseña">
-                <p className="" style={{ color: "gray" }}>¿No recuerdas tu contraseña?</p>
-            </Link>
+                <Link to="/olvide_contraseña">
+                    <p className="" style={{ color: "gray" }}>¿No recuerdas tu contraseña?</p>
+                </Link>
             </div>
         </Container>
     );
