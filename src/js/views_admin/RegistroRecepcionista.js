@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import { Form, Col, Button } from 'react-bootstrap';
+import '../estilos/inicio.css'
 
 const RegistroRecepcionista = () => {
     const { store, actions } = useContext(Context);
@@ -8,10 +9,12 @@ const RegistroRecepcionista = () => {
 
     return (
         <div className="container">
-            {JSON.stringify(store.persona)}
+             <div className="Cont">
+            <div className= "abs-center text-center">
+            
             {!store.persona.signup_recepcionista ?
             <>
-                <Form onSubmit={(e) => actions.registroRecepcionista(e)}>
+                <Form className="p-4 m-4 borde3 fontt" onSubmit={(e) => actions.registroRecepcionista(e)}>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formName">
                             <Form.Label>Nombre</Form.Label>
@@ -36,15 +39,17 @@ const RegistroRecepcionista = () => {
                         <Form.Label>Contraseña</Form.Label>
                         <Form.Control type="password" placeholder="Contraseña" name="contraseña" onChange={(e) => actions.onChangeUser(e)} value={store.persona.contraseña} />
                     </Form.Group>
-                    <Button variant="primary" type="submit" > Registrar Recepcionista </Button>
+                    <Button className="mb-4 btn botone" variant="dark" type="submit" > Registrar Recepcionista </Button>
                 </Form>
-                <Button className="mt-2" variant="warning" type="submit" > Editar Recepcionista </Button><br></br>
-                <Button className="mt-2" variant="danger" type="submit" > Eliminar Recepcionista</Button>
+                {/* <Button className="mt-2" variant="warning" type="submit" > Editar Recepcionista </Button><br></br>
+                <Button className="mt-2" variant="danger" type="submit" > Eliminar Recepcionista</Button> */}
 
                 </>
                 :
                 console.log("Recepcionita agregado")
             }
+            </div>
+            </div>
         </div>
     )
 }

@@ -3,6 +3,10 @@
       background-repeat: no-repeat;
       background-size: cover;
       color:white;
+      border: 5px inset #5B5154;
+    border-radius: 1px;
+    outline: 2px ridge #5B5154;
+    outline-offset: 0px;
 }
 .font{
     font-family:Copperplate Gothic Light;
@@ -67,16 +71,36 @@ border-radius: 1px;
 outline: 3px ridge #5B5154;
 outline-offset: 0px;
 }
-
-     
-
-.lista{
-    background: url("https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-black-hand-drawn-menu-background-picture-backgroundmenubackgroundgreenmenulayeringmenu-recipeadvertising-design-image_87621.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    color:white;
+.bordelista{
+background: url("https://i.pinimg.com/736x/d9/0f/8c/d90f8cd2cced0ae3ac2637a35f15159b.jpg");
+border: 8px inset #5B5154;
+border-radius: 1px;
+outline: 3px ridge #5B5154;
+outline-offset: 0px;
 
 }
+
+     
+@media screen and (min-width: 761px){
+.lista{
+    background: rgb(120,109,99);
+    background: radial-gradient(circle, rgba(120,109,99,1) 4%, rgba(17,14,13,1) 95%);
+    background-size: cover;
+    color:white;
+    width: auto;
+    height: 43.7rem;
+
+}}
+@media screen and (max-width: 760px){
+.lista{
+    background: rgb(120,109,99);
+background: radial-gradient(circle, rgba(120,109,99,1) 4%, rgba(17,14,13,1) 95%);
+    background-size: contain;
+    color:white;
+    width: auto;
+    height: auto;
+
+}}
 .abajo{
     position: relative;
     margin-left:0px;
