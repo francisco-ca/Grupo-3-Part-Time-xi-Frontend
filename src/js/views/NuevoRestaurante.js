@@ -1,21 +1,24 @@
 import React, { useContext, useEffect } from "react";
-import { Form } from 'react-bootstrap';
+import { Form, Row } from 'react-bootstrap';
 import { Context } from "../store/appContext";
-import { Col,Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import NavbarTop from '../components/NavbarTop'
 import '../estilos/inicio.css'
 import Volver from '../components/Volver'
+import { useHistory } from 'react-router-dom'
+
 
 const NuevoRestaurante = props => {
     const { store, actions } = useContext(Context);
+    const history = useHistory();
     useEffect(() => { }, []);
     return (
         <div className="container">
             <div className="Cont">
-                <NavbarTop />
+                <NavbarTop history={history}/>
                 <div className="abs-center">
-                    <Form className="borde3 fontt p-4 m-4" onSubmit={(e) => actions.onSubmitRest(e)}>
+                    <Form className="borde3 fontt p-4 m-4" onSubmit={(e) => {actions.onSubmitRest(e);history.goBack()}}>
                         <h1 className='text-center my-2'>Nuevo Restaurante</h1>
 
                         <Form.Group controlId="name">

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Redirect } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 import { Form } from 'react-bootstrap';
 import { Context } from "../store/appContext";
 import { Col, Row } from 'react-bootstrap';
@@ -9,14 +9,14 @@ import Volver from "../components/Volver";
 
 const Registro = props => {
     const { store, actions } = useContext(Context);
-
+    const history = useHistory();
     useEffect(() => { }, []);
     return (
         <div className="container">
             <div className="Cont">
                 <div className="abs-center text-center">
                     {!store.persona.signup ?
-                        <Form className="p-4 m-4 borde3 fontt" onSubmit={(e) => actions.onSubmitPersona(e)}>
+                        <Form className="p-4 m-4 borde3 fontt" onSubmit={(e) => {actions.onSubmitPersona(e);history.goBack()}}>
                             <Form.Group controlId="username">
                                 <Form.Label>Nombre de Usuario</Form.Label>
                                 <Form.Control type="text" placeholder="SiempreHambriento123" name="usuario" onChange={(e) => actions.onChangeUser(e)} value={store.persona.usuario} />

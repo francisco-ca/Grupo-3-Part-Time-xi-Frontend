@@ -3,9 +3,11 @@ import { Form, Button, Card, Row } from 'react-bootstrap'
 import { Context } from "../store/appContext";
 import '../estilos/inicio.css'
 import Volver from "../components/Volver";
+import { useHistory } from 'react-router-dom';
 
 const OlvideContraseña = () => {
     const { actions } = useContext(Context);
+    const history = useHistory();
     console.log(actions)
     return (
         <>
@@ -16,7 +18,8 @@ const OlvideContraseña = () => {
                             <h3>¿Olvidaste tu contraseña?</h3>
                             <p>Introduce la dirección de correo electrónico con la que accedes a la app. En unos minutos recibirás
                         un email para reestablecer tu contraseña </p>
-                            <Form onSubmit={(e) => actions.onSubmitCorreo(e)}>
+                            <Form onSubmit={(e) => {actions.onSubmitCorreo(e) 
+                                                    history.push("/restablecer_contraseña/1")}}>
                                 <Form.Group controlId="formBasicEmail">
                                     <Form.Control type="email" placeholder="Ingresa tu correo" name="correo" onChange={(e) => actions.onChangeUser(e)} />
                                 </Form.Group>

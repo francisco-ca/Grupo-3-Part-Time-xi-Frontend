@@ -24,7 +24,7 @@ const Restaurantes = () => {
         actions.getListasEspera()
 
         console.log("valor-----", valor)
-        
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     let perso = valor != null ? JSON.parse(sessionStorage.getItem('login')) : ""
     const persona = valor != null ? perso.data.usuario.nombre : ""

@@ -17,7 +17,7 @@ const RestablecerContraseña = () => {
                             <h3 className='pb-3'>Indica tu nueva contraseña</h3>
                             <Form onSubmit={(e) => {
                                 actions.onSubmitContraseña(e, token)
-                                history.push("/dashboard")
+                                history.push("/ingreso")
                             }}>
                                 <Form.Group controlId="formBasicEmail">
                                     <Form.Control type="password" placeholder="Contraseña" name="contraseña" onChange={(e) => actions.onChangeUser(e)} required />

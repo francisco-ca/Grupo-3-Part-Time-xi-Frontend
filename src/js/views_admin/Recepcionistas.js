@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop'
 import Volver from "../components/Volver";
 import '../estilos/inicio.css'
+import { useHistory } from 'react-router-dom'
 
 const Recepcionistas = () => {
     //const history = useHistory();
     const { store, actions } = useContext(Context);
-
+    const history = useHistory()
     useEffect(() => {
         actions.getRecepcionistas()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -19,7 +20,7 @@ const Recepcionistas = () => {
         <Container>
             <div className="Cont">
                 
-            <NavbarTop />
+            <NavbarTop history={history}/>
        
             <div className="abs-center text-center">
             <div className="p-4 m-4 borde3 fontt">

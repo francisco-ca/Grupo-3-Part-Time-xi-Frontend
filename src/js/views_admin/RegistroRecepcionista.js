@@ -3,16 +3,18 @@ import { Context } from "../store/appContext";
 import { Form, Col, Button, Row } from 'react-bootstrap';
 import Volver from "../components/Volver";
 import '../estilos/inicio.css'
+import { useHistory } from 'react-router-dom'
 
 const RegistroRecepcionista = () => {
     const { store, actions } = useContext(Context);
+    const history =useHistory();
     useEffect(() => { }, []);
 
     return (
         <div className="container">
              <div className="Cont">
             <div className= "abs-center text-center">
-                <Form className="p-4 m-4 borde3 fontt" onSubmit={(e) => actions.registroRecepcionista(e)}>
+                <Form className="p-4 m-4 borde3 fontt" onSubmit={(e) => {actions.registroRecepcionista(e);history.push('/restaurantes')}}>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formName">
                             <Form.Label>Nombre</Form.Label>

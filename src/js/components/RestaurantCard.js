@@ -44,12 +44,13 @@ const RestaurantCard = (props) => {
                         Unirte a la lista
                             </Link>
                 </Col>
-                {roles_id !== 3 ?
+                {(roles_id === 2 && element.nombre === 'PiscoSour' ) || roles_id === 1 ?
                     <Col className="my-auto" md='1'>
                         <Link to={`/restaurantes/${props.id}/editar`} size="lg" ><BsWrench className="editar"></BsWrench></Link>
                     </Col>
                     : ''
                 }
+             
                 {roles_id === 1 ?
                     <Col className="my-auto" md='2'>
                         <Button className="botoneEliminar" variant="danger" size="lg" onClick={() => actions.deleteRestaurant(index, props.id)}>Eliminar</Button>

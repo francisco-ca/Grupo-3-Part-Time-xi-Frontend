@@ -31,7 +31,6 @@ const Ingreso = (props) => {
                                             {/* <Form.Check type="checkbox" label="Recordar contraseña" /> */}
                                         </Form.Group>
                                         <Row>
-
                                             <Button className="mb-1 btn botone" variant="dark" type="submit">Iniciar sesión</Button>
                                         </Row>
                                         <Row><Volver /></Row>
