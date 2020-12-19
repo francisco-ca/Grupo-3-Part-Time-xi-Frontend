@@ -1,20 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect} from "react";
 import { Context } from "../store/appContext";
 import { Form, Col, Button } from 'react-bootstrap';
-import {Link} from 'react-router-dom'
+import Volver from "../components/Volver";
+import '../estilos/inicio.css'
 
 const RegistroRecepcionista = () => {
     const { store, actions } = useContext(Context);
-    useEffect(() => { 
-
-    }, []);
+    useEffect(() => { }, []);
 
     return (
         <div className="container">
-            {JSON.stringify(store.persona)}
-            {!store.persona.signup_recepcionista ?
-            <>
-                <Form onSubmit={(e) => actions.registroRecepcionista(e)}>
+             <div className="Cont">
+            <div className= "abs-center text-center">
+                <Form className="p-4 m-4 borde3 fontt" onSubmit={(e) => actions.registroRecepcionista(e)}>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formName">
                             <Form.Label>Nombre</Form.Label>
@@ -39,17 +37,11 @@ const RegistroRecepcionista = () => {
                         <Form.Label>Contraseña</Form.Label>
                         <Form.Control type="password" placeholder="Contraseña" name="contraseña" onChange={(e) => actions.onChangeUser(e)} value={store.persona.contraseña} />
                     </Form.Group>
-                    <Button variant="primary" type="submit" /*onClick={(e)=> actions.registroRecepcionista(e)}*/ > Registrar Recepcionista </Button>
+                    <Volver/>
+                    <Button className="btn botone" variant="dark" type="submit" > Registrar Recepcionista </Button>
                 </Form>
-                <Button className="mt-2" variant="warning" type="submit"><Link to="/registro_recepcionista/:id"> Editar Recepcionista</Link></Button><br></br>
-                <Button className="mt-2" variant="danger" type="submit" > Eliminar Recepcionista</Button>
-
-                </>
-                :
-                store.persona.map( (item, index) =>(
-                    <Link key={index} className= "nav-link" to={item.nombre}>{item.apellido}</Link>
-                ))
-            }
+            </div>
+            </div>
         </div>
     )
 }
