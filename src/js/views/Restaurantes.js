@@ -33,7 +33,7 @@ const Restaurantes = () => {
     return (<>
         <Container>
             <div className="Cont">
-                <NavbarTop />
+                <NavbarTop history= {history} />
                 <div className="abs-center fontt">
                     <div>
                         <h2 className='mx-auto my-3 text-center font-italic font-weight-bold'> Bienvenido "{persona}"</h2>

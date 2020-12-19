@@ -416,14 +416,47 @@ const getState = ({ getStore, setStore }) => {
                         setStore({ persona: { login: true }, ...data })
                     })
                     .catch(error => console.log(error))
-            },
-                cierraSesion: (e) =>{
+            // },
+                // putRecepcionista: (e, id) => {
+                //     e.preventDefault();
+                //     const store = getStore();
+                //     let options = {
+                //         method: "PUT",
+                //         headers: {
+                //             "Content-Type": "application/json"
+                //         },
+                //         body: JSON.stringify(store.persona)
+                //     }
+                //     fetch(`http://127.0.0.1:5000/registro_recepcionista/${id}`, options)
+                //         .then(res => res.json())
+                //         .then(data => console.log(data))
+                //         .catch(error => console.log(error))
+                // },
+                // deleteRecepcionista: (id) => {
+                //     const store = getStore();
+                //     const { persona } = store;
+                    
+                //     const config = {
+                //         "method": "DELETE",
+                //         "headers": {
+                //             "Content-type": "application/json"
+                //         },
+                //     }
+                //     fetch(`http://127.0.0.1:5000/registro_recepcionista/${id}`, config)
+
+                //     const recepcionistaFilter = persona.filter( item => item !== id)
+                //     setStore({ persona: recepcionistaFilter })
+                },
+                cierraSesion: (e, history) =>{
                     const store= getStore();
                     const {persona}= store;
                     setStore({ persona: { login: false }})
                     sessionStorage.clear()
+                    history.push('/')
                     console.log("hola")
                 },
+
+
                 deleteRecepcionista: (index, id) => {
                     const store = getStore();
                     const { recepcionistas } = store;
@@ -458,8 +491,15 @@ const getState = ({ getStore, setStore }) => {
                             console.log("data", data)
                         })
                         .catch(error => console.log(error))
-                }
-            
+                },
+                cierraSesion: (e, history) =>{
+                    const store= getStore();
+                    const {persona}= store;
+                    setStore({ persona: { login: false }})
+                    sessionStorage.clear()
+                    history.push('/')
+                    console.log("hola")
+                },
         }
     }
 }
