@@ -5,12 +5,15 @@ import { useHistory } from 'react-router-dom'
 import { Button, Card, Container, Jumbotron, Col, Row, Image, Form } from 'react-bootstrap';
 import "./listaespera.css"
 import EnvioMsj from './EnvioMsj';
+import Volver from "../components/Volver";
 
 const ListaEspera = (props) => {
     const [login, setLogin] = useState(null)
     const { store, actions } = useContext(Context);
     const [inList, setInList] = useState(true);
     const history = useHistory();
+    
+
     const perso = JSON.parse(sessionStorage.getItem('login'))
     const persona = perso.data.usuario.id_persona
 
@@ -78,7 +81,10 @@ const ListaEspera = (props) => {
                                             <Button variant="dark" className="boton" size="lg" type='submit' onClick={() => { setInList(!inList) }}/*que mande tipo put para modificar la lista */>{inList ? 'Ver fila' : "X"}</Button>
                                         </form>
                                     </Card.Body>
+                                    
                                 </Card>
+                                 <h3 className=" mt-5 mb-5 p-3 mesas font ">Mesas disponibles: {0}/{store.restaurante.numero_mesas}</h3>
+                               
                             </Col>
                             <Col className="pt-1 pb-2" md={{ size: 'auto' }}>
                                 <p className='text-justify borde font p-3 '>
@@ -92,8 +98,9 @@ const ListaEspera = (props) => {
                                 <hr></hr>
                                 <Image className="borde" src="/restaurante1.jpg" fluid />
                                 <hr></hr>
+                                 <Row><Volver/></Row>
 
-                                <h3 className=" p-3 mesas font ">Mesas disponibles: {0}/{store.restaurante.numero_mesas}</h3>
+                               
                             </Col>
                            
                         </Row>

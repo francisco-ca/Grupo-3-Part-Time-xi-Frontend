@@ -1,21 +1,22 @@
 import React, { useContext, useEffect } from "react";
-import { Redirect } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 import { Form } from 'react-bootstrap';
 import { Context } from "../store/appContext";
-import { Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import '../estilos/inicio.css'
+import Volver from "../components/Volver";
 
 const Registro = props => {
     const { store, actions } = useContext(Context);
-
+    const history = useHistory();
     useEffect(() => { }, []);
     return (
         <div className="container">
             <div className="Cont">
                 <div className="abs-center text-center">
                     {!store.persona.signup ?
-                        <Form className="p-4 m-4 borde3 fontt" onSubmit={(e) => actions.onSubmitPersona(e)}>
+                        <Form className="p-4 m-4 borde3 fontt" onSubmit={(e) => {actions.onSubmitPersona(e);history.goBack()}}>
                             <Form.Group controlId="username">
                                 <Form.Label>Nombre de Usuario</Form.Label>
                                 <Form.Control type="text" placeholder="SiempreHambriento123" name="usuario" onChange={(e) => actions.onChangeUser(e)} value={store.persona.usuario} />
@@ -46,8 +47,9 @@ const Registro = props => {
                                 <Form.Label>Contraseña</Form.Label>
                                 <Form.Control type="password" placeholder="Contraseña" name="contraseña" onChange={(e) => actions.onChangeUser(e)} value={store.persona.contraseña} />
                             </Form.Group>
-                            <Button className="mb-4 btn botone" variant="dark" type="submit">
+                            <Button className="mb-1 btn botone" variant="dark" type="submit">
                                 Registrarse </Button>
+                            <Row><Volver /></Row>
                         </Form>
                         :
                         <Redirect to="/"></Redirect>

@@ -88,13 +88,13 @@ outline-offset: 0px;
     background-size: cover;
     color:white;
     width: auto;
-    height: 43.7rem;
+    height: 38.7rem;
 
 }}
 @media screen and (max-width: 760px){
 .lista{
     background: rgb(120,109,99);
-background: radial-gradient(circle, rgba(120,109,99,1) 4%, rgba(17,14,13,1) 95%);
+    background: radial-gradient(circle, rgba(120,109,99,1) 4%, rgba(17,14,13,1) 95%);
     background-size: contain;
     color:white;
     width: auto;
@@ -107,12 +107,21 @@ background: radial-gradient(circle, rgba(120,109,99,1) 4%, rgba(17,14,13,1) 95%)
     
     
 }
+.botonEnviar{
+background-color:#141111;
+border: 1px solid #bdae06;
+border-radius: 1px;
+padding:4px;
+font-size: 14px;
+
+
+}
 @media screen and (min-width: 1001px)
 {.boton {
 	box-shadow:inset 0px 0px 4px -1px #dee0a6;
 	background-color:#141111;
 	border-radius:6px;
-	border:4px solid #bdae06;
+	border:2px solid #bdae06;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -127,7 +136,7 @@ background: radial-gradient(circle, rgba(120,109,99,1) 4%, rgba(17,14,13,1) 95%)
 	box-shadow:inset 0px 0px 4px -1px #dee0a6;
 	background-color:#141111;
 	border-radius:6px;
-	border:4px solid #bdae06;
+	border:2px solid #bdae06;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -142,7 +151,7 @@ background: radial-gradient(circle, rgba(120,109,99,1) 4%, rgba(17,14,13,1) 95%)
 	box-shadow:inset 0px 0px 4px -1px #dee0a6;
 	background-color:#141111;
 	border-radius:6px;
-	border:4px solid #bdae06;
+	border:2px solid #bdae06;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;

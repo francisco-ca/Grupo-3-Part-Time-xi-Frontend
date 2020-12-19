@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Form } from 'react-bootstrap';
 import { Context } from "../store/appContext";
-import { Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import NavbarTop from '../components/NavbarTop'
 import {useParams} from 'react-router'
@@ -25,7 +25,7 @@ const EditarRestaurante = props => {
             <NavbarTop history={history}/>
             <div className= "abs-center text-center">
             
-            <Form className="p-4 m-4 borde3 fontt" onSubmit={(e)=>actions.putRestaurante(e, valorId)}>
+            <Form className="p-4 m-4 borde3 fontt" onSubmit={(e)=>{actions.putRestaurante(e, valorId);history.goBack()}}>
                 <h1 className='text-center my-2'>Editando Restaurante</h1>
                 <Form.Group controlId="name">
                     <Form.Label>Nombre de Restaurant/Pub</Form.Label>
@@ -51,10 +51,15 @@ const EditarRestaurante = props => {
                     <Form.Label>Capacidad lista de espera</Form.Label>
                     <Form.Control type="text" placeholder="20" name="capacidad_lista_espera" onChange={(e) => actions.onChangeRest(e)} defaultValue={store.restaurante.capacidad_lista_espera} />
                 </Form.Group>
-                <Volver/>
+                 <Form.Group controlId="formDescipcion">
+                            <Form.Label>Descripción Restaurante</Form.Label>
+                            <Form.Control type="text" placeholder="Descripción máximo 1000 caracteres" name="descripcion_rest" onChange={(e) => actions.onChangeRest(e)} value={store.restaurante.descripcion_rest} />
+                        </Form.Group>
+                
                 <Button className="btn botone"  variant="dark" type="submit">
                     Editar
                 </Button>
+                <Row><Volver/></Row>
             </Form>
         </div>
         </div>

@@ -1,21 +1,24 @@
 import React, { useContext, useEffect } from "react";
-import { Form } from 'react-bootstrap';
+import { Form, Row } from 'react-bootstrap';
 import { Context } from "../store/appContext";
 import { Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import NavbarTop from '../components/NavbarTop'
 import '../estilos/inicio.css'
 import Volver from '../components/Volver'
+import { useHistory } from 'react-router-dom'
+
 
 const NuevoRestaurante = props => {
     const { store, actions } = useContext(Context);
+    const history = useHistory();
     useEffect(() => { }, []);
     return (
         <div className="container">
             <div className="Cont">
-                <NavbarTop />
+                <NavbarTop history={history}/>
                 <div className="abs-center">
-                    <Form className="borde3 fontt p-4 m-4" onSubmit={(e) => actions.onSubmitRest(e)}>
+                    <Form className="borde3 fontt p-4 m-4" onSubmit={(e) => {actions.onSubmitRest(e);history.goBack()}}>
                         <h1 className='text-center my-2'>Nuevo Restaurante</h1>
 
                         <Form.Group controlId="name">
@@ -47,10 +50,12 @@ const NuevoRestaurante = props => {
                             <Form.Label>Descripción Restaurante</Form.Label>
                             <Form.Control type="text" placeholder="Descripción máximo 1000 caracteres" name="descripcion_rest" onChange={(e) => actions.onChangeRest(e)} value={store.restaurante.descripcion_rest} />
                         </Form.Group>
-                        <Volver/>
-                        <Button className='btn botone mx-5' variant="primary" type="submit">
+                        <Row className="text-center">
+                        <Button className='btn botone ' variant="dark" type="submit">
                             Registrar Restaurant
                         </Button>
+                        </Row>
+                        <Row><Volver/></Row>
                     </Form>
                 </div>
             </div>

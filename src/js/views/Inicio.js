@@ -32,7 +32,7 @@ const Inicio = () => {
                             <Link to="/ingreso" className="btn  fontt botone">Inicia Sesión</Link>
                         </Col>
                         <Col className="p-0 ml-1 mt-2">
-                            <Link to="/registro" className="btn fontt botone text-center">Regístrate. Es gratis </Link>
+                            <Link to="/registro" className="btn fontt botone text-center">Regístrate</Link>
                         </Col>
                         </Row >
                         <Link to="/olvide_contraseña">
