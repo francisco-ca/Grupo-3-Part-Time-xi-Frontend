@@ -58,12 +58,14 @@ const ListaEspera = (props) => {
                                                 "" : <ol>{listapers.map((item, i) => 
                                                         <li key={i}>
                                                             {listapers[i].nombre}
+                                                            <div className='d-flex justify-content-around mr-5'>
                                                             { roles_id === 2?
                                                                 <EnvioMsj 
                                                                     nombre={listapers[i].nombre} 
                                                                     restaurante={store.restaurante.nombre} 
                                                                     direccion={store.restaurante.direccion}/>:''}
-                                                                <Button onClick={()=>{actions.deletePersonaEnListaEsp(item.id_persona)}}>Eliminar</Button>
+                                                                <Button className="botonEnviar" onClick={()=>{actions.deletePersonaEnListaEsp(item.id_persona)}}>Eliminar</Button>
+                                                            </div>
                                                         </li>)}
                                                     {console.log("asd", listapers)}</ol>
                                             }

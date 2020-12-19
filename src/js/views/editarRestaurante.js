@@ -14,9 +14,8 @@ const EditarRestaurante = props => {
     const { store, actions } = useContext(Context);
     const history = useHistory() 
     let {id} = useParams();
-    let valorId =  Number(id)+1
     useEffect(() => { 
-        actions.fetchRestaurante(valorId)
+        actions.fetchRestaurante(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return (
@@ -25,7 +24,7 @@ const EditarRestaurante = props => {
             <NavbarTop history={history}/>
             <div className= "abs-center text-center">
             
-            <Form className="p-4 m-4 borde3 fontt" onSubmit={(e)=>{actions.putRestaurante(e, valorId);history.goBack()}}>
+            <Form className="p-4 m-4 borde3 fontt" onSubmit={(e)=>{actions.putRestaurante(e, id);history.goBack()}}>
                 <h1 className='text-center my-2'>Editando Restaurante</h1>
                 <Form.Group controlId="name">
                     <Form.Label>Nombre de Restaurant/Pub</Form.Label>

@@ -44,7 +44,7 @@ const RestaurantCard = (props) => {
                         Unirte a la lista
                             </Link>
                 </Col>
-                {roles_id !== 3 ?
+                {roles_id !== 3 && element.nombre === 'PiscoSour'?
                     <Col className="my-auto" md='1'>
                         <Link to={`/restaurantes/${props.id}/editar`} size="lg" ><BsWrench className="editar"></BsWrench></Link>
                     </Col>
