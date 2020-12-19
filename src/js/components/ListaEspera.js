@@ -4,12 +4,14 @@ import NavbarTop from './NavbarTop';
 import { Button, Card, Container, Jumbotron, Col, Row, Image, Form } from 'react-bootstrap';
 import "./listaespera.css"
 import EnvioMsj from './EnvioMsj';
+import Volver from "../components/Volver";
 
 
 const ListaEspera = (props) => {
     const [login, setLogin] = useState(null)
     const { store, actions } = useContext(Context);
     const [inList, setInList] = useState(true);
+    
 
     const perso = JSON.parse(sessionStorage.getItem('login'))
     const persona = perso.data.usuario.id_persona
@@ -20,14 +22,11 @@ const ListaEspera = (props) => {
         actions.fetchRestaurante(props.match.params.id)
         actions.fetchListasEspera(props.match.params.id)
         actions.getListaEspera(props.match.params.id)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
     }, [])
     const roles_id = login != null ?perso.data.usuario.roles_id:""
     const listapers = store.listapersonas
-    // const mapPers = listapers.map((item, i) => <li key={i}>{listapers[i].nombre}</li>)
     const listaesp = store.getlistaespera
-
-    // const mapList = listaesp.map((item, i) => listaesp[i].id_lista)
     const hora = "11:32"
     let found = false;
     for (let i = 0; i <listapers.length; i++) {
@@ -38,10 +37,8 @@ const ListaEspera = (props) => {
 
         console.log("props", props)
         console.log("listapersonas", listapers)
-        // console.log("mapers", mapPers)
         console.log("listaesp", listaesp)
-        // console.log("maplist", listaesp.map((item, i) => listaesp[i].id_lista)[0])
-        // console.log("listasss", personasL)
+        
 
 
 
@@ -85,7 +82,10 @@ const ListaEspera = (props) => {
                                             <Button variant="dark" className="boton" size="lg" type='submit' onClick={() => { setInList(!inList) }}/*que mande tipo put para modificar la lista */>{inList ? 'Ver fila' : "X"}</Button>
                                         </form>
                                     </Card.Body>
+                                    
                                 </Card>
+                                 <h3 className=" mt-5 mb-5 p-3 mesas font ">Mesas disponibles: {0}/{store.restaurante.numero_mesas}</h3>
+                               
                             </Col>
                             <Col className="pt-1 pb-2" md={{ size: 'auto' }}>
                                 <p className='text-justify borde font p-3 '>
@@ -99,8 +99,9 @@ const ListaEspera = (props) => {
                                 <hr></hr>
                                 <Image className="borde" src="/restaurante1.jpg" fluid />
                                 <hr></hr>
+                                 <Row><Volver/></Row>
 
-                                <h3 className=" p-3 mesas font ">Mesas disponibles: {0}/{store.restaurante.numero_mesas}</h3>
+                               
                             </Col>
                            
                         </Row>

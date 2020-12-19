@@ -1,6 +1,6 @@
 import React, { useContext, useEffect} from "react";
 import { Context } from "../store/appContext";
-import { Form, Col, Button } from 'react-bootstrap';
+import { Form, Col, Button, Row } from 'react-bootstrap';
 import Volver from "../components/Volver";
 import '../estilos/inicio.css'
 
@@ -37,8 +37,9 @@ const RegistroRecepcionista = () => {
                         <Form.Label>Contraseña</Form.Label>
                         <Form.Control type="password" placeholder="Contraseña" name="contraseña" onChange={(e) => actions.onChangeUser(e)} value={store.persona.contraseña} />
                     </Form.Group>
-                    <Volver/>
+                    
                     <Button className="btn botone" variant="dark" type="submit" > Registrar Recepcionista </Button>
+                    <Row><Volver/></Row>
                 </Form>
             </div>
             </div>

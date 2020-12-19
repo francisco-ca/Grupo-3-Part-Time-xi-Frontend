@@ -2,9 +2,10 @@ import React, { useContext, useEffect } from "react";
 import { Redirect } from 'react-router-dom'
 import { Form } from 'react-bootstrap';
 import { Context } from "../store/appContext";
-import { Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import '../estilos/inicio.css'
+import Volver from "../components/Volver";
 
 const Registro = props => {
     const { store, actions } = useContext(Context);
@@ -46,8 +47,9 @@ const Registro = props => {
                                 <Form.Label>Contraseña</Form.Label>
                                 <Form.Control type="password" placeholder="Contraseña" name="contraseña" onChange={(e) => actions.onChangeUser(e)} value={store.persona.contraseña} />
                             </Form.Group>
-                            <Button className="mb-4 btn botone" variant="dark" type="submit">
+                            <Button className="mb-1 btn botone" variant="dark" type="submit">
                                 Registrarse </Button>
+                            <Row><Volver /></Row>
                         </Form>
                         :
                         <Redirect to="/"></Redirect>

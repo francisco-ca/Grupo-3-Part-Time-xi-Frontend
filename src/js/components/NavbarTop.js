@@ -17,18 +17,18 @@ const NavbarTop = (props) => {
 
     return (
         
-        <Navbar bg="light" variant="light" expand="lg">
+            <Navbar className="navbarlindo" variant="dark" expand="lg">
             <Navbar.Brand>
-                {/* <Link to="/"> */}
+                
                     <img 
                         className="ml-4 mr-2"
-                        style={{width:"60px"}}
-                        src="/dinner-time.png"
+                        style={{width:"100px"}}
+                        src="/4wait.png"
                         alt='brand'
                     />   
-                {/* </Link> */}
+                
                 <span>Bienvenido</span> 
-                {/* {JSON.stringify(store.menu)} */}
+                
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">

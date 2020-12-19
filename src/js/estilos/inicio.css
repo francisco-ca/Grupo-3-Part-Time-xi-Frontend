@@ -139,10 +139,17 @@ outline-offset: 0px;
 .fontt{
     font-family:Apple Chancery, cursive;
     
+    
 }
 .fontt2{
     font-family:Bradley Hand, cursive;
     
+}
+.fonttabla{
+    font-family:Apple Chancery, cursive;
+    color:white;
+    size:12px;
+
 }
 .imagen{
     max-height: 200px;

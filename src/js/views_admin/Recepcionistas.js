@@ -17,13 +17,16 @@ const Recepcionistas = () => {
 
     return (<>
         <Container>
-            <div className='cont'>
+            <div className="Cont">
+                
             <NavbarTop />
-            <div >
-                <h2 className='mx-auto my-3 text-center'> Lista de Recepcionistas</h2>
+       
+            <div className="abs-center text-center">
+            <div className="p-4 m-4 borde3 fontt">
+                <h2 className='mx-auto my-3 text-center '> Lista de Recepcionistas</h2>
                 <Row>
                     <Col>
-                        <Table responsive="sm">
+                        <Table className="fonttabla" responsive="sm" >
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
@@ -44,12 +47,12 @@ const Recepcionistas = () => {
                                             <td>{element.telefono}</td>
                                             <td>{element.correo}</td>
                                             <td>PiscoSour</td>
-                                            <td><Button variant="primary" size="lg" >
-                                                <Link to={`/recepcionistas/${element.id_persona}/editar`} className="text-white">
+                                            <td>
+                                                <Link className="mb-4 btn botone" variant="dark" to={`/recepcionistas/${element.id_persona}/editar`} >
                                                     Editar
                                                     </Link>
-                                            </Button></td>
-                                            <td><Button variant="danger" size="lg" onClick={() => actions.deleteRecepcionista(index, element.id_persona)}>
+                                            </td>
+                                            <td><Button className="botoneEliminar" variant="danger" size="lg" onClick={() => actions.deleteRecepcionista(index, element.id_persona)}>
                                                 Eliminar
                                             </Button></td>
                                         </tr>
@@ -58,10 +61,19 @@ const Recepcionistas = () => {
                                 })}
                             </tbody>
                         </Table>
+                       <Row><Volver/></Row>
                     </Col>
+                     
                 </Row>
+                
             </div>
-        <Volver/>
+            
+            
+             
+            </div>
+            
+       
+        
         </div>
         </Container>
     </>);

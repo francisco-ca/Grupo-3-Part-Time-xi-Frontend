@@ -12,6 +12,7 @@ const RestaurantCard = (props) => {
     const { actions } = useContext(Context);
     const element = props.element
     const index = props.index
+    
 
     console.log("element", element)
     console.log("index", index)

@@ -5,13 +5,14 @@ import { Link, useHistory } from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop'
 import RestaurantCard from '../components/RestaurantCard'
 import '../estilos/inicio.css'
+import Volver from "../components/Volver";
 
 const Restaurantes = () => {
     const [valor, setValor] = useState(null)
     const history = useHistory();
     const { store, actions } = useContext(Context);
-    // const rest= store.restaurantes
-    // const indice = rest.map((item,i) =>rest[i])
+    
+   
 
     useEffect(() => {
         if (!sessionStorage.getItem("login")) {
@@ -23,7 +24,7 @@ const Restaurantes = () => {
         actions.getListasEspera()
 
         console.log("valor-----", valor)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        
     }, [])
     let perso = valor != null ? JSON.parse(sessionStorage.getItem('login')) : ""
     const persona = valor != null ? perso.data.usuario.nombre : ""
@@ -65,6 +66,7 @@ const Restaurantes = () => {
                                         )
                                     })}
                                 </ListGroup>
+                                <Row><Volver/></Row>
                             </Col>
                         </Row>
                     </div>

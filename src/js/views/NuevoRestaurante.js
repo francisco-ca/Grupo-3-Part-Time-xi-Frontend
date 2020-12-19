@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Form } from 'react-bootstrap';
 import { Context } from "../store/appContext";
-import { Col } from 'react-bootstrap';
+import { Col,Row } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import NavbarTop from '../components/NavbarTop'
 import '../estilos/inicio.css'
@@ -47,10 +47,12 @@ const NuevoRestaurante = props => {
                             <Form.Label>Descripción Restaurante</Form.Label>
                             <Form.Control type="text" placeholder="Descripción máximo 1000 caracteres" name="descripcion_rest" onChange={(e) => actions.onChangeRest(e)} value={store.restaurante.descripcion_rest} />
                         </Form.Group>
-                        <Volver/>
-                        <Button className='btn botone mx-5' variant="primary" type="submit">
+                        <Row className="text-center">
+                        <Button className='btn botone ' variant="dark" type="submit">
                             Registrar Restaurant
                         </Button>
+                        </Row>
+                        <Row><Volver/></Row>
                     </Form>
                 </div>
             </div>

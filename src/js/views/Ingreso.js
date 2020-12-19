@@ -10,12 +10,6 @@ const Ingreso = (props) => {
 
     useEffect(() => { }, []);
 
-    // const getSessionStorage= () =>{
-    //     let data= sessionStorage.getItem('persona_data');
-    //     data= JSON.parse(data);
-    //     console.log(data.usuario)
-    // };
-
     return (
         <Container>
             <div className="Cont">
@@ -37,10 +31,13 @@ const Ingreso = (props) => {
                                             {/* <Form.Check type="checkbox" label="Recordar contraseña" /> */}
                                         </Form.Group>
                                         <Row>
-                                            <Volver/>
-                                            <Button className="mb-4 btn botone" variant="dark" type="submit">Iniciar sesión</Button>
+
+                                            <Button className="mb-1 btn botone" variant="dark" type="submit">Iniciar sesión</Button>
                                         </Row>
-                                        <Link to="/olvide_contraseña" className="mt-4">Recupera tu contraseña</Link>
+                                        <Row><Volver /></Row>
+                                        <Link to="/olvide_contraseña">
+                                            <h5 className=" fontt mt-4" style={{ color: "white" }}>¿No recuerdas tu contraseña?</h5>
+                                        </Link>
                                     </Form>
                                 </>
                                 :

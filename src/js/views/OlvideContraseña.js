@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
-import { Form, Button, Card } from 'react-bootstrap'
+import { Form, Button, Card, Row } from 'react-bootstrap'
 import { Context } from "../store/appContext";
 import '../estilos/inicio.css'
+import Volver from "../components/Volver";
 
 const OlvideContraseña = () => {
     const { actions } = useContext(Context);
@@ -19,8 +20,9 @@ const OlvideContraseña = () => {
                                 <Form.Group controlId="formBasicEmail">
                                     <Form.Control type="email" placeholder="Ingresa tu correo" name="correo" onChange={(e) => actions.onChangeUser(e)} />
                                 </Form.Group>
-                                <Button className="mb-4 btn botone" block size="lg" variant="dark" type="submit">Enviar correo electrónico</Button>
+                                <Button className="mb-1 btn botone" block size="lg" variant="dark" type="submit">Enviar correo electrónico</Button>
                             </Form>
+                            <Row><Volver/></Row>
                         </Card>
                     </div>
                 </div>
