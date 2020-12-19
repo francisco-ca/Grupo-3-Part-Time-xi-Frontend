@@ -2,12 +2,13 @@ import React, { useContext } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { Context } from "../store/appContext";
 
-const EnvioMsj = () => {
+const EnvioMsj = (props) => {
     const { actions } = useContext(Context);
-    let usuario = 'Humberto'
-    let restaurante = 'Pollito Rico'
+    let usuario = props.nombre
+    let restaurante = props.restaurante
+    let direccion = props.direccion
     return (
-        <Form onSubmit={(e)=>actions.onSubmitMsj(e, usuario, restaurante)}>
+        <Form onSubmit={(e)=>actions.onSubmitMsj(e, usuario, restaurante, direccion)}>
             <Button variant="secondary" type="submit">Enviar Aviso</Button>
         </Form>
     );

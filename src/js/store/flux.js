@@ -39,7 +39,7 @@ const getState = ({ getStore, setStore }) => {
             recepcionistas: []
         },
         actions: {
-            onSubmitMsj: (e, usuario, restaurante) => {
+            onSubmitMsj: (e, usuario, restaurante, direccion, numero) => {
                 e.preventDefault();
                 console.log('se ha enviado el Msj')
                 let options = {
@@ -48,7 +48,9 @@ const getState = ({ getStore, setStore }) => {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({"usuario":usuario,
-                                     "restaurante":restaurante})
+                                     "restaurante":restaurante,
+                                     "direccion":direccion,
+                                    })
                 }
                 
                 fetch("http://127.0.0.1:5000/ws", options)
@@ -368,6 +370,19 @@ const getState = ({ getStore, setStore }) => {
                     },
                 }
                 fetch(`http://127.0.0.1:5000/deletelistapersonas/${id}/${id2}`, config)
+            },
+            deletePersonaEnListaEsp: (id_persona) =>{
+                const store = getStore();
+                const { listapersonas } = store
+                console.log('id que recibe flux--------------',id_persona)
+                const nuevaListaPersonas = listapersonas.filter(function (elemento) {
+                    console.log('elemento.id_persona--------',elemento.id_persona)
+                    return elemento.id_persona !== id_persona;
+                });
+
+                console.log('nuevaListaPersonas------------------------',nuevaListaPersonas)
+                setStore({ listapersonas: nuevaListaPersonas })
+
             },
             registroAdmin: (e) => {
                 e.preventDefault();

@@ -7,12 +7,12 @@ import NavbarTop from '../components/NavbarTop'
 import {useParams} from 'react-router'
 import '../estilos/inicio.css'
 import Volver from "../components/Volver";
-
-
+import { useHistory } from 'react-router-dom'
 
 
 const EditarRestaurante = props => {
     const { store, actions } = useContext(Context);
+    const history = useHistory() 
     let {id} = useParams();
     let valorId =  Number(id)+1
     useEffect(() => { 
@@ -22,7 +22,7 @@ const EditarRestaurante = props => {
     return (
         <div className="container">
              <div className="Cont">
-            <NavbarTop />
+            <NavbarTop history={history}/>
             <div className= "abs-center text-center">
             
             <Form className="p-4 m-4 borde3 fontt" onSubmit={(e)=>actions.putRestaurante(e, valorId)}>

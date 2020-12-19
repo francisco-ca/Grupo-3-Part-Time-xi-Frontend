@@ -38,7 +38,7 @@ const Ingreso = (props) => {
                                         </Form.Group>
                                         <Row>
                                             <Volver/>
-                                            <Button className="mb-4 btn botone" variant="dark" type="submit">Iniciar sesión</Button>
+                                            <Button className="btn botone" variant="dark" type="submit">Iniciar sesión</Button>
                                         </Row>
                                         <Link to="/olvide_contraseña" className="mt-4">Recupera tu contraseña</Link>
                                     </Form>

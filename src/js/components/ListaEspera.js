@@ -1,20 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../store/appContext';
 import NavbarTop from './NavbarTop';
+import { useHistory } from 'react-router-dom'
 import { Button, Card, Container, Jumbotron, Col, Row, Image, Form } from 'react-bootstrap';
 import "./listaespera.css"
 import EnvioMsj from './EnvioMsj';
-
 
 const ListaEspera = (props) => {
     const [login, setLogin] = useState(null)
     const { store, actions } = useContext(Context);
     const [inList, setInList] = useState(true);
-
+    const history = useHistory();
     const perso = JSON.parse(sessionStorage.getItem('login'))
     const persona = perso.data.usuario.id_persona
 
-    console.log("prueba", persona)
     useEffect(() => {
         setLogin(JSON.parse(sessionStorage.getItem("login")))
         actions.fetchRestaurante(props.match.params.id)
@@ -24,10 +23,7 @@ const ListaEspera = (props) => {
     }, [])
     const roles_id = login != null ?perso.data.usuario.roles_id:""
     const listapers = store.listapersonas
-    // const mapPers = listapers.map((item, i) => <li key={i}>{listapers[i].nombre}</li>)
     const listaesp = store.getlistaespera
-
-    // const mapList = listaesp.map((item, i) => listaesp[i].id_lista)
     const hora = "11:32"
     let found = false;
     for (let i = 0; i <listapers.length; i++) {
@@ -35,21 +31,10 @@ const ListaEspera = (props) => {
             found = true;
             break;
         }}
-
-        console.log("props", props)
-        console.log("listapersonas", listapers)
-        // console.log("mapers", mapPers)
-        console.log("listaesp", listaesp)
-        // console.log("maplist", listaesp.map((item, i) => listaesp[i].id_lista)[0])
-        // console.log("listasss", personasL)
-
-
-
-
         return (
             <Container>
                 <div className="Cont">
-                <NavbarTop />
+                <NavbarTop history= {history}/>
                 <div className= "abs-center">
                 <Jumbotron fluid className="mt-5 pt-3 pb-3 text-center fondo " style={{ height: 'auto' }}>
                     <Container className="text-center" onLoad={() => {
@@ -57,19 +42,27 @@ const ListaEspera = (props) => {
                         actions.getListaEspera(props.match.params.id)
                     }}>
                         <h1 className="font">{store.restaurante.nombre}</h1>
-                        
                         <Row >
                              <Col  s={4 }md={6}>
                                 <Card className='mx-auto p-3 mt-1 mb-2 lista bordelista text-white  text-left'>
                                     <Card.Body>
-
                                         <Card.Title >
                                             <h3 className="text-center fontlistatit pt-2 pl-3">Lista de espera: {listapers.length}/{store.restaurante.capacidad_lista_espera} </h3>
                                         </Card.Title>
 
                                         <Card.Text className="fontlista" >
                                             {(inList) ?
-                                                "" : <ol>{listapers.map((item, i) => <li key={i}>{listapers[i].nombre}{ roles_id === 2?<EnvioMsj/>:''}</li>)}{console.log("asd", listapers)}</ol>
+                                                "" : <ol>{listapers.map((item, i) => 
+                                                        <li key={i}>
+                                                            {listapers[i].nombre}
+                                                            { roles_id === 2?
+                                                                <EnvioMsj 
+                                                                    nombre={listapers[i].nombre} 
+                                                                    restaurante={store.restaurante.nombre} 
+                                                                    direccion={store.restaurante.direccion}/>:''}
+                                                                <Button onClick={()=>{actions.deletePersonaEnListaEsp(item.id_persona)}}>Eliminar</Button>
+                                                        </li>)}
+                                                    {console.log("asd", listapers)}</ol>
                                             }
                                         </Card.Text>
                                         {found !== true?

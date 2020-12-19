@@ -3,13 +3,17 @@ import NavbarTop from '../components/NavbarTop';
 import {Button, Modal, Card, Container} from 'react-bootstrap';
 import '../estilos/inicio.css'
 import Volver from '../components/Volver'
+import { useHistory } from 'react-router-dom'
+
 
 const AdmListaEspera = props => {
     const [showModal, setShowModal] = useState(false);
     const handleModal = () => setShowModal(!showModal)
+    const history = useHistory();
+
     return (
         <Container>
-            <NavbarTop />
+            <NavbarTop history={history}/>
             <div className='container p-4 text-center d-flex justify-content-center'>
                 <div className='row  my-4'>
                     <div className='col'>
