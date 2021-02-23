@@ -22,6 +22,7 @@ import Recepcionistas from './js/views_admin/Recepcionistas';
 import InicioAdmin from './js/views_admin/InicioAdmin';
 import RegistroAdmin from './js/views_admin/RegistroAdmin';
 import RegistroRecepcionista from './js/views_admin/RegistroRecepcionista';
+import Planes from './js/views/Planes'
 
 
 
@@ -45,6 +46,7 @@ function App() {
           <Route exact path="/ingreso" component= {Ingreso}/>
           <Route exact path="/home" component= {Inicio}/>
           <Route exact path="/" component= {Inicio}/>
+          <Route exact path="/planes" component= {Planes}/>
           
         </Switch>
       </BrowserRouter> 

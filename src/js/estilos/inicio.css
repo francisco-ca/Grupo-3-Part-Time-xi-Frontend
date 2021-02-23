@@ -141,14 +141,27 @@ outline-offset: 0px;
     
     
 }
+
 .fontt2{
     font-family:Bradley Hand, cursive;
+    
+}
+.fontt3{
+    font-family:Apple Chancery, cursive;
+    color:goldenrod;
+    
     
 }
 .fonttabla{
     font-family:Apple Chancery, cursive;
     color:white;
     size:12px;
+
+}
+.fonttabla2{
+    font-family:Apple Chancery, cursive;
+    color:white;
+    size:20px;
 
 }
 .imagen{
