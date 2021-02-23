@@ -13,7 +13,7 @@ const Inicio = () => {
             <div className="Cont">
             <div className= "abs-center">
             <div className= "fond borde2" >
-                <h1 className="text-center m-4">Bienvenido a la app!</h1>
+                <h1 className="text-center m-4">Bienvenido a 4Wait!</h1>
                 <Row className="m-4">
                     <Col md={{ size: 'auto' }} >
                         <Image src="/mesas-mar.jpg" className="bordes m-2" rounded fluid />
@@ -39,7 +39,20 @@ const Inicio = () => {
                             <h5 className=" fontt" style={{ color: "white" }}>¿No recuerdas tu contraseña?</h5>
                         </Link>
                     </Col>
+                    
                 </Row>
+                 <Row className="m-4 justify-content-md-center">
+                     
+                    <div className=" p-2 text-center fontt bordes m-2">
+                    ¿Tienes un pub/restaurante y quieres formar parte de nuestra app?
+                    
+                    <Link to="/planes" className="btn  fontt3">Informate sobre nuestros planes</Link>
+                
+                    </div>
+                     </Row>
+               
+                  
+               
             </div>
       </div>
       </div>
